@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Homework 3</title>
+    </head>
+    <body>
+        <form
+            action="https://api-gateway.fullstack.edu.vn/action_page.php"
+            method="get"
+        >
+            <table>
+                <tr>
+                    <td><label for="username">Username:</label></td>
+                    <td>
+                        <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            placeholder=""
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td>
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder=""
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="city">City of Employment:</label></td>
+                    <td>
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            placeholder=""
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="server">Web server</label></td>
+                    <td>
+                        <select name="server" id="server">
+                            <option selected disabled>
+                                - Chose a server -
+                            </option>
+                            <optgroup label="Server 1,2">
+                                <option value="sv1">Server 1</option>
+                                <option value="sv2">Server 2</option>
+                            </optgroup>
+                            <optgroup label="Server 3,4">
+                                <option value="sv3">Server 3</option>
+                                <option value="sv4">Server 4</option>
+                            </optgroup>
+                            <optgroup label="Server 5,6">
+                                <option value="sv5">Server 5</option>
+                                <option value="sv6">Server 6</option>
+                            </optgroup>
+                            <option value="none">Don't know</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="role">Please specify your role</label></td>
+                    <td>
+                        <label style="display: block"
+                            ><input
+                                type="radio"
+                                id="role"
+                                name="role"
+                                value="admin"
+                            />Admin</label
+                        >
+                        <label style="display: block"
+                            ><input
+                                type="radio"
+                                id="role"
+                                name="role"
+                                value="engineer"
+                            />Engineer</label
+                        >
+                        <label style="display: block"
+                            ><input
+                                type="radio"
+                                id="role"
+                                name="role"
+                                value="manager"
+                            />Manager</label
+                        >
+                        <label style="display: block"
+                            ><input
+                                type="radio"
+                                id="role"
+                                name="role"
+                                value="guest"
+                            />Guest</label
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="sign">Sign-on the following</label></td>
+                    <td>
+                        <label
+                            ><input
+                                type="checkbox"
+                                name="sign[]"
+                                value="mail"
+                            />Mail</label
+                        >
+                        <label
+                            ><input
+                                type="checkbox"
+                                name="sign[]"
+                                value="payroll"
+                            />Payroll</label
+                        >
+                        <label
+                            ><input
+                                type="checkbox"
+                                name="sign[]"
+                                value="self-service"
+                            />Self-service</label
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" style="margin-left: 95px">
+                            Login
+                        </button>
+                    </td>
+                    <td><button type="reset">Reset</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

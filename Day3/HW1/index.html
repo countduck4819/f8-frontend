@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Homework 1</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
+            integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <style>
+            * {
+                margin: 20px;
+            }
+            h1 {
+                margin-bottom: -5px;
+                font-weight: 100;
+                font-family: sans-serif;
+            }
+
+            .img {
+                width: 15px;
+                height: 15px;
+                margin: 0px 0px 0px 20px;
+                opacity: 0.3;
+            }
+            div {
+                margin: 0px;
+            }
+            .desc {
+                /* display: inline-block; */
+                margin: 0px 0px 0px 20px;
+                color: #bbb;
+            }
+            .item {
+                display: flex;
+                align-items: flex-start;
+            }
+            .item + .item {
+                margin-top: 10px
+            }
+
+            .get-info input,.get-info textarea{
+                margin-left: 0px;
+                width: 100%;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+            .btn {
+                color: #000;
+                margin: 10px 0px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+            <h1>CONTACT US</h1>
+            <!-- vì ko nhìn tổng quan nên e nghĩ cứ cho là h1 còn nếu đánh giá theo thành phần trang web thì ko thể nào là thẻ h1 được -->
+            <span style="color: orange">_______</span>
+            <table border="0" width="100%" cellspacing="0px" cellpadding="0px">
+                <tr>
+                    <td>
+                        <div style="margin-left: 0px;width: 250px;margin-top: -203px;">
+                            <h2>Contact Info</h2>
+                            <div class="list-item">
+                                <div class="item">
+                                    <img
+                                        src="./img/location.png"
+                                        alt="address"
+                                        class="img"
+                                    />
+                                    <p class="desc">
+                                        321 Awesome Street New York,NY 17022
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <img
+                                        src="./img/email.svg"
+                                        alt="email"
+                                        class="img"
+                                    />
+                                    <p class="desc">info@companyname.com</p>
+                                </div>
+                                <div class="item">
+                                    <img
+                                        src="./img/tel.png"
+                                        alt="tel"
+                                        class="img"
+                                    />
+                                    <p class="desc">+ 1321358922</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="get-info" style="margin-left: 20px;">
+                            <h2>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing.
+                            </h2>
+                            <form action="https://api-gateway.fullstack.edu.vn/action_page.php" method="get">
+                                <div>
+                                    <input
+                                        type="text"
+                                        placeholder="Your Name"
+                                        name="name"
+                                        required
+                                    />
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="email"
+                                        placeholder="Your Email"
+                                        name="email"
+                                        required
+                                    />
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        placeholder="Subject"
+                                        name="subject"
+                                        required
+                                    />
+                                </div>
+
+                                <div>
+                                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                </div>
+                                <button type="submit" class="btn" style="margin-right: 20px;">Send message</button>
+                                <button type="reset" class="btn">reset</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </footer>
+    </body>
+</html>

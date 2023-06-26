@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 4</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .list {
+            margin-bottom: 25px;
+        }
+        ul {
+            display: flex;
+        }
+        li {
+            background-color: orange;
+            padding: 10px 20px;
+            border: 1px solid green
+        }
+        li + li {
+            background-color: #fff;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        .info > a {
+            display: block;
+        }
+
+        .info {
+            width: 40%;
+            padding: 30px 0px 0px 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="list" >
+        <ul style="list-style-type: none;">
+            <li>
+                <a href="#!">United arab</a>
+            </li>
+            <li>
+                <a href="#!">London</a>
+            </li>
+            <li>
+                <a href="#!">Singapore</a>
+            </li>
+            <li>
+                <a href="#!">Hong Kong</a>
+            </li>
+        </ul>
+    </div>
+
+    <div style="background-color: gray;display: flex;">
+        <div class="info">
+            <h2>ADS SECURITIES L.L.C.</h2>
+            <p>8th floor, CI Tower</p>
+            <p>Comiche Road, PO Box 93894</p>
+            <p>Aba Dhabi, United Arab Animates</p>
+            <br/>
+            <a href="tel: +3214">Tel: +971 2 657 2300</a>
+            <a href="tel: +3214">Fax: +971 2 657 2323</a>
+            <a href="mailto: kv@gmail.com">Email: cst@ads-securities.com</a>
+        </div>
+        <!-- <iframe src="https://www.google.com/maps/@20.9726485,105.8418261,13z?entry=ttu" frameborder="0" width="100%" height="400px">google map</iframe> -->
+        <!-- anh ơi tại sao khi em dùng link bên trên (link của google map) em ko thể chạy được mà nó bảo google đã chăn connect r-->
+        <iframe src="https://map.coccoc.com/" frameborder="0" width="100%" height="400px">coc coc map</iframe>
+    </div>
+</body>
+</html>
