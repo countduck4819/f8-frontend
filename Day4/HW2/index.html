@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 2</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <section>
+        <div class="book-table">
+            <h3>RESERVATION</h3>
+            <h2 class="heading">Book your table</h2>
+            <table border="0" width="40%" cellspacing="0px" cellpadding="10px">
+                <tr>
+                    <td><input type="text" name="name" class="name" placeholder="NAME"></td>
+                    <td><input type="email" name="email" class="email" placeholder="EMAIL"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="date" class="date" placeholder="DATE" onfocus="(this.type='date')" min="2023-05-08"></td>
+                    <td><input type="text" name="time" class="time" placeholder="TIME" onfocus="(this.type='time')"></td>
+                </tr>
+                <tr>
+                    <td><input type="number" name="people" class="people" min="1" max="100000" placeholder="PEOPLE"></td>
+                    <td><button type="submit" class="btn">Find A Table</button></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,153 @@
+.sell-item {
+    text-align: center;
+}
+
+.sell-item ul {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h2 ~ input {
+    display: none;
+}
+.sell-item ul li {
+    list-style-type: none;
+    margin: 2px;
+}
+
+.sell-item ul li label {
+    background: orange;
+    border: 1px solid greenyellow;
+    cursor: pointer;
+    padding: 20px;
+    min-width: 100px;
+    display: inline-block
+}
+.sell-item .items {
+    margin: 0px auto;
+    width: calc(100% - 500px);
+    display: flex;
+    justify-content: center;
+}
+
+.sell-item .items .item {
+    width: 200px;
+    margin: 0px auto;
+    flex-shrink: 1;
+}
+
+.sell-item .items .item .img {
+    width: 130px;
+    height: 200px;
+    left: 34px;
+    position: relative;
+    z-index: 1;
+}
+
+.sell-item .items .item .img .product {
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0px;
+    z-index: 1;
+    opacity: 1;
+}
+
+.sell-item .items .item .img .action {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 3;
+}
+
+.sell-item .btns {
+    display: flex;
+    gap: 3px;
+    width: 130px;
+}
+
+.sell-item .btn {
+    cursor: pointer;
+    flex-grow: 1;
+    padding: 3px 0px;
+    border: none;
+    background-color: blue;
+}
+
+.sell-item .items .item .img .action button:not(.btn) {
+    border: none;
+    background-color: blue;
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+    cursor: pointer;
+    color: #fff;
+
+}
+
+.sell-item .stars {
+    margin-top: 15px;;
+}
+
+.sell-item .stars * {
+    width: 15px;
+    height: 15px;
+}
+
+.sell-item .list-item .items {
+    display: none;
+}
+
+input#skincare:checked ~ .list-item .skincare {
+    margin: 50px auto;
+    width: calc(100% - 500px);
+    display: flex;
+    justify-content: center;
+}
+
+input#haircare:checked ~ .list-item .haircare {
+    margin: 50px auto;
+    width: calc(100% - 500px);
+    display: flex;
+    justify-content: center;
+}
+
+input#cosmetics-cases:checked ~ .list-item .cosmetics-cases {
+    margin: 50px auto;
+    width: calc(100% - 500px);
+    display: flex;
+    justify-content: center;
+}
+
+input#fragrance:checked ~ .list-item .fragrance {
+    margin: 50px auto;
+    width: calc(100% - 500px);
+    display: flex;
+    justify-content: center;
+}
+
+input#makeup:checked ~ .list-item .makeup {
+    margin: 50px auto;
+    width: calc(100% - 500px);
+    display: flex;
+    justify-content: center;
+}
+
+.sell-item .product-convert {
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+    opacity: 1;
+    left: 0px;
+    transition: all 1s linear;
+}
+
+.sell-item .items .item .img .product:hover{
+    opacity: 0;
+
+}

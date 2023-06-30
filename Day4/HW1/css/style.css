@@ -1,0 +1,54 @@
+* {
+    font-family: sans-serif;
+}
+html {
+    background-color: #eee;
+}
+.subcribe {
+    background-color: #334455;
+    padding: 20px;
+    border-radius: 7px;
+}
+
+.subcribe h2.heading {
+    margin: 5px 0px 6px;
+}
+
+h2.heading strong {
+    color: #ffa515;
+}
+
+.subcribe p.desc {
+    color: #fff;
+    font-size: 12px;
+    margin: 3px;
+}
+
+.subcribe form {
+    margin-top: 10px;
+}
+
+.subcribe .email {
+    height: 28px;
+    border-radius: 3px;
+}
+
+.subcribe .btn {
+    background-color: #f8db35;
+    line-height: 25px;
+    padding: 2px 15px;
+    border-radius: 3px;
+}
+
+.subcribe:hover form > .email::placeholder {
+    color: #ffa515;
+}
+
+.subcribe:hover form > .email {
+    background-color: #ddd;
+}
+
+.subcribe:hover .btn {
+    background-color: #ffa515;
+    color: #ffffff;
+}

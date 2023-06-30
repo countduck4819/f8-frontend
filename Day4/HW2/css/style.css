@@ -1,0 +1,46 @@
+.book-table {
+    text-align: center;
+}
+
+.book-table h3 {
+    font-family: 'BebasNeue';
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.book-table h2 {
+    font-family:  Alfa Slab One;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.book-table table {
+    margin: 0px auto;
+}
+
+.book-table input::placeholder {
+    font-family: 'BebasNeue';
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+.book-table input,.btn {
+    height: 30px;
+    width: 300px;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.book-table input.time , input.date {
+    font-weight: 600;
+}
+
+.book-table .btn {
+    background-color: #af322a;
+    color: #fff;
+    height: 60px;
+    width: 323px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
