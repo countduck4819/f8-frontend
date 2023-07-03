@@ -1,0 +1,246 @@
+@font-face {
+    font-family: "Lobster";
+    font-weight: 400;
+    src: url(../font/Lobster-Regular.ttf);
+}
+
+* {
+    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+}
+
+.confirm-info {
+    margin-left: 40px;
+    width: 500px;
+}
+
+.confirm-info h2 {
+    font-family: "Lobster";
+    font-size: 50px;
+}
+
+.confirm-info b {
+    font-weight: 400;
+    color: #ee6e65;
+}
+
+.confirm-info form {
+    width: 520px;
+}
+
+.confirm-info form > div:not(.action) {
+    margin-top: 30px;
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.confirm-info img {
+    width: 50px;
+}
+
+.confirm-info .name input,
+.email input,
+.phone input {
+    width: 100%;
+    height: 44px;
+}
+
+.confirm-info select {
+    width: 100%;
+    height: 44px;
+}
+
+.confirm-info textarea {
+    height: 300px;
+    width: 506px;
+    padding: 15px;
+}
+
+.confirm-info .action {
+    width: 513px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.confirm-info input[type="checkbox"] {
+    margin-left: 0px;
+}
+
+.confirm-info .btn {
+    border: none;
+    padding: 10px 30px;
+    background-color: #ea3f33;
+}
+
+.name {
+    position: relative;
+}
+
+.name input {
+    background-image: url(../img/user.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0px top;
+    padding-left: 50px;
+    border: 1px solid #ddd;
+}
+
+.confirm-info form input,
+select,
+textarea {
+    border: 1px solid #ddd;
+}
+
+.confirm-info form div:not(.action):not(.name) input {
+    transform: translateX(-1px);
+}
+
+.confirm-info form div:not(.action):not(.name) label {
+    background-color: #ddd;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid #ddd; */
+}
+
+.confirm-info form div:not(.action):not(.name) input,
+select,
+.message textarea {
+    padding-left: 15px;
+    /* border: none; */
+}
+
+.message {
+    height: 300px;
+}
+
+.confirm-info label[for="message"] {
+    height: 100% !important;
+    align-items: flex-start !important;
+    padding-top: 15px;
+}
+
+.confirm-info .name:hover input {
+    background-image: url(../img/user-black.png);
+    border-color: #000;
+}
+
+.confirm-info form div:not(.action):not(.name):hover > :first-child {
+    border-color: #000;
+    border-radius: none;
+}
+
+.name input:focus {
+    background-image: url(../img/user-black.png);
+}
+
+.confirm-info form div:not(.action):not(.name) > :last-child {
+    position: relative;
+    z-index: 1;
+}
+
+.confirm-info form div:not(.action):not(.name):hover > :last-child {
+    background-color: #000;
+}
+
+.confirm-info form div:not(.action):not(.name) input:focus ~ label {
+    border: 1px solid #000;
+    background-color: #000;
+}
+
+.confirm-info form div:not(.action):not(.name) select:focus ~ label {
+    border: 1px solid #000;
+    background-color: #000;
+}
+
+.confirm-info form div:not(.action):not(.name) textarea:focus ~ label {
+    border: 1px solid #000;
+    background-color: #000;
+}
+
+.confirm-info .name > input ~ span {
+    background-image: url(../img/star.svg);
+    display: block;
+    width: 10px;
+    height: 10px;
+    z-index: 2;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-repeat: no-repeat;
+}
+
+.confirm-info .name > input:focus ~ span {
+    background-image: url(../img/xmark-solid.svg);
+    display: block;
+    width: 15px;
+    height: 15px;
+    z-index: 2;
+    position: absolute;
+    top: 14px;
+    right: 19px;
+    background-repeat: no-repeat;
+}
+
+.confirm-info input:not(#name) {
+    background-image: url(../img/star.svg);
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    background-position: calc(100% - 20px) center;
+}
+
+.confirm-info textarea {
+    background-image: url(../img/star.svg);
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    background-position: calc(100% - 20px) 20px;
+}
+
+.confirm-info input:not(#name):focus {
+    background-image: url(../img/xmark-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    background-position: calc(100% - 19px) 14px;
+}
+
+.confirm-info textarea:focus {
+    background-image: url(../img/xmark-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    background-position: calc(100% - 19px) 14px;
+}
+
+.action * {
+    cursor: pointer;
+}
+
+.name input:focus ~ .box {
+    display: block;
+}
+
+.box {
+    display: none;
+    position: absolute;
+    top: -50px;
+    left: 60px;
+}
+
+.box div:last-child {
+    border: 5px solid;
+    width: 0px;
+    height: 0px;
+    margin-left: 10px;
+    border-color: orange transparent transparent;
+}
+
+.box div:first-child {
+    padding: 10px 20px;
+    background-color: orange;
+}

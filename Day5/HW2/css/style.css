@@ -1,0 +1,79 @@
+/* * {
+    font-weight: 400;
+} */
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.list-item .item .heading {
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.list-item .item h2 {
+    margin: 0px;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.list-item .item .heading ~ *{
+    margin-left: 20px;
+}
+
+.list-item .item ul{
+    padding-left: 0px;
+    margin: 5px 0px 0px;
+}
+
+.list-item .item p {
+    margin-top: 5px;
+}
+
+.item .heading ~ * {
+    display: none;
+}
+
+.minus {
+    display: none;
+}
+
+input[id='item1']:checked ~ .list-item .item1 .heading ~ * {
+    display: block;
+}
+
+input[id='item1']:checked ~ .list-item .item1 .heading .minus {
+    display: block;
+}
+
+input[id='item1']:checked ~ .list-item .item1 .heading .plus {
+    display: none;
+}
+
+input[id='item2']:checked ~ .list-item .item2 .heading ~ * {
+    display: block;
+}
+
+input[id='item2']:checked ~ .list-item .item2 .heading .minus {
+    display: block;
+}
+
+input[id='item2']:checked ~ .list-item .item2 .heading .plus {
+    display: none;
+}
+
+input[id='item3']:checked ~ .list-item .item3 .heading ~ * {
+    display: block;
+}
+
+input[id='item3']:checked ~ .list-item .item3 .heading .minus {
+    display: block;
+}
+
+input[id='item3']:checked ~ .list-item .item3 .heading .plus {
+    display: none;
+}
+
+
