@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    color: #666;
+}
+
+html {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.container ul {
+    display: flex;
+}
+
+.container > ul > li {
+    border: 1px solid #eee;
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container > ul > li:nth-last-child(2) {
+    flex-grow: 1;
+}
+
+.container > ul > li:nth-last-child(1) {
+    margin-left: auto;
+}
+
+.container > ul > li:not(:first-child) > a {
+    padding: 10px 25px;
+}
+
+.container .icon {
+    width: 15px;
+    height: 15px;
+}
+
+.container > ul > li > a span:not(.arrow) {
+    margin-left: 10px;
+}
+
+.container .arrow {
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    right: 10px;
+    transform: rotateZ(269deg);
+    margin-left: 10px;
+}
+
+.container .sub-list {
+    position: absolute;
+    top: 35px;
+    left: 0px;
+    margin-top: 15px;
+    /* display: none; */
+}
+
+.container .sub-list ul {
+    box-shadow: -8px 1px 20px 1px rgba(0,0,0,0.24);
+    position: relative;
+    height: 127px;
+    width: 200px;
+    display: none
+}
+
+.container > ul > li:hover:not(:nth-last-child(2)) {
+    background-color: #2da5da;
+}
+
+.container > ul > li:hover:not(:nth-last-child(2)) > a *:not(.arrow){
+    color: #fff!important
+}
+
+.container li:hover > .sub-list ul {
+    display: block;
+}
+
+.container .sub-list ul li {
+    position: absolute;
+    min-width: 200px;
+    min-height: 40px;
+    background-color: #ffff;
+}
+
+.container .sub-list li:not(:last-child) {
+    border-bottom: 1px dotted #aaa;
+}
+
+.container .sub-list a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+}
+
+.container .sub-list div {
+    width: 0px;
+    border: 7px solid;
+    border-color: transparent transparent #fff;
+    position: relative;
+    z-index: 1;
+    top: 0px;
+    left: 20px;
+}
+
+.container .sub-list li:nth-child(2) {
+    top: 0px;
+    left: 0px;
+}
+
+.container .sub-list li:nth-child(2) {
+    top: 43px;
+    left: 0px;
+}
+
+.container .sub-list li:nth-child(3) {
+    top: 86px;
+    left: 0px;
+}

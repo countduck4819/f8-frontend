@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #ebf5fe;
+}
+
+.container {
+    width: calc(100% - 300px);
+    margin: 20px auto;
+}
+
+.container .list-item .item {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.container .list-item td:nth-child(1) .item {
+    margin-left: auto;
+}
+
+.container .list-item td:nth-child(2) .item {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container .list-item .item > * {
+    margin-left: 15px;
+}
+
+.container .heading {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.container .heading h2 {
+    font-size: 20px;
+    margin-left: 15px;
+    width: 50px;
+    height: 40px;
+}
+
+.container .item .desc {
+    font-size: 10px;
+    line-height: 1.8;
+    color: #666666;
+}
+
+.container .item a {
+    text-decoration: none;
+    color: #2c66eb;
+}
+
+.container .img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.container .list-item tr:nth-child(1) td:nth-child(1) .item .img {
+    background-color: #4158d0;
+    background-image: linear-gradient(
+        43deg,
+        #4158d0 0%,
+        #c850c0 46%,
+        #ffcc70 100%
+    );
+}
+
+.container .list-item tr:nth-child(1) td:nth-child(2) .item .img {
+    background-color: #f4d03f;
+    background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
+}
+
+.container .list-item tr:nth-child(1) td:nth-child(3) .item .img {
+    background-color: #fad961;
+    background-image: linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
+}
+
+.container .list-item tr:nth-child(2) td:nth-child(1) .item .img {
+    background-color: #0093e9;
+    background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+
+.container .list-item tr:nth-child(2) td:nth-child(2) .item .img {
+    background-color: #21d4fd;
+    background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+}
+
+.container .list-item tr:nth-child(2) td:nth-child(3) .item .img {
+    background-color: #fbda61;
+    background-image: linear-gradient(45deg, #fbda61 0%, #ff5acd 100%);
+}
+
+.container .item a {
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.container .item:hover {
+    border-color: red;
+    cursor: pointer;
+}
