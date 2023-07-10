@@ -6,14 +6,13 @@
     font-family: "Asap";
 }
 
-
 a {
     flex-shrink: 0;
-    padding: 6px 15px;
+    padding: 10px 15px;
     text-decoration: none;
     color: #222;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 15px;
     display: flex;
     min-width: 110px;
     align-items: center;
@@ -26,7 +25,7 @@ a {
 }
 
 .container h2 {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -42,11 +41,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    flex-grow: 1;
     min-width: 110px;
     /* height: 50px; */
     border-radius: 999px;
     background-color: #eee;
+
 }
 
 .container .list-item li:first-child {
@@ -57,27 +57,25 @@ a {
     color: #fff;
 }
 
-.container .list-item:hover li:first-child a{
+.container .list-item:hover li:first-child a {
     color: #000;
 }
 
-.container .list-item:hover li:first-child{
+.container .list-item:hover li:first-child {
     background-color: #eee;
 }
 
-
-
 .container .list-item li:hover {
-    background-color: rgb(188, 125, 43)!important;
+    background-color: rgb(188, 125, 43) !important;
 }
 
 .container .list-item li:hover a {
-    color: #fff!important;
+    color: #fff !important;
 }
 
 .container .list-item li span {
     display: block;
-    font-size: 9px;
+    font-size: 11px;
     font-style: italic;
 }
 
@@ -91,7 +89,7 @@ a {
 
 .items li {
     width: calc((100% - 15px * 2) / 3);
-    height: 220px;
+    height: 250px;
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
