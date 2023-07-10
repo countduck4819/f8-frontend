@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Asap';
+}
+
+.container {
+    background-image: url(../../img/Landmark81banner.jpg);
+    height: 300px;
+    background-position: center center;
+    background-size: cover;
+    display: flex; 
+    align-items: flex-end;
+    position: relative;
+}
+
+.container .img {
+    width: 150px;
+    height: 90px;
+    background-color: #fff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.container .img img{
+    width: 100px;
+    height: auto;
+    padding: 10px;
+}
+
+.info {
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.info > * {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.info h1 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.info .figure{
+    display: flex;
+    gap: 20px;
+}
+
+.info div {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.info strong {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+ul {
+    display: flex;
+    gap: 10px;
+    list-style: outside none;
+    position: absolute;
+    bottom: -38px;
+    right: 50px;
+}
+
+ul a {
+    /* color: #fff; */
+    text-decoration: none;
+    color: #000;
+}
+
+ul li::after {
+    margin-top: 7px;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: orange;
+    border-radius: 999px;
+    visibility: hidden;
+    transition: color 0.001s linear;
+}
+
+ul li:hover a {
+    color: orange;
+}
+
+ul li:hover::after {
+    visibility: visible;
+}
+
