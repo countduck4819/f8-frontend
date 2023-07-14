@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Nunito, sans-serif;
+    font-family: Nunito,sans-serif;
 }
 
 .container {
@@ -44,7 +44,7 @@ h2.heading {
     width: 15px;
     height: 15px;
     background-color: red;
-    display: flex;
+    display: flex; 
     justify-content: center;
     padding: 11px;
     align-items: center;
@@ -63,6 +63,7 @@ h2.heading {
     align-content: center;
     padding: 20px 15px 30px 30px;
     gap: 30px;
+
 }
 
 .item:nth-child(1) {
@@ -70,7 +71,7 @@ h2.heading {
 }
 
 .item-info {
-    flex-grow: 1;
+    flex-grow: 1
 }
 
 .item img {
@@ -93,6 +94,7 @@ input {
     border-radius: 999px;
     padding-left: 35px;
     margin-right: 50px;
+    padding-right: 20px;
 }
 
 .item .price {
@@ -140,13 +142,13 @@ input {
 
 .total h3 {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 600;   
     color: #000;
 }
 
 .total .price {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 600;   
     color: orange;
 }
 
@@ -163,7 +165,7 @@ p.desc {
     margin-right: 20px;
 }
 
-.btn * {
+.btn *{
     width: 100%;
     margin: 0px auto;
     padding: 15px;
@@ -178,7 +180,7 @@ p.desc {
     background: #fff;
     border: 1px solid #aaa !important;
     margin-bottom: 15px;
-    color: #aaa;
+    color: #aaa
 }
 
 .btn button[type="submit"] {
