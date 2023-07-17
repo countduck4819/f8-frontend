@@ -1,0 +1,119 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Space Grotes", sans-serif;
+}
+
+.container {
+    width: 1000px;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-flow: row wrap;
+}
+
+.info {
+    transition: transform 0.5s ease;
+}
+
+.item {
+    transition: background-color 0.7s ease;
+    transition: background-image 0.7s ease;
+    max-height: 256px;
+    width: 310px;
+    padding: 50px 15px 20px 25px;
+    border: 1px solid #ddd;
+}
+
+h2 {
+    font-size: 18px;
+    font-family: "Space Grotes", sans-serif;
+}
+
+p.desc {
+    font-size: 14px;
+    color: #777;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.icon img {
+    display: block;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    visibility: hidden;
+    cursor: pointer;
+    display: flex;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    transform: translateY(10px);
+    transition: transform 0.5s ease;
+}
+
+.btn::after {
+    margin-left: 5px;
+    content: "\f061";
+    width: 10px;
+    height: 10px;
+    color: #fff;
+    border-radius: 999px;
+    border: 1px solid #fff;
+    padding: 5px 8px 10px;
+    display: inline-block;
+    background-color: transparent;
+    font-family: FontAwesome;
+}
+
+.item:hover {
+    background-image: url(../../img/back-ground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #555;
+    background-position: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+.item:hover .sub-item {
+    padding: 25px 18px 13px;
+    border: 1px solid #999;
+}
+
+.item:hover .icon {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.item:hover .info {
+    transform: translateY(-60px);
+}
+
+.item:hover .info .desc {
+    color: #fff;
+}
+
+.item:hover h2 {
+    color: #fff;
+}
+
+.item:hover .btn {
+    visibility: visible;
+    transform: translateY(-10px);
+}
+
+.item .btn:hover::after {
+    background-color: #fff;
+    color: #000;
+}

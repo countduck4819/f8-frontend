@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Homework 3</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+<body>
+    <div class="container">
+        <h1 class="heading">Drop Us a Line</h1>
+        <p class="desc">Reach out to us from our contact form and we will get back to you shortly</p>
+        <form action="" method="get" class="confirm">
+            <div>
+                <input type="text" id="first-name" name="first-name"  required/>
+                <label for="first-name">First Name *</label>
+            </div>
+            <div>
+                <input type="text" id="last-name" name="last-name" required/>
+                <label for="last-name">Last Name *</label>
+            </div>
+            <div>
+                <input type="text" id="email" name="email" required>
+                <label for="email">Email *</label>
+            </div>
+            <div>
+                <select name="Sales">
+                    <option value="none" disabled>Select a department</option>
+                    <option value="Sales" autofocus>Sales</option>
+                    <option value="Marketing" >Marketing</option>
+                    <option value="Customer Support">Customer Support</option>
+                </select>
+            </div>
+            <div>
+            <textarea id="message" class="message" name="message" cols="30" rows="10"></textarea>
+            <label for="message">Message *</label>
+        </div>
+            <button class="btn" type="submit">Send message</button>
+        </form>
+    </div>
+</body>
+</html>

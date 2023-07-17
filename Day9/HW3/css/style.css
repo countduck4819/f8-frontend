@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    --font-fam: sans-serif;
+}
+
+option[disabled] {
+    color: #000;
+}
+
+option:not([disabled]) {
+    color: #aaa;
+}
+
+.container {
+    font-family: var(--font-fam);
+    text-align: center;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 850px;
+}
+
+h1.heading {
+    font-size:  30px;
+    margin-bottom: 15px;
+}
+
+p.desc {
+    word-spacing: 3px;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 45px;
+}
+
+input, textarea {
+    cursor: pointer
+}
+
+.confirm {
+    display: flex;
+    gap: 30px;
+    flex-flow: row wrap;
+}
+
+.confirm div *:not(label) {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.confirm input,.confirm select,textarea {
+    width: 400px;
+    height: 50px;
+    padding: 12px 25px;
+}
+
+.confirm .message {
+    width: 830px;
+    height: 200px;
+}
+
+.confirm input::placeholder {
+    color: #777;
+    font-size: 15px;
+}
+
+.confirm textarea {
+    padding-top: 30px;
+}
+
+.confirm #message + label {
+    color: #777;
+    font-size: 16px ;
+}
+
+.confirm #message:focus + label  {
+    transform: translateY(-30%);
+    font-size: 12px;
+}
+
+.confirm > div {
+    position: relative;
+}
+
+label {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 15px;
+    color: #777;
+    padding: 0px 26px;
+    transition-property: font-size,transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+
+.confirm input:focus + label {
+    transform: translateY(-85%);
+    font-size: 12px;    
+}
+
+.confirm input:not(:focus):valid + label {
+    transform: translateY(-85%);
+    font-size: 12px;  
+}
+
+.confirm .message:valid + label{
+    transform: translateY(-30%);
+    font-size: 12px;
+}
+
+.btn {
+    cursor: pointer;
+    margin: 0px auto;
+    min-width: 140px;
+    height: 45px;
+    background-color: #3F6FDF;
+    border-radius: 999px;
+    border: none;
+    color: #fff;
+}
+
+
