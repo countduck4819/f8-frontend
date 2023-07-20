@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #31A8F7;
+    font-family: system-ui,sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.container {
+    width: 1300px;
+}
+
+.info {
+    top: 50%;
+    right: 200px;
+    position: absolute;
+    translate: 0px -50%
+}
+
+.heading {
+    font-size: 50px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.desc {
+    display: flex;
+    align-items: center;
+    font-weight: 100;
+    color: #fff;
+    font-size: 13px;
+    gap: 8px;
+}
+
+.desc strong {
+    font-size: 28px;
+}
+
+.menu {
+    position: relative;
+}
+
+.box {
+    border-radius: 50%;
+    translate: -50% -50%;
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    margin: 0;
+    background-color: #fff;
+    transition-property: width,height;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-out;
+}
+
+#menu-icon,#arrow-left-icon {
+    font-size: 30px;
+    color: #4892CD;
+    position: fixed;
+}
+
+#menu-icon {
+    top: 50%;
+    left: 50%;
+    translate: 20px 20px;
+}
+
+#arrow-left-icon {
+    transform: rotateZ(-180deg) rotateX(70deg);
+    transition: transform 0.3s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    top: 120px;
+    left: 120px;
+}
+
+
+.sub-menu {
+    position: absolute;
+    width: 600px;
+    top: 50px;
+    left: 0px;
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 30px;
+    padding-left: 30px;
+    transition: opacity 0.2s ease-in;
+}
+
+.item {
+    margin: 3px;
+}
+
+.container .item a {
+    font-weight: 500;
+    background: transparent;
+    color: #4892CD;
+    display: block;
+    padding: 15px 20px;
+}
+
+input:checked + .menu  #menu-icon {
+    opacity: 0;
+    visibility: hidden;
+}
+
+input:checked + .menu  #arrow-left-icon {
+    transform: rotateZ(0) rotateX(0);
+    opacity: 1;
+    visibility: visible;
+    top: 50%;
+    left: 50%;
+    translate: 20px 20px;
+}
+
+input:checked + .menu > .sub-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+input:checked + .menu .box {
+    /* translate: 0 0; */
+    inset: 0;
+    border-radius: 0px;
+    width: 300vw;
+    height: 300vh;
+    border-radius: 50%;
+}
+
+@keyframe role {
+    from {
+        opacity: 1;
+        transform: rotateZ(0deg) rotateX(0deg);
+    }
+    to {
+        opacity: 0;
+        transform: rotateZ(-180deg) rotateX(70deg);
+    }
+}
+
+
+input:not(:checked) + .menu #arrow-left-icon {
+    animation: role 1s ease
+}
+
+
