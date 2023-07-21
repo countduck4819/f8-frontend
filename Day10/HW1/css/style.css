@@ -81,6 +81,12 @@ a {
     left: 120px;
 }
 
+.menu .item a:focus {
+    width: 300px;
+    height: 10px;
+    background-color: #ddd;
+    height: auto;
+}
 
 .sub-menu {
     position: absolute;
@@ -99,11 +105,15 @@ a {
 }
 
 .container .item a {
+    transition: background-color 1s ease;
     font-weight: 500;
-    background: transparent;
+    background-color: transparent;
     color: #4892CD;
     display: block;
-    padding: 15px 20px;
+    width: 300px;
+    padding: 10px 20px;
+    min-height: 20px;
+    margin: 5px;
 }
 
 input:checked + .menu  #menu-icon {
@@ -134,20 +144,7 @@ input:checked + .menu .box {
     border-radius: 50%;
 }
 
-@keyframe role {
-    from {
-        opacity: 1;
-        transform: rotateZ(0deg) rotateX(0deg);
-    }
-    to {
-        opacity: 0;
-        transform: rotateZ(-180deg) rotateX(70deg);
-    }
-}
 
 
-input:not(:checked) + .menu #arrow-left-icon {
-    animation: role 1s ease
-}
 
 

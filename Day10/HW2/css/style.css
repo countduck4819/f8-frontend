@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: orange;
+    font-family: sans-serif;
+}
+
+.container {
+    font-size: 13px;
+    width: 619px;
+    margin: 200px auto;
+}
+
+.list {
+    display: flex;
+}
+
+.list li {
+    border-bottom: 1px solid #ddd;
+    /* flex-basis: 200px; */
+    padding: 15px 5px;
+    background-color: #fff;
+}
+
+.list li label {
+    cursor: pointer;
+    width: 100%;
+    padding: 10px 14px;
+}
+
+.list li:not(:last-child) {
+    border-right: 1px solid #ddd;
+}
+
+.items {
+    position: relative;
+}
+
+.item {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    padding: 20px 25px;
+    margin-top: 3px;
+    background-color: #fff;
+    overflow-x: auto;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    perspective: 1200px;
+    transform-origin: center top;
+    transform: rotateX(-30deg) rotateY(-4deg) rotateZ(0deg) skew(10deg,0);
+    transition-property: transform,opacity,visibility;
+    transition-duration: 4s,2s,3s;
+    transition-timing-function: ease;
+}
+
+.items h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: #888;
+    font-weight: bold;
+}
+
+.info {
+    width: 800px;
+}
+
+.items p.desc {
+    color: #aaa;
+    line-height: 1.4;
+}
+
+
+input:nth-of-type(1):checked ~ .container .list li:nth-child(1) label {
+    background-color: red;
+}
+
+
+input:nth-of-type(2):checked ~ .container .list li:nth-child(2) label {
+    background-color: red;
+}
+
+input:nth-of-type(3):checked ~ .container .list li:nth-child(3) label {
+    background-color: red;
+}
+
+input:nth-of-type(4):checked ~ .container .list li:nth-child(4) label {
+    background-color: red;
+}
+
+input:nth-of-type(1):checked ~ .container .items .item:nth-child(1) {
+    opacity: 1;
+    top: 0;
+    visibility: visible;
+    transform: rotateX(0deg);
+}
+
+input:nth-of-type(2):checked ~ .container .items .item:nth-child(2) {
+    opacity: 1;
+    top: 0;
+    visibility: visible;
+    transform: rotateX(0deg);
+}
+
+input:nth-of-type(3):checked ~ .container .items .item:nth-child(3) {
+    opacity: 1;
+    top: 0;
+    visibility: visible;
+    transform: rotateX(0deg);
+}
+
+input:nth-of-type(4):checked ~ .container .items .item:nth-child(4) {
+    opacity: 1;
+    top: 0;
+    visibility: visible;
+    transform: rotateX(0deg) skew(0deg,0deg) rotateY(0deg);
+}
+
+

@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+}
+
+.container {
+    width: 150px;
+    height: 80px;
+    margin: 150px auto;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    background-color: #CB4E43;
+    position: relative;
+}
+
+.box::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-color: transparent #E86048 #E86048 #DF5239;
+    border-style: solid;
+    border-width: 40px 75px;
+}
+
+.content {
+    overflow: hidden;
+    width: 130px;
+    height: 50px;
+    background-color: #fff;
+    position: absolute;
+    margin-top: 10px;
+    bottom: 0px;
+    left: 10px;
+    transition: height 0.5s ease-in-out;
+    transition-delay: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.box::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 80px;
+    left: 0px;
+    border-color: transparent transparent #CB4E43;
+    border-style: solid;
+    border-width: 40px 76px 0px 76px;
+    transition-property: border-width;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.box:hover::before {
+    border-bottom-width: 40px;
+}
+
+.box:hover .content {
+    visibility: visible;
+    opacity: 1;
+    height: 150px;
+}
+
+.column {
+    margin: 5px;
+    width: 80px;
+    height: 8px;
+    background-color: green;
+}
+.size-1 {
+    margin-top: 30px;
+}
+
+.size-2 {
+    width: 40px;
+}
+
+.content span {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: pink;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(-5px,-20px)
+}
+
+.header {
+    width: 100%;
+    height: 10px;
+    display: flex;
+    transform: skew(-20deg,0);
+    justify-content: flex-start;
+}
+
+.item {
+    height: 100%;
+    flex-basis: 10px;
+}
+
+.header .item:nth-child(2n){
+    background-color: #fff;
+}
+
+.header .item:nth-child(2n+1){
+    background-color: #E86048;
+}
+
