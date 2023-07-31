@@ -1,0 +1,104 @@
+.figure {
+    margin-top: 100px;
+    .figure-info {
+        text-align: center;
+        h2 {
+            margin: 0 auto;
+            width: 560px;
+            font-family: $fonts;
+            font-size: 3.1667rem;
+            font-weight: 800;
+            color: $textColor;
+        }
+
+        .desc {
+            margin: 24.333px auto 105px;
+            width: 643px;
+            font-family: $fonts;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: $textColor;
+        }
+    }
+    .figure-champion {
+        &::before {
+            
+        }
+        width: 100%;
+        .items {
+            width: 81.16%;
+            margin: 0 auto;
+            .row {
+                gap: 21.67px;
+                .item {
+                    padding: 33.33px 33.33px;
+                    width: 294.167px;
+                    height: 337.5px;
+                    border-radius: 3.333px;
+                    background: #fff;
+                    box-shadow: -5.8333330154418945px 8.333333015441895px 72.5px
+                        0px rgba(54, 54, 54, 0.12);
+                    &:nth-child(2) {
+                        width: 342.5px;
+                        height: 392.5px;
+                        padding-top: 60.83px;
+                        .img {
+                            background-color: $boxColor;
+                        }
+                    }
+                    .img {
+                        width: 83.333px;
+                        height: 83.333px;
+                        border-radius: 10px;
+                        background: #fff0e7;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    span {
+                        display: inline-block;
+                        margin: 23.33px 0px 24.67px;
+                        font-family: $fonts;
+                        font-size: 4.3333rem;
+                        font-weight: 800;
+                        color: $textColor;
+                    }
+                    .desc {
+                        font-family: $fonts;
+                        font-size: 2rem;
+                        font-weight: 400;
+                        line-height: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1199.81px){
+    .items {
+        width: 100% !important;
+        .item{
+            &:nth-child(2) {
+                width: 294.167px !important;
+                height: 337.5px  !important;
+                padding-top: 33.33px !important;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 991.81px){
+    .items {
+        width: 60% !important;
+    }
+    .figure-info {
+        h2 {
+            max-width: calc(100% - 10px);
+        }
+        p.desc {
+            max-width: calc(100% - 10px);
+        }
+    }
+}
+

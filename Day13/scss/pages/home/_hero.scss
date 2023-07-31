@@ -1,0 +1,90 @@
+.hero {
+    position: relative;
+    .box {
+        position: absolute;
+        left: 50%;
+        top: 0px;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background-color: $boxColor;
+        display: flex;
+        align-items: center;
+        border-radius: 16.667px 0px 0px 16.667px;
+        // &::after {
+        //     content: "GREEN CHOP";
+        //     rotate: 90deg;
+        //     left:290px;
+        //     position: absolute;
+        //     font-family: $fonts;
+        //     font-size: 16.667rem;
+        //     font-weight: 800;
+        //     line-height: 1;
+        //     opacity: 0.15000000596046448;
+        //     color: #216000;
+        // }
+        .word {
+            rotate: 90deg;
+            top: 150px;
+            left:290px;
+            position: absolute;
+            font-family: $fonts;
+            font-size: 16.667rem;
+            font-weight: 800;
+            line-height: 1;
+            opacity: 0.15000000596046448;
+            color: #216000;
+        }
+
+    }
+    .hero-info {
+        width: 100vh;
+        .heading {
+            color: $textColor;
+            font-family: $fonts;
+            font-weight: 800;
+        }
+        h1 {
+            font-size: 4.3rem;
+            width: 382px;
+            margin-bottom: 27.67px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 3.667rem;
+        }
+
+        .desc {
+            width: 450px;
+        }
+    }
+
+    .hero-logo {
+        width: 100vh;
+        position: relative;
+        .sub-hero {
+            width: 88.584%;
+            height: 87.624%;
+            background-color: transparent;
+        }
+        img {
+            position: relative;
+            left: -150px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1399px){
+    .img {
+        visibility: hidden;
+    }
+    .box {
+        // &::after {
+        //     left: -400px !important;
+        // }
+        .word {
+            left: 0px !important;
+        }
+    }
+}

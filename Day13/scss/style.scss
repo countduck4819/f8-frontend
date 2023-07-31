@@ -1,0 +1,15 @@
+// Parts
+@import "parts/variables";
+@import "parts/fonts";
+@import "parts/reset";
+@import "parts/mixin";
+@import "parts/base";
+
+// Layout
+@import 'layout/footer';
+@import 'layout/header';
+
+// Pages
+@import 'pages/home/hero';
+@import 'pages/home/figure';
+@import 'pages/home/products'
