@@ -17,4 +17,4 @@ else if (b >= a && b >= c) {
 else {
     console.log(`Cách 2 : ${c}`);
 }
-document.write(`<h2>Số lớn nhất trong 3 số là: ${d} </h2> `)
+document.write(`<h2>Số lớn nhất trong 3 số là: ${d} , xem màn hình console để rõ hơn </h2> `)

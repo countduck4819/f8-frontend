@@ -11,3 +11,4 @@ a -= b;
 console.log("Thực hiện hoán đổi : ");
 console.log(`a = ${a}`);
 console.log(`b = ${b}`);
+document.write(`<h2>Kết quả :  a = ${a} và b = ${b}</h2>`);

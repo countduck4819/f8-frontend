@@ -1,15 +1,16 @@
 var a = prompt("Nhập vào số a : ");
 var b = prompt("Nhập vào số b : ");
 var c = prompt("Nhập vào số c : ");
-// var a =1;
-// var b = 10;
-// var c = 5;
+a = +a;
+b = +b;
+c = +c;
+
 var d = +a + +b + +c;
 
 var max;
 if (a >= b && a >= c) {
     max = a;
-} else if (b >= c && b >= a) {
+} else if (b >= a && b >= c) {
     max = b;
 } else {
     max = c;
@@ -23,8 +24,12 @@ if (a <= b && a <= c) {
 } else {
     min = c;
 }
+console.log(min)
 
 d = d - min - max;
 console.log(`3 số ban đầu : ${a} ${b} ${c}`);
 
 console.log(`3 số sau khi sắp xếp : ${min} ${d} ${max}`)
+
+
+document.write(`<h2>3 số sau khi sắp xếp : ${min} ${d} ${max} , xem màn hình console để rõ hơn</h2>`)
