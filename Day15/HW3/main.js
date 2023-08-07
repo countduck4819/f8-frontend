@@ -3,7 +3,6 @@ var b = parseFloat(prompt("Nhập vào số b: "));
 var c = parseFloat(prompt("Nhập vào số c: "));
 
 document.write("<h2>Em làm 2 cách em xem hộ em với nhé !</h2>")
-document.write("<h2>Số lớn nhất trong 3 số là: </h2>")
 // C1: 
 
 var d = (a >= b ? a : b) >= c ? (a >= b ? a : b) : c;
@@ -18,3 +17,4 @@ else if (b >= a && b >= c) {
 else {
     console.log(`Cách 2 : ${c}`);
 }
+document.write(`<h2>Số lớn nhất trong 3 số là: ${d} </h2> `)
