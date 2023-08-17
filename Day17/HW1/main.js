@@ -21,11 +21,10 @@ var acc = function (lorem) {
         }    
     }
 }
-let dem = 0;
-while(dem < 10) {
+
+setInterval(function (){
     acc(lorem);
-    dem++;
-}
+},1000)
 
 // function th(a) {
 //     return funciton (b) {
