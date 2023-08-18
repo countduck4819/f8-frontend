@@ -20,7 +20,7 @@ var sapxep = function(arr) {
 }
 
 var newArray = sapxep(arr);
-document.write(`<h2>Mảng cho sẵn :  [${newArray}]</h2>`);
+document.write(`<h2>Mảng sau khi sắp xếp lại là :  [${newArray}]</h2>`);
 
 
 
