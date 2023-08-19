@@ -3,8 +3,6 @@ document.write(`<h2>Mảng cho sẵn :  [${arr}]</h2>`);
 var element = 4;
 document.write(`<h2>Số bất kì : ${element}</h2>`);
 
-arr[arr.length] = element;
-document.write(`<h2>Mảng sau khi chèn là :  [${arr}]</h2>`);
 
 var sapxep = function(arr) {
     for(var i = 0; i < arr.length - 1; i++) {
@@ -18,9 +16,20 @@ var sapxep = function(arr) {
     }
     return arr;
 }
-
 var newArray = sapxep(arr);
-document.write(`<h2>Mảng sau khi sắp xếp lại là :  [${newArray}]</h2>`);
+document.write(`<h2>Mảng sau khi sắp xếp là :  [${newArray}]</h2>`);
+var chen = function(arr) {
+    var element = 4;
+    var i = 0;
+    while(newArray[i] <= element) {
+        i++;
+    }
+    newArray.splice(i,0,element);
+}
+chen(arr);
+document.write(`<h2>Mảng sau khi chèn lại là :  [${newArray}]</h2>`);
+
+
 
 
 
