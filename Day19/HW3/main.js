@@ -2,6 +2,7 @@ var arr = [
     ["a", 1, true],
     ["b", 2, false],
 ];
+documen.write(`<h2>Mảng ban đầu là : ${arr}</h2>`)
 var Arr = [];
 var arr = arr.filter(function (value) {
     Arr = Arr.concat(value);
@@ -24,4 +25,4 @@ Arr.forEach(function (value) {
     }
 });
 
-console.log(newArr);
+document.write(`<h2>Mảng lúc sau là là : ${newArr}</h2>`)
