@@ -2,7 +2,7 @@ var arr = [
     ["a", 1, true],
     ["b", 2, false],
 ];
-documen.write(`<h2>Mảng ban đầu là : ${arr}</h2>`)
+document.write(`<h2>Mảng ban đầu là : ${arr}</h2>`)
 var Arr = [];
 var arr = arr.filter(function (value) {
     Arr = Arr.concat(value);
