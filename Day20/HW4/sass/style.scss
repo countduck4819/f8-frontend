@@ -10,6 +10,9 @@
     &:nth-last-of-type(1) {
         border-bottom: none !important;
     }
+    &:nth-of-type(2n) {
+        flex-direction: row-reverse;
+    }
     .img {
         img {
             border-radius: 8px;

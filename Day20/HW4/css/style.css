@@ -11,6 +11,9 @@
 .box:nth-last-of-type(1) {
   border-bottom: none !important;
 }
+.box:nth-of-type(2n) {
+  flex-direction: row-reverse;
+}
 .box .img img {
   border-radius: 8px;
 }
