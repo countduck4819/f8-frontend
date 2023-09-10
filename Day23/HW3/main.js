@@ -5,10 +5,10 @@ Array.prototype.push2 = function(...args) {
         return;
     }
     var arr = this;
-    args.forEach(function(value) {
+    Array.from(arguments).forEach(function(value) {
         arr[arr.length] = value;
     });
-    return this;
+    return this.length;
 }
 var a = [1,2,3,4,5,6]
 console.log(a.push2(1,[10,12]));

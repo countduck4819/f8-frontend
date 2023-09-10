@@ -35,5 +35,3 @@ console.log(price.getCurrency('đ')) //Hiển thị: 12,000,000 đ
 
 
 
-
-

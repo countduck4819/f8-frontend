@@ -70,7 +70,7 @@ var duyet = function (categories, kitu) {
     }
 };
 duyet(categories, kitu);
-var kq =
+var kq = 
     "<select name='chon' id=''><option value='Chọn chuyên mục' disabled>Chọn chuyên mục</option>";
 kq += result.join(" ") + "</select>";
 document.write(kq);
