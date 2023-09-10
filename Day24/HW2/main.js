@@ -1,6 +1,6 @@
 var result = "";
-var a = 20;
-var a = +prompt("Nhập :")
+var a = 12320;
+// var a = +prompt("Nhập :")
 var arr = {
     0: "không",
     1: "một",
@@ -24,7 +24,6 @@ var read3 = function (a) {
     }
     if (a.length >= 2) {
         if (+a.slice(-2).join("") <= 19) {
-            console.log(a.at(-2));
             if (a.at(-2) === "0") {
                 if (a.at(-1) === "0") {
                     result += " ";
@@ -73,4 +72,4 @@ function read(a) {
 }
 a = a.toLocaleString("vn");
 console.log(read(a).join(" "));
-document.write(read(a).join(" "))
+// document.write(read(a).join(" "))
