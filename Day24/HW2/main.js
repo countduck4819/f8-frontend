@@ -1,5 +1,5 @@
 var result = "";
-var a = 12320;
+var a = 115;
 // var a = +prompt("Nhập :")
 var arr = {
     0: "không",
@@ -39,12 +39,12 @@ var read3 = function (a) {
     }
     if (a.length >= 1) {
         if (a.at(-1) === "5") {
-            // if (a.at(-2) === "0") {
-            result += "lăm";
-            // }
-            // else {
-            //     result += arr[a.at(-1)];
-            // }
+            if (a.at(-2) === "0") {
+            result += "năm";
+            }
+            else {
+                result += "lăm";
+            }
         } else if (a.at(-1) === "0") {
             result += "";
         } else {
