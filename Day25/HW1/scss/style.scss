@@ -1,0 +1,318 @@
+.container {
+    height: 100vh;
+    label {
+        font-size: 14px;
+        font-weight: 400;
+        color: #1a1a1a
+    }
+    .error {
+        color: red;
+        font-style: italic;
+    }
+    .active {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        > .btn {
+            border: none;
+            background-color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 10px 15px;
+        }
+    }
+    .form_register {
+        opacity: 0;
+        visibility: hidden;
+        transition-property: visibility, opacity;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-in;
+        .close {
+            background-color: #000;
+            z-index: 1;
+            position: fixed;
+            inset: 0;
+        }
+        .sign_in {
+            background-color: #fff;
+            width: 460px;
+            min-height: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            translate: -230px -260px;
+            .action {
+                display: flex;
+                align-items: center;
+                .btn {
+                    flex-basis: 50%;
+                    border: none;
+                    font-size: 20px;
+                    cursor: pointer;
+                    padding: 15px 0px;
+                }
+                .btn-in {
+                    background-color: #fff;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #333;
+                }
+                .btn-up {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #999;
+                }
+            }
+            .sign_in_to {
+                width: 380px;
+                margin: 0px auto;
+                p.desc {
+                    font-family: "Roboto", sans-serif;
+                    font-weight: 400;
+                    text-align: center;
+                    margin: 15px 0px;
+                    &:nth-of-type(2) {
+                        display: flex;
+                        align-items: center;
+                        &::after {
+                            content: "";
+                            display: inline-block;
+                            width: 150px;
+                            height: 1px;
+                            background-color: #ccc;
+                            margin-left: auto;
+                        }
+                        &::before {
+                            content: "";
+                            display: inline-block;
+                            width: 150px;
+                            height: 1px;
+                            background-color: #ccc;
+                            margin-right: auto;
+                        }
+                    }
+                }
+                .socials {
+                    margin: 20px 0px;
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                    .social {
+                        max-width: 200px;
+                        width: 200px;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        display: flex;
+                        gap: 10px;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #e2e8f0;
+                        padding: 10px 0px;
+                        i {
+                            font-size: 25px;
+                        }
+                    }
+                    .facebook {
+                        i {
+                            color: #3c5a99;
+                        }
+                    }
+                }
+                .form_in {
+                    margin-top: 20px;
+                    font-family: "Roboto",sans-serif;
+                    input {
+                        border: 1px solid #aaa;
+                        border-radius: 4px;
+                        height: 40px;
+                        font-size: 16px;
+                        padding-left: 15px;
+                        font-family: "Roboto",sans-serif;
+                        &:focus {
+                            outline: none !important;
+                        }
+                    }
+                    .mail {
+                        display: flex;
+                        row-gap: 7px;
+                        flex-direction: column;
+                    }
+                    .pass{
+                        position: relative;
+                        .eye {
+                            cursor: pointer;
+                            position: absolute;
+                            top: 38px;
+                            right: 12px;
+                            color: #666;
+                            :not(#not) {
+                                position: absolute;
+                            }
+                            #not {
+                                position: relative;
+                                visibility: hidden;
+                            }
+                        }
+                        margin-top: 20px;
+                        row-gap: 7px;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .forget {
+                        margin-top: 25px;
+                        text-align: right;
+                        font-size: 14px;
+                        font-style: italic;
+                        color: #888;
+                        // display: inline-block;
+                    }
+                    .btn {
+                        font-family: 'Inter', sans-serif;
+                        font-size: 16px;
+                        font-weight: 600;
+                        width: 100%;
+                        margin-top: 20px;
+                        border: none;
+                        height: 45px;
+                        margin-bottom: 32px;
+                        background-color: #1A7900;
+                        color: #fff;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+        .sign_up {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s linear,visibility 0.2s linear;
+            background-color: #fff;
+            width: 460px;
+            min-height: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            translate: -50% -50%;
+            .action {
+                display: flex;
+                align-items: center;
+                .btn {
+                    flex-basis: 50%;
+                    border: none;
+                    font-size: 20px;
+                    cursor: pointer;
+                    padding: 15px 0px;
+                }
+                .btn-in {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #999999;
+                }
+                .btn-up {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #333;
+                    background-color: #fff;
+                }
+            }
+            .sign_up_to {
+                width: 380px;
+                margin: 0px auto;
+                p.desc {
+                    font-family: "Roboto", sans-serif;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 20px;
+                    text-align: center;
+                    margin: 15px 0px;
+                    color: #1a1a1a;
+                }
+                .form_up {
+                    margin-top: 20px;
+                    font-family: "Roboto",sans-serif;
+                    input {
+                        border: 1px solid #aaa;
+                        border-radius: 4px;
+                        height: 40px;
+                        font-size: 16px;
+                        padding-left: 15px;
+                        font-family: "Roboto",sans-serif;
+                        &:focus {
+                            outline: none !important;
+                        }
+                    }
+                    .fullname {
+                        display: flex;
+                        row-gap: 7px;
+                        flex-direction: column;
+                    }
+                    .mail {
+                        margin-top: 20px;
+                        display: flex;
+                        row-gap: 7px;
+                        flex-direction: column;
+                    }
+                    .pass{
+                        position: relative;
+                        .eye {
+                            cursor: pointer;
+                            position: absolute;
+                            top: 40px;
+                            right: 12px;
+                            color: #666;
+                            :not(#not) {
+                                position: absolute;
+                            }
+                            #not {
+                                position: relative;
+                                visibility: hidden;
+                            }
+                        }
+                        margin-top: 20px;
+                        row-gap: 7px;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .forget {
+                        margin-top: 25px;
+                        text-align: right;
+                        font-size: 14px;
+                        font-style: italic;
+                        color: #888;
+                        // display: inline-block;
+                    }
+                    .info {
+                        margin-top: 25px;
+                        color: #666666;
+                        font-size: 14px;
+                        line-height: 20px;
+                        a {
+                            text-decoration: none;
+                            color: rgb(35, 97, 255);
+                        }
+                    }
+                    .btn {
+                        font-family: 'Inter', sans-serif;
+                        font-size: 16px;
+                        font-weight: 600;
+                        width: 100%;
+                        margin-top: 20px;
+                        border: none;
+                        height: 45px;
+                        margin-bottom: 32px;
+                        background-color: #1A7900;
+                        color: #fff;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+    }
+}

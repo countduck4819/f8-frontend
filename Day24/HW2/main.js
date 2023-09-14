@@ -1,5 +1,5 @@
 var result = "";
-var a = 115;
+var a = 38912393;
 // var a = +prompt("Nhập :")
 var arr = {
     0: "không",
@@ -19,6 +19,7 @@ var dvi = ["tỉ", "triệu", "nghìn", "trăm"];
 var read3 = function (a) {
     var result = "";
     a = a.split("");
+    console.log(a.length)
     if (a.length >= 3) {
         result += arr[a.at(-3)] + " " + dvi[3] + " ";
     }
@@ -40,13 +41,17 @@ var read3 = function (a) {
     if (a.length >= 1) {
         if (a.at(-1) === "5") {
             if (a.at(-2) === "0") {
-            result += "năm";
-            }
-            else {
+                result += "năm";
+            } else {
                 result += "lăm";
             }
         } else if (a.at(-1) === "0") {
-            result += "";
+            if (a.length === 1) {
+                result += "không";
+            }
+            else {
+                result += "";
+            }
         } else {
             result += arr[a.at(-1)];
         }
@@ -73,3 +78,5 @@ function read(a) {
 a = a.toLocaleString("vn");
 console.log(read(a).join(" "));
 // document.write(read(a).join(" "))
+
+
