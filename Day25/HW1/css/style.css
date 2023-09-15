@@ -172,7 +172,7 @@
   font-style: italic;
   color: #888;
 }
-.container .form_register .sign_in .sign_in_to .form_in .btn {
+.container .form_register .sign_in .sign_in_to .form_in .btn_submit {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -181,9 +181,10 @@
   border: none;
   height: 45px;
   margin-bottom: 32px;
-  background-color: #1A7900;
+  background-color: #1a7900;
   color: #fff;
   border-radius: 4px;
+  cursor: pointer;
 }
 .container .form_register .sign_up {
   opacity: 0;
@@ -299,7 +300,7 @@
   text-decoration: none;
   color: rgb(35, 97, 255);
 }
-.container .form_register .sign_up .sign_up_to .form_up .btn {
+.container .form_register .sign_up .sign_up_to .form_up .btn_submit {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -308,9 +309,10 @@
   border: none;
   height: 45px;
   margin-bottom: 32px;
-  background-color: #1A7900;
+  background-color: #1a7900;
   color: #fff;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

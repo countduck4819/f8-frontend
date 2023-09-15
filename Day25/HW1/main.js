@@ -6,6 +6,8 @@ var sign_in = document.querySelector(".sign_in");
 var sign_up = document.querySelector(".sign_up");
 var button_up = sign_in.querySelector(".action .btn-up");
 var button_in = sign_up.querySelector(".action .btn-in");
+var submit_button_up = document.querySelector(".form_up .btn_submit");
+var submit_button_in = document.querySelector(".form_in .btn_submit");
 
 // var error_sign_in = document.querySelectorAll(".sign_in .error");
 // var error_sign_up = document.querySelectorAll(".sign_up .error");
@@ -198,3 +200,47 @@ arr_sign_up.forEach(function (value) {
         });
     };
 });
+
+console.log(arr_sign_up)
+
+submit_button_up.addEventListener("click",function() {
+    arr_sign_up.forEach(function(value) {
+        if (sign_up.querySelector(`.form_up .${value}`).value === "") {
+            sign_up.querySelector(
+                `.form_up .${value} + .error`
+            ).innerText = "Vui lòng nhập thông tin";
+        }
+        else {
+            // console.log(value1)
+            if (value === "email") {
+                checkDefinedEmail_up(sign_up.querySelector(`.form_up .email`));
+            }
+            else {
+                sign_up.querySelector(
+                    `.form_up .${value} + .error`
+                ).innerText = "";
+            }
+        }
+    })
+})
+
+submit_button_in.addEventListener("click",function() {
+    arr_sign_in.forEach(function(value) {
+        if (sign_in.querySelector(`.form_in .${value}`).value === "") {
+            sign_in.querySelector(
+                `.form_in .${value} + .error`
+            ).innerText = "Vui lòng nhập thông tin";
+        }
+        else {
+            // console.log(value1)
+            if (value === "email") {
+                checkDefinedEmail_in(sign_in.querySelector(`.form_in .email`));
+            }
+            else {
+                sign_in.querySelector(
+                    `.form_in .${value} + .error`
+                ).innerText = "";
+            }
+        }
+    })
+})
