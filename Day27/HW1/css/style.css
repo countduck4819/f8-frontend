@@ -1,8 +1,10 @@
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .carousel {
+  cursor: move;
   position: relative;
   overflow: hidden;
 }
@@ -36,6 +38,25 @@
 }
 .carousel .carousel-nav span.left {
   left: 5px;
+}
+.carousel .check-button {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 8px;
+  left: 50%;
+  align-items: center;
+}
+.carousel .check-button li button {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: none;
+}
+.carousel .check-button li button.orange {
+  background-color: orange;
 }
 
 /*# sourceMappingURL=style.css.map */
