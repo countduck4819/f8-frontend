@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+.carousel .carousel-inner {
+  transition: translate 1.5s ease-in-out;
+  display: flex;
+}
+.carousel .carousel-inner .item {
+  flex-shrink: 0;
+}
+.carousel .carousel-inner .item img {
+  max-width: 100%;
+  height: auto;
+}
+.carousel .carousel-nav span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: gray;
+  top: 50%;
+  translate: 0 -50%;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.carousel .carousel-nav span.next {
+  right: 5px;
+}
+.carousel .carousel-nav span.left {
+  left: 5px;
+}
+
+/*# sourceMappingURL=style.css.map */
