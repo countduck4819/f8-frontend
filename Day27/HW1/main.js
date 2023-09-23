@@ -139,6 +139,7 @@ btn.forEach(function (value, index) {
         });
         this.classList.add("orange");
         position = -1 * itemWidth * index;
+        figure.pos = position;
         carouselInner.style.translate = `${position}px`;
     });
 });
