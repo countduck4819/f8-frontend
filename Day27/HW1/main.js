@@ -3,13 +3,12 @@ var carouselInner = document.querySelector(".carousel-inner");
 var nextBtn = document.querySelector(".carousel-nav .next");
 var prevBtn = document.querySelector(".carousel-nav .prev");
 var checkBtns = document.querySelector(".carousel .check-button");
-var string  = "";
-for(var i = 0; i < carouselInner.children.length; i ++) {
+var string = "";
+for (var i = 0; i < carouselInner.children.length; i++) {
     if (i === 0) {
-        string += "<li><button class='orange'></button></li>"
-    }
-    else {
-        string += "<li><button></button></li>"
+        string += "<li><button class='orange'></button></li>";
+    } else {
+        string += "<li><button></button></li>";
     }
 }
 checkBtns.innerHTML = string;
@@ -36,11 +35,11 @@ var figure = {
     clientXStart: 0,
     clientXEnd: 0,
 };
-function runcheck () {
-    var result1 = list.findIndex(function(value) {
+function runcheck() {
+    var result1 = list.findIndex(function (value) {
         return carouselInner.style.translate === value + "px";
-    })
-    console.log(result1,carouselInner.style.translate)
+    });
+    console.log(result1, carouselInner.style.translate);
     Array.from(checkBtns.children).forEach(function (value) {
         value.children[0].classList.remove("orange");
     });
@@ -53,6 +52,10 @@ nextBtn.addEventListener("click", function (e) {
         figure.pos = position;
         console.log(figure.pos);
         runcheck();
+    } else {
+        position = 0;
+        carouselInner.style.translate = `${position}px`;
+        runcheck();
     }
 });
 
@@ -61,7 +64,11 @@ prevBtn.addEventListener("click", function (e) {
         position += itemWidth;
         carouselInner.style.translate = `${position}px`;
         figure.pos = position;
-        console.log(figure.pos);
+        clearInterval(setInter);
+
+        setInter = setInterval(function () {
+            nextBtn.click();
+        }, 5000);
         runcheck();
     }
 });
@@ -143,3 +150,7 @@ btn.forEach(function (value, index) {
         carouselInner.style.translate = `${position}px`;
     });
 });
+
+var setInter = setInterval(function () {
+    nextBtn.click();
+}, 5000);
