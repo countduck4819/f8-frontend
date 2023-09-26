@@ -14,14 +14,16 @@ var handleDrag = function (e) {
     percent = +percent.toFixed(2) + +currentPercent;
     percent2 = +percent2.toFixed(2) + +currentPercent;
     audio.removeEventListener("timeupdate",listenTimeUpdate)
-    if (percent < 0) {
+    if (percent < 0 || percent2 < 0) {
         percent = 0;
         percent2 = 0
     }
-    else if (percent > 100) {
+    else if (percent > 100 || percent2 > 100) {
         percent = 100;
-        percent2= 100;
+        percent2 = 100;
     }
+    var time = convertPercentToSeconds(percent2);
+    currentTimeEl.innerText = getTime(time);
     progress.style.width = `${percent2}%`
     
 }
@@ -134,7 +136,7 @@ audio.addEventListener("timeupdate", listenTimeUpdate)
 
 audio.ontimeupdate = function(e){ 
     var currentTime = audio.currentTime;
-    currentTimeEl.innerText = getTime(currentTime);
+    // currentTimeEl.innerText = getTime(currentTime);  
     // chuyển currentTime thành phần trăm
     percent = (currentTime * 100) / audio.duration
     console.log(currentTime)
