@@ -1,100 +1,101 @@
+
 .container {
-  padding-bottom: 100px;
-  background-color: #8758FF;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: "Poppins", sans-serif;
-  box-sizing: border-box;
+    padding-bottom: 100px;
+    background-color: #8758ff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
 }
 .container .btn {
-  border: none;
-  background-color: #8758FF;
-  color: #fff;
+    border: none;
+    background-color: #8758ff;
+    color: #fff;
 }
 .container .todolist {
-  background-color: #1A1A40;
-  min-width: 450px;
-  min-height: 200px;
-  margin-top: 80px;
-  text-align: center;
-  border-radius: 5px;
+    background-color: #1a1a40;
+    min-width: 450px;
+    min-height: 200px;
+    margin-top: 80px;
+    text-align: center;
+    border-radius: 5px;
 }
 .container .todolist .content {
-  margin: 38px 0px 60px;
+    margin: 38px 0px 60px;
 }
 .container .todolist .content .heading {
-  font-weight: 600;
-  font-size: 28px;
-  color: #fff;
+    font-weight: 600;
+    font-size: 28px;
+    color: #fff;
 }
 .container .todolist .content .addtag {
-  margin: 30px auto;
-  display: flex;
-  justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
 }
 .container .todolist .content .addtag .input-todo {
-  font-family: Poppins, sans-serif;
-  font-weight: 400;
-  width: 280px;
-  color: #fff;
-  padding-left: 20px;
-  height: 35px;
-  border: 1px solid #8758FF;
-  background-color: #1A1A40;
-  font-size: 13px;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    width: 280px;
+    color: #fff;
+    padding-left: 20px;
+    height: 35px;
+    border: 1px solid #8758ff;
+    background-color: #1a1a40;
+    font-size: 13px;
 }
 .container .todolist .content .addtag .input-todo:focus {
-  outline: none;
+    outline: none;
 }
 .container .todolist .content .addtag .input-todo::placeholder {
-  color: #5F5667;
+    color: #5f5667;
 }
 .container .todolist .content .addtag .add-btn {
-  font-family: "Poppins", sans-serif;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 13px;
-  font-weight: 400;
-  width: 80px;
-  height: 40px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 400;
+    width: 80px;
+    height: 40px;
 }
 .container .todolist .content .tag-done {
-  cursor: pointer;
-  margin: auto 33px 15px;
-  min-width: 384px;
-  height: 50px;
-  background-color: #8758FF;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
+    cursor: pointer;
+    margin: auto 33px 15px;
+    min-width: 384px;
+    height: 50px;
+    background-color: #8758ff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
 }
 .container .todolist .content .tag-done .check-done {
-  padding-left: 20px;
-  text-align: left;
-  color: #fff;
+    padding-left: 20px;
+    text-align: left;
+    color: #fff;
 }
 .container .todolist .content .tag-done .select {
-  margin-left: auto;
-  margin-right: 20px;
-  flex-basis: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 13px;
+    margin-left: auto;
+    margin-right: 20px;
+    flex-basis: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
 }
 .container .todolist .content .tag-done .select .fix-tag {
-  cursor: pointer;
-  color: #fff;
+    cursor: pointer;
+    color: #fff;
 }
 .container .todolist .content .tag-done .select .delete-tag {
-  cursor: pointer;
-  color: #fff;
+    cursor: pointer;
+    color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

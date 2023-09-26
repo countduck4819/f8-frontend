@@ -5,20 +5,24 @@ var initialClientX;
 var percent = 0;
 var currentPercent = 0;
 var moveWidth;
+var percent2 = 0;
 var a = false;
 var handleDrag = function (e) {
     moveWidth = e.clientX - initialClientX;
     percent = (moveWidth * 100) / progressBar.clientWidth;
-    console.log(percent)
+    percent2 = (moveWidth * 100) / progressBar.clientWidth;
     percent = +percent.toFixed(2) + +currentPercent;
+    percent2 = +percent2.toFixed(2) + +currentPercent;
     audio.removeEventListener("timeupdate",listenTimeUpdate)
     if (percent < 0) {
         percent = 0;
+        percent2 = 0
     }
     else if (percent > 100) {
         percent = 100;
+        percent2= 100;
     }
-    progress.style.width = `${percent}%`
+    progress.style.width = `${percent2}%`
     
 }
 var convertPercentToSeconds = function(percent) {
@@ -36,6 +40,8 @@ progressBar.addEventListener("mousedown",function(e) {
     audio.currentTime = convertPercentToSeconds(percent);
     initialClientX = e.clientX;
     currentPercent = percent;
+    percent2 = percent;
+    console.log(currentPercent)
     document.addEventListener("mousemove",handleDrag)
 })
 
@@ -46,11 +52,8 @@ progressSpan.addEventListener("mousedown",function(e){
 })
 
 document.addEventListener("mouseup",function(e){
-    currentPercent = percent;
-    console.log(currentPercent);
-    percent = (moveWidth * 100) / progressBar.clientWidth + +currentPercent;
-    moveWidth = 0;
-    audio.currentTime = convertPercentToSeconds(percent);
+    currentPercent = percent2;
+    audio.currentTime = convertPercentToSeconds(percent2);
     audio.addEventListener("timeupdate",listenTimeUpdate)
     document.removeEventListener("mousemove",handleDrag)
 })
@@ -108,6 +111,7 @@ var listenTimeUpdate = function(e){
     currentTimeEl.innerText = getTime(currentTime);
     // chuyển currentTime thành phần trăm
     percent = (currentTime * 100) / audio.duration
+    console.log(currentTime)
     if (a === false) {
         a = currentTime + 1 > audio.duration && audio.paused === false
     }
@@ -133,6 +137,7 @@ audio.ontimeupdate = function(e){
     currentTimeEl.innerText = getTime(currentTime);
     // chuyển currentTime thành phần trăm
     percent = (currentTime * 100) / audio.duration
+    console.log(currentTime)
     if (a === false) {
         a = currentTime + 1 > audio.duration && audio.paused === false
     }
@@ -180,18 +185,4 @@ durationEl.addEventListener("mouseup",function(e){
     e.preventDefault();
     e.stopPropagation();
 })
-
-// document.addEventListener("click",function(e){
-//     e.preventDefault();
-//     if (audio.paused === false) {
-//         audio.play()
-//     }
-// })
-// document.addEventListener("mousedown",function(e){
-//     e.preventDefault();
-//     if (audio.paused === false) {
-//         console.log("pause")
-//         audio.play()
-//     }
-// })
 

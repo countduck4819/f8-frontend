@@ -1,63 +1,64 @@
 * {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    user-select: none;
 }
 
 .player {
-  margin: 30px auto;
-  max-width: 90%;
+    margin: 30px auto;
+    max-width: 90%;
 }
 .player .play-btn {
-  text-align: center;
+    text-align: center;
 }
 .player .play-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
 }
 
 .progress-bar {
-  background-color: gray;
-  height: 10px;
-  position: relative;
-  width: 100%;
-  cursor: pointer;
+    background-color: gray;
+    height: 10px;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
 }
 .progress-bar .info-time {
-  background-color: black;
-  width: 45px;
-  height: 20px;
-  position: relative;
-  top: -5px;
-  left: 0;
-  translate: -50% -100%;
-  color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
+    background-color: black;
+    width: 45px;
+    height: 20px;
+    position: relative;
+    top: -5px;
+    left: 0;
+    translate: -50% -100%;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
 }
 .progress-bar .progress {
-  background-color: orange;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  cursor: pointer;
+    background-color: orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    cursor: pointer;
 }
 .progress-bar .progress span {
-  border-radius: 50%;
-  width: 13px;
-  height: 13px;
-  background-color: blueviolet;
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  translate: 50% -50%;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    background-color: blueviolet;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    translate: 50% -50%;
 }
 
 /*# sourceMappingURL=style.css.map */
