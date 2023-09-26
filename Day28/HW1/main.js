@@ -7,7 +7,9 @@ var currentPercent = 0;
 var moveWidth;
 var percent2 = 0;
 var a = false;
+var mousemove = 0;
 var handleDrag = function (e) {
+    mousemove = 1;
     moveWidth = e.clientX - initialClientX;
     percent = (moveWidth * 100) / progressBar.clientWidth;
     percent2 = (moveWidth * 100) / progressBar.clientWidth;
@@ -54,8 +56,12 @@ progressSpan.addEventListener("mousedown",function(e){
 })
 
 document.addEventListener("mouseup",function(e){
+    console.log(e)
     currentPercent = percent2;
-    audio.currentTime = convertPercentToSeconds(percent2);
+    if (mousemove === 1) {
+        audio.currentTime = convertPercentToSeconds(percent2);
+        mousemove = 0;
+    }
     audio.addEventListener("timeupdate",listenTimeUpdate)
     document.removeEventListener("mousemove",handleDrag)
 })
