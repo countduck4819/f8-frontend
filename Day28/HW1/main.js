@@ -120,6 +120,7 @@ var listenTimeUpdate = function(e){
     // chuyển currentTime thành phần trăm
     percent = (currentTime * 100) / audio.duration
     console.log(currentTime)
+
     if (a === false) {
         a = currentTime + 1 > audio.duration && audio.paused === false
     }
@@ -131,6 +132,7 @@ var listenTimeUpdate = function(e){
             percent = 0;
         }
         else {
+            console.log("fjkajkf")
             progress.style.width = `${percent}%`
             percent = 0;
             audio.play()
@@ -157,7 +159,7 @@ audio.ontimeupdate = function(e){
             percent = 0;
         }
         else {
-            progress.style.width = `${percent}%`
+            progress.style.width = `${percent}%`;
             percent = 0;
             audio.play()
         }
@@ -193,4 +195,7 @@ durationEl.addEventListener("mouseup",function(e){
     e.preventDefault();
     e.stopPropagation();
 })
+
+
+
 
