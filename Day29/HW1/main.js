@@ -61,9 +61,9 @@ var removeElement = function (rev, value) {
             stringHTML = `<tr><th width="5.3%">STT</th><th>Tên sản phẩm</th><th width="20%">Giá</th><th width="20%">Số lượng</th><th width="20%">Thành tiền</th><th width="5.3%">Xoá</th></tr>`;
             Array.from(tableShop.children).forEach(function(value,id){
                 var price = subItem[id].querySelector(".price")
-                console.log(price)
+                console.log(listQuantity)
                 var actionItem = subItem[_index].querySelector(".action").children[0];
-                if (value.getAttribute("data-index") && quantityProduct[value.getAttribute("data-index") - 1] !== 0) {
+                if (value.getAttribute("data-index") && listQuantity[value.getAttribute("data-index") - 1] !== 0) {
                     console.log(value)
                     stringHTML += `<tr data-index="${value.dataset.index}">
                     <td>${stt}</td>
@@ -72,7 +72,7 @@ var removeElement = function (rev, value) {
                     <td><input type="number" min="1" name="" id="" value="${
                         actionItem.value
                     }"></td>
-                    <td class="total-item">${listQuantity[_index - 1]}</td>
+                    <td class="total-item">${listQuantity[value.getAttribute("data-index") - 1]}</td>
                     <td><button class="remove" type="button">
                         Xóa
                     </button></td>
@@ -82,6 +82,12 @@ var removeElement = function (rev, value) {
                 } 
             })
             updateTotal();
+            Array.from(tableShop.children).forEach(function(value){
+                if (value.getAttribute("data-index")) {
+                    var _index = +value.getAttribute("data-index")
+                    removeElement(value.querySelector(`.remove`),value);
+                }
+            })
         }
     });
 };
@@ -144,3 +150,5 @@ Array.from(subItem).forEach(function (value, index) {
         });
     }
 });
+var hr = document.querySelector("hr");
+var xoa = document.querySelector("");
