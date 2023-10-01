@@ -30,8 +30,8 @@ const products = [
   var result = products.reduce(function(prev,value,index) {
     return prev + `<tr>
     <td>${index + 1}</td>
-    <td >Sản phẩm ${index + 1}</td>
-    <td class="price">${index+1}000</td>
+    <td >${value.name}</td>
+    <td class="price">${value.price}</td>
     <td class="action"><input type="number" min="1" value="1"/>
         <button class="btn" type="button">
             Thêm vào giỏ hàng
