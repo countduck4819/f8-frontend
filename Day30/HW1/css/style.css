@@ -1,0 +1,119 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+body .show {
+  inset: 0;
+  translate: 0 0;
+}
+
+.player {
+  margin: 30px auto;
+  max-width: 90%;
+  text-align: center;
+}
+.player .play-btn {
+  margin-bottom: 15px;
+  display: inline-block;
+}
+.player .play-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.progress-bar {
+  background-color: gray;
+  height: 10px;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+.progress-bar .info-time {
+  background-color: black;
+  width: 45px;
+  height: 20px;
+  position: relative;
+  top: -5px;
+  left: 0;
+  translate: -50% -100%;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+.progress-bar .progress {
+  background-color: orange;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  cursor: pointer;
+}
+.progress-bar .progress span {
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  background-color: blueviolet;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  translate: 50% -50%;
+}
+
+.open-karaoke {
+  background-color: #8a2be2;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  cursor: pointer;
+}
+
+.karaoke {
+  position: absolute;
+  inset: 0;
+  translate: 0 100%;
+  background-color: #8a2be2;
+  transition: translate 1s ease-in;
+}
+.karaoke .karaoke-header {
+  margin: 50px auto;
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+.karaoke .karaoke-header h2 {
+  font-size: 48px;
+  font-family: "Times New Roman", sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+.karaoke .karaoke-header .close {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+.karaoke .karaoke-inner {
+  color: #fff;
+  font-size: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  font-family: "Times New Roman";
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=style.css.map */
