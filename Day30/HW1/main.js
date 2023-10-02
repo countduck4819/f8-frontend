@@ -17,16 +17,17 @@ lyric.data.sentences.forEach(function(value,index) {
         var connect = {};
         connect.sentences = []
         connect.sentences.push(value.words);
-        console.log(lyric.data.sentences[index + 1])
-        if (value.words.at(-1).endTime + 500 >= lyric.data.sentences[index + 1]?.words.at?.(0)?.startTime) {
+        if (value.words.at(-1).endTime + 1000 >= lyric.data.sentences[index + 1]?.words.at?.(0)?.startTime) {
             connect.sentences.push(lyric.data.sentences[index + 1].words);
-            console.log(1)
+            indexWord = index + 1;
+        }
+        else {
+            console.log(indexWord)
+            indexWord -= 1
         }
         lyricsCreate.data.push(connect);
-        indexWord = index + 1;
     }
 })
-console.log(lyricsCreate)
 var handleDrag = function (e) {
     mousemove = 1;
     moveWidth = e.clientX - initialClientX;
@@ -64,7 +65,6 @@ progressBar.addEventListener("mousedown",function(e) {
     initialClientX = e.clientX;
     currentPercent = percent;
     percent2 = percent;
-    console.log(currentPercent)
     document.addEventListener("mousemove",handleDrag)
 })
 
@@ -101,9 +101,6 @@ var getTime = function(seconds) {
 
 // lấy thời lượng của audio
 audio.addEventListener("loadeddata",function(e){
-    console.log(1)
-    console.log(getTime(audio.duration))
-    console.log(audio.duration)
     durationEl.innerText = getTime(audio.duration);
 })
 
@@ -144,12 +141,10 @@ var listenTimeUpdate = function(e){
     }
     if (currentTime === audio.duration) {
         if (a === true) {
-            console.log(2)
             audio.pause();
             percent = 0;
         }
         else {
-            console.log("fjkajkf")
             progress.style.width = `${percent}%`
             percent = 0;
             audio.play()
@@ -169,7 +164,6 @@ audio.ontimeupdate = function(e){
     }
     if (currentTime === audio.duration) {
         if (a === true) {
-            console.log(2)
             audio.pause();
             percent = 0;
         }
@@ -231,7 +225,6 @@ openKaraoke.addEventListener("click",function(e){
 
 audio.addEventListener("timeupdate",function(e) {
     var currentTime = audio.currentTime * 1000;
-    console.log(currentTime);
     var result = [];
     var data = lyricsCreate.data;
     var karaokeInner = document.querySelector(".karaoke-inner");
@@ -276,7 +269,6 @@ audio.addEventListener("timeupdate",function(e) {
     //     indexWord = index;
     // }
     if (index === -1)  {
-        console.log(pseudoIndex)
         if (data[pseudoIndex]?.sentences.at?.(-1).at?.(-1)?.endTime + 800 >=  data[pseudoIndex + 1]?.sentences.at?.(0).at?.(0)?.startTime) {
             karaokeInner.innerHTML = ""
         }else {
