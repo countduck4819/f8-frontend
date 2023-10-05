@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.list {
+  border: 17px solid #4286F4;
+  width: 550px;
+  background-color: #4286F4;
+}
+.list .list-item {
+  margin: 1px 1px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 35px;
+  border: 1px solid #fff;
+  background-color: #8BB3F4;
+  font-size: 16px;
+  font-family: "Times New Roman", serif;
+}
+.list .active {
+  background: rgb(255, 111, 0);
+}
+.list .ghost {
+  opacity: 0.4;
+}
+
+/*# sourceMappingURL=style.css.map */

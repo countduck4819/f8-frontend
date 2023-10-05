@@ -287,7 +287,10 @@ audio.addEventListener("timeupdate",function(e) {
         })
 
         karaokeInner.innerHTML = stringHTML
-        karaokeInner.style.textAlign = "center"
+        karaokeInner.style.textAlign = "center";
+        Array.from(karaokeInner.children).forEach(function(value){
+            
+        })
     }
 })
 
