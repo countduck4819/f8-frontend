@@ -1,10 +1,4 @@
-var createList = function() {
-
-}
 var list = document.querySelector(".list");
-list.addEventListener("drop",function(e){
-    item.classList.remove("ghost")
-})
 var module = 1;
 var ex = 1;
 var resetIndex = function() {
@@ -96,4 +90,3 @@ var handleSort = function(e){
     }
 }
 list.addEventListener("dragover",handleSort)
-console.log(list.children[33].offsetTop)
