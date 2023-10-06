@@ -80,6 +80,7 @@ listItems.forEach(function(item) {
 
 
 var handleSort = function(e){
+    e.preventDefault();
     var dragGhost = list.querySelector(".ghost");
     var items = list.querySelectorAll(".list-item:not(.ghost)")
     console.log(+e.offsetY  , (+e.target.offsetHeight / 5) + 1, e.target)
