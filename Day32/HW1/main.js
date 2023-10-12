@@ -1,100 +1,93 @@
-var container = document.querySelector(".container");
-var button = document.querySelector(".container button");
-var countDown = document.createElement("div");
-var textNode = document.createTextNode("30");
-var currentDataTextNode = textNode.data;
-var updateCount = 0;
-var timeCount;
-var startTime = 0;
-var endTime;
-var check = 0;
-var visibilityState = "visible";
-var animationFrame;
-countDown.classList.add("countdown");
-container.insertBefore(countDown, button);
-countDown.append(textNode);
-var vis = new Event("visible");
-var hid = new Event("hidden");
-var desCount = function () {
-    window.addEventListener("visibilitychange", () => {
-        if (window.visibilityState === "hidden") {
-            visibilityState = "hidden";
-        } else {
-            visibilityState = "visible";
-        }
-    });
-    console.log(visibilityState)
-    if (visibilityState === "hidden") {
-        // console.log("di choi")
-        startTime = performance.now();
-        check = 1;
-        currentDataTextNode = +textNode.data;
-    } else {
-        // console.log(startTime,endTime,check)
-        if (check === 1) {
-            startTime = performance.now();
-            check = 0;
-        }
-        endTime = performance.now();
-        timeCount = endTime - startTime;
-    }
-    // console.log(timeCount)
-    timeCount = +Math.floor(timeCount / 1000);
-    // console.log(timeCount)
-    if (timeCount !== updateCount) {
-        textNode.data = currentDataTextNode - timeCount;
-    }
-    animationFrame = requestAnimationFrame(desCount);
-    // // console.log(+textNode.data === 0,+textNode.data)
-    if (+textNode.data === 0 || timeCount >= +currentDataTextNode) {
-        button.dispatchEvent(vis);
-        textNode.data = 0;
-        cancelAnimationFrame(animationFrame);
-    }
-    updateCount = timeCount;
-};
-desCount();
-button.addEventListener("visible", function () {
-    this.addEventListener("click", function (e) {
-        var urlEncode = unescape(
-            "https%3A//www.youtube.com/watch%3Fv%3DZ-aoaJvegHE%26ab_channel%3DK%25E1%25BA%25BB%25C4%2590%25C3%25A1ngTh%25C6%25B0%25C6%25A1ng"
-        );
-        window.location.href = urlEncode;
-    });
-
-    this.classList.remove("hidden");
-    this.classList.add("visible");
-});
-
-button.addEventListener("hidden", function (e) {
-    this.classList.remove("visible");
-    this.classList.add("hidden");
-});
-
-if (+textNode.innerText === 0) {
-    button.dispatchEvent(vis);
+var btnFile = document.querySelector(".btn-file");
+var ul = btnFile.nextElementSibling;
+var inputContent = document.querySelector(".input-content");
+var textNodeChar = document.createTextNode("0");
+var textNodeWord = document.createTextNode("0");
+var char = document.querySelector(".char")
+var word = document.querySelector(".word")
+var fileName = document.querySelector("#filename-input")
+char.append(textNodeChar)
+word.append(textNodeWord)
+var countChar = function(textContent) {
+    return textContent.trim().length;
 }
+var countWord = function(textContent) {
+    return textContent.replaceAll("\n"," ").trim().split(" ").filter(function(word) {
+        return word !== "" && word !== " ";
+    }).length;
+}
+var handleCount = function(e) {
+    var textContent = inputContent.innerText;
+    var quantityChar = countChar(textContent);
+    textNodeChar.data = quantityChar;
+    var quantityWord = countWord(textContent);
+    textNodeWord.data = quantityWord
+}
+btnFile.addEventListener("click",function(e) {
+    e.stopPropagation()
+    ul.classList.toggle("hidden");
+})
 
-// // window.addEventListener("visibilitychange", function() {
-// //     if (document.hidden){
-// //         console.log("Browser tab is hidden")
-// //     } else {
-// //         console.log("Browser tab is hiddend")
-// //     }
-// // });
+document.addEventListener("click",function(e) {
+    ul.classList.add("hidden");
+})
 
-// document.addEventListener("visibilitychange", () => {
-//     console.log(document.visibilityState);
-//     console.log(performance.now())
-//     console.log("djksafjkasfjkds")
-//   });
+ul.children[0].addEventListener("click",function(e){
+    console.log(1)
+})
 
-// document.addEventListener("visibilitychange", () => {
-//     if (document.visibilityState === "hidden") {
-//         visibilityState = "hidden";
-//         console.log(visibilityState)
-//     }
-//     else {
-//         visibilityState = "visible";
-//     }
-// });
+inputContent.addEventListener("input",handleCount, false);
+
+
+var news = document.querySelector(".list .news");
+news.addEventListener("click",function(e) {
+    inputContent.outerHTML = `<div class="input-content" contenteditable="true" spellcheck="false"></div>`
+    inputContent = document.querySelector(".input-content")
+    inputContent.addEventListener("input",handleCount,false)
+    textNodeChar.data = 0;
+    textNodeWord.data = 0;
+})
+
+var pdf = document.querySelector(".list .pdf");
+pdf.addEventListener("click",function(e) {
+    var opt = {
+    margin:       1,
+    filename:     `${fileName.value}.pdf`,
+    image:        { type: 'webp', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+// New Promise-based usage:
+    html2pdf().set(opt).from(inputContent).save();
+})
+
+
+var btnBold = document.querySelector(".btn-bold")
+btnBold.addEventListener("click",function(e) {
+    document.execCommand("bold")
+})
+
+var btnItalic = document.querySelector(".btn-italic")
+btnItalic.addEventListener("click",function(e) {
+    document.execCommand("italic")
+})
+
+var btnUnderline = document.querySelector(".btn-underline")
+btnUnderline.addEventListener("click",function(e) {
+    document.execCommand("underline")
+})
+
+var btnColor = document.querySelector(".color")
+btnColor.addEventListener("blur",function(e) {
+    document.execCommand('styleWithCSS', false, true);
+    document.execCommand('foreColor', false, `${this.value}`);
+})
+
+var txt = document.querySelector(".list .txt");
+txt.addEventListener("click",function(e) {
+    txt.children[0].download = `${fileName.value}.txt`;
+    let blob = new Blob([`${inputContent.innerText}`], {type: 'text/plain'});
+    txt.children[0].href = URL.createObjectURL(blob);
+    txt.children[0].click();
+})

@@ -16,13 +16,36 @@ countDown.append(textNode);
 var vis = new Event("visible");
 var hid = new Event("hidden");
 var desCount = function () {
-    endTime = performance.now();
+    window.addEventListener("visibilitychange", () => {
+        if (window.visibilityState === "hidden") {
+            visibilityState = "hidden";
+        } else {
+            visibilityState = "visible";
+        }
+    });
+    console.log(visibilityState);
+    if (visibilityState === "hidden") {
+        // console.log("di choi")
+        startTime = performance.now();
+        check = 1;
+        currentDataTextNode = +textNode.data;
+    } else {
+        // console.log(startTime,endTime,check)
+        if (check === 1) {
+            startTime = performance.now();
+            check = 0;
+        }
+        endTime = performance.now();
         timeCount = endTime - startTime;
+    }
+    // console.log(timeCount)
     timeCount = +Math.floor(timeCount / 1000);
+    // console.log(timeCount)
     if (timeCount !== updateCount) {
         textNode.data = currentDataTextNode - timeCount;
     }
     animationFrame = requestAnimationFrame(desCount);
+    // // console.log(+textNode.data === 0,+textNode.data)
     if (+textNode.data === 0 || timeCount >= +currentDataTextNode) {
         button.dispatchEvent(vis);
         textNode.data = 0;
@@ -52,11 +75,26 @@ if (+textNode.innerText === 0) {
     button.dispatchEvent(vis);
 }
 
-document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden") {
-        currentDataTextNode = +textNode.data;
-    }
-    else {
-        startTime = performance.now() - 500;
-    }
-});
+// // window.addEventListener("visibilitychange", function() {
+// //     if (document.hidden){
+// //         console.log("Browser tab is hidden")
+// //     } else {
+// //         console.log("Browser tab is hiddend")
+// //     }
+// // });
+
+// document.addEventListener("visibilitychange", () => {
+//     console.log(document.visibilityState);
+//     console.log(performance.now())
+//     console.log("djksafjkasfjkds")
+//   });
+
+// document.addEventListener("visibilitychange", () => {
+//     if (document.visibilityState === "hidden") {
+//         visibilityState = "hidden";
+//         console.log(visibilityState)
+//     }
+//     else {
+//         visibilityState = "visible";
+//     }
+// });

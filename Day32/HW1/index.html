@@ -4,14 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/reset.css">
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="desc">GET LINK</div>
-        <button class="btn hidden">Get Link</button>
+    <div class="containers">
+        <h1>Doc Editor</h1>
+        <hr/>
+        <div class="action">
+            <div class="main-action">
+                <div class="file">
+                    <button class="btn btn-file">File</button>
+                    <ul class="list hidden">
+                        <li class="news">New</li>
+                        <li class="txt"><a href="#!" id="link">Save as txt</a></li>
+                        <li class="pdf">Save as pdf</li>
+                    </ul>
+                </div>
+                <input type="text" name="filename-input" id="filename-input" value="untitled">
+            </div>
+            <div class="action-button">
+                <button class="btn btn-bold"><b>b</b></button>
+                <button class="btn btn-underline"><u>u</u></button>
+                <button class="btn btn-italic"><i>i</i></button>
+                <input type="color" id="color" class="color" value="#000000">
+            </div>
+        </div>
+        <div class="input-content" contenteditable="true" spellcheck="false"></div>
+        <div class="count">
+            <div class="char">Số ký tự: </div>
+            <div class="word">Số từ: </div>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./main.js"></script>
