@@ -23,7 +23,7 @@ var desCount = function () {
             visibilityState = "visible";
         }
     });
-    console.log(document.visibilityState)
+    console.log(visibilityState)
     if (visibilityState === "hidden") {
         // console.log("di choi")
         startTime = performance.now();
