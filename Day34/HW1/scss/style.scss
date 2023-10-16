@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+   background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    // width: 100vw;
+    min-height: 300px;
+    height: 100vh;
+    .img {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        border: 5px solid red;
+        &:not(.zoom-img){
+            .ghost {
+                position: absolute;
+                z-index: 2;
+                opacity: 0.3;
+                width: 40px;
+                height: 30px;
+                top: 0px;
+                left: 0px;
+                background-color: red;
+            }
+        }
+    }
+    .hidden {
+        visibility: hidden;
+    }
+}
