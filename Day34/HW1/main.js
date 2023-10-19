@@ -48,7 +48,7 @@ function Zoom(e) {
 
 screenImg.addEventListener("mousemove", Zoom);
 
-document.addEventListener("mousemove", function (e) {
+window.addEventListener("mouseover", function (e) {
     zoom.classList.remove("ghost");
     zoomImage.classList.add("hidden");
     img.removeEventListener("mousemove", Zoom);
