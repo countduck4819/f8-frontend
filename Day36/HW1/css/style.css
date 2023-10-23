@@ -1,0 +1,33 @@
+.container {
+  text-align: center;
+  font-family: sans-serif;
+  height: 100vh;
+}
+.container .box {
+  width: 70%;
+  margin: 35px auto;
+  border: 1px solid green;
+  padding: 20px;
+  border-radius: 10px;
+  color: #000;
+}
+.container .heading {
+  padding-top: 50px;
+  font-size: 30px;
+}
+.container .btn-voice {
+  cursor: pointer;
+  margin: 30px 0px;
+  padding: 10px 20px 13px;
+  font-size: 25px;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  background-color: orange;
+  transition: background-color 0.3s ease-out;
+}
+.container .btn-voice:hover {
+  background-color: green;
+}
+
+/*# sourceMappingURL=style.css.map */
