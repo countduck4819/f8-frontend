@@ -1,0 +1,189 @@
+.header {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 10px 5.16%;
+  background-color: #2F89FC;
+}
+.header .container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .container .logo {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  gap: 5px;
+}
+.header .container .logo .text-logo {
+  font-family: sans-serif;
+  font-weight: 400;
+}
+.header .container .menu {
+  font-size: 16px;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 150px;
+  color: #fff;
+  font-weight: 500;
+  margin: 0px 20px;
+}
+.header .container .icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.content .banner {
+  min-height: 140px;
+}
+.content .features-products {
+  margin: 30px 17.5% 0px;
+}
+.content .features-products h2.heading {
+  text-align: center;
+  font-size: 32px;
+  font-family: sans-serif;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.content .features-products .products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+.content .features-products .products .product-item {
+  border: 1px solid #ccc;
+  padding: 15px 20px;
+  width: 23.3%;
+  max-width: 23.3%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.content .features-products .products .product-item .img {
+  width: 140px;
+  height: 140px;
+}
+.content .features-products .products .product-item .img img {
+  object-fit: contain;
+}
+.content .features-products .products .product-item h3.heading {
+  margin: 18px auto 0px;
+  width: 87%;
+  line-height: 1.4;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+.content .features-products .products .product-item .item-info {
+  width: 90%;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.content .features-products .products .product-item .item-info .star {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+.content .features-products .products .product-item .item-info .star svg {
+  margin-bottom: 5px;
+  border: 1px solid yellow;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+.content .features-products .products .product-item .price {
+  margin-top: 20px;
+  font-size: 40px;
+  font-family: sans-serif;
+  color: #2f89fc;
+  letter-spacing: 2px;
+}
+.content .features-products .products .product-item .action-btn {
+  width: 96%;
+  margin-top: 20px;
+  display: flex;
+  gap: 5px;
+}
+.content .features-products .products .product-item .action-btn .btn {
+  flex-grow: 1;
+  border-radius: 8px;
+  border: none;
+  background-color: #fff;
+  font-size: 18px;
+  padding: 10px 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+}
+.content .features-products .products .product-item .action-btn .btn:hover {
+  opacity: 0.6;
+}
+.content .features-products .products .product-item .action-btn .btn-add {
+  border: 3px solid #fa163f;
+  color: #fa163f;
+}
+.content .features-products .products .product-item .action-btn .btn-buy {
+  color: #fff;
+  background-color: #fa163f;
+}
+
+.con {
+  margin-top: 0px !important;
+}
+
+.skeleton {
+  background-color: #eee;
+  position: relative;
+  overflow: hidden;
+}
+.skeleton::before {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(90deg, #eee, #f9f9f9, #eee);
+  position: absolute;
+  top: 0;
+  left: -100%;
+  animation: loop 1s ease-in infinite;
+  filter: brightness(50) blur(0.4);
+}
+.skeleton.box {
+  width: 30px;
+  height: 30px;
+}
+.skeleton.heading {
+  width: 100%;
+  height: 30px;
+}
+.skeleton.span {
+  display: inline-block;
+  width: 120px;
+  height: 30px;
+}
+.skeleton.btn {
+  margin-top: 0px !important;
+  background-color: #eee !important;
+  height: 40px;
+  border-radius: none;
+}
+
+@keyframes loop {
+  to {
+    left: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
