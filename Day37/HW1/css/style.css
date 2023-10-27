@@ -160,6 +160,10 @@
   animation: loop 1s ease-in infinite;
   filter: brightness(50) blur(0.4);
 }
+.skeleton.price {
+  width: 100px;
+  height: 40px;
+}
 .skeleton.box {
   width: 30px;
   height: 30px;
@@ -174,7 +178,7 @@
   height: 30px;
 }
 .skeleton.btn {
-  margin-top: 0px !important;
+  margin-top: 20px !important;
   background-color: #eee !important;
   height: 40px;
   border-radius: none;

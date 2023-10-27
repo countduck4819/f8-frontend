@@ -159,6 +159,10 @@
         animation: loop 1s ease-in infinite;
         filter: brightness(50) blur(0.4);
     }
+    &.price {
+        width: 100px;
+        height: 40px;
+    }
     &.box {
         width: 30px;
         height: 30px;
@@ -173,7 +177,7 @@
         height: 30px;
     }
     &.btn {
-        margin-top: 0px !important;
+        margin-top: 20px !important;
         background-color: #eee !important;
         height: 40px;
         border-radius: none;
