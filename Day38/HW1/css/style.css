@@ -1,0 +1,306 @@
+* {
+  box-sizing: border-box;
+}
+
+.add-item {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(55, 65, 81, 0.6);
+  z-index: 2;
+}
+.add-item.hidden {
+  display: none;
+}
+.add-item .box {
+  background-color: #fff;
+  width: 450px;
+  height: 200px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+.add-item .box input {
+  margin: 25px;
+  width: 90%;
+  height: 55px;
+  font-size: 16px;
+  padding: 10px 15px;
+  border: 1px solid #aaa;
+  border-radius: 7px;
+  background-color: #eee;
+}
+.add-item .box input:focus {
+  border-color: #000;
+}
+.add-item .box .action {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+.add-item .box .action .btn-action {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.add-item .box .action .btn-action .btn {
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 15px;
+  height: 43px;
+  font-size: 16px;
+  font-weight: 500px;
+  border: none;
+}
+.add-item .box .action .btn-action .btn-cancel {
+  color: #000;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+.add-item .box .action .btn-action .btn-cancel:hover {
+  background-color: rgb(243, 244, 246);
+}
+.add-item .box .action .btn-action .btn-ok {
+  background-color: rgb(4, 120, 87);
+}
+.add-item .box .action .btn-action .btn-ok:hover {
+  background-color: rgb(6, 95, 70);
+}
+
+.container {
+  font-family: "Nunito", sans-serif;
+  width: 1200px;
+  margin: 200px auto;
+}
+.container .rotate {
+  rotate: -90deg;
+}
+.container .hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.container .color-btn {
+  background-color: rgb(156, 163, 175) !important;
+}
+.container .color-btn:hover {
+  background-color: rgb(107, 114, 128) !important;
+}
+.container h2 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+.container h2 span {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #059669, #60a5fa);
+}
+.container .add-search {
+  width: 66.666%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.container .add-search .search {
+  flex-grow: 1;
+  margin-top: 0px;
+  position: relative;
+}
+.container .add-search .search input {
+  font-size: 16px;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 5px 15px;
+  width: 100%;
+  height: 52px;
+}
+.container .add-search .search input:focus {
+  border: 2px solid #000;
+}
+.container .add-search .search .btn {
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: rgb(29, 78, 216);
+  width: 50px;
+  height: 43px;
+  position: absolute;
+  top: 50%;
+  translate: -10px -50%;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .add-search .search .btn:hover {
+  background-color: rgb(30, 64, 175);
+}
+.container .add-search .btn-add {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 7px;
+  height: 47px;
+  border: none;
+  background-color: rgb(4, 120, 87);
+}
+.container .add-search .btn-add:hover {
+  background-color: rgb(6, 95, 70);
+}
+.container .data-current .data-item {
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 rgba(0, 0, 0, 0), 0 0 rgba(0, 0, 0, 0), var(--tw-shadow);
+  padding: 15px 15px;
+  width: 66.666%;
+  display: flex;
+  border: 1px solid rgb(229, 231, 235);
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 7px;
+}
+.container .data-current .data-item .text {
+  font-size: 18px;
+}
+.container .data-current .data-item .action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.container .data-current .data-item .action .btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+.container .data-current .data-item .action .btn i {
+  font-size: 15px;
+}
+.container .data-current .data-item .action .delete {
+  background-color: rgb(190, 18, 60);
+  padding: 10px;
+}
+.container .data-current .data-item .action .delete:hover {
+  background-color: rgb(159, 18, 57);
+}
+.container .data-current .data-item .action .fix {
+  background-color: rgb(29, 78, 216);
+  padding: 10px;
+}
+.container .data-current .data-item .action .fix:hover {
+  background-color: rgb(30, 64, 175);
+}
+.container .data-current .data-item .action .import {
+  background-color: rgb(156, 163, 175);
+  padding: 10px;
+}
+.container .data-current .data-item .action .import:hover {
+  background-color: rgb(6, 95, 70);
+}
+.container .btn-complete {
+  width: 66.666%;
+  margin: 0px auto;
+}
+.container .btn-complete .complete-todo {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #fff;
+  border: none;
+  margin: 10px 0px 0px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-color: rgb(4, 120, 87);
+  transition: background-color 0.5s linear;
+}
+.container .btn-complete .complete-todo:hover {
+  background-color: rgb(6, 95, 70);
+}
+.container .btn-complete .complete-todo i {
+  transition: rotate 0.5s linear;
+}
+.container .data-save {
+  transition: opacity 0.5s ease-in, visibility 0.5s ease-in;
+  margin-top: 20px;
+}
+.container .data-save .data-item {
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 rgba(0, 0, 0, 0), 0 0 rgba(0, 0, 0, 0), var(--tw-shadow);
+  padding: 15px 15px;
+  width: 66.666%;
+  display: flex;
+  border: 1px solid rgb(229, 231, 235);
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 7px;
+}
+.container .data-save .data-item .text {
+  font-size: 18px;
+}
+.container .data-save .data-item .action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.container .data-save .data-item .action .btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+.container .data-save .data-item .action .btn i {
+  font-size: 15px;
+}
+.container .data-save .data-item .action .delete {
+  background-color: rgb(190, 18, 60);
+  padding: 10px;
+}
+.container .data-save .data-item .action .delete:hover {
+  background-color: rgb(159, 18, 57);
+}
+.container .data-save .data-item .action .fix {
+  background-color: rgb(29, 78, 216);
+  padding: 10px;
+}
+.container .data-save .data-item .action .fix:hover {
+  background-color: rgb(30, 64, 175);
+}
+.container .data-save .data-item .action .import {
+  background-color: rgb(156, 163, 175);
+  padding: 10px;
+}
+.container .data-save .data-item .action .import:hover {
+  background-color: rgb(6, 95, 70);
+}
+.container .data-save .action .import {
+  background-color: rgb(4, 120, 87) !important;
+}
+.container .data-save .action .import:hover {
+  background-color: rgb(6, 95, 70) !important;
+}
+
+/*# sourceMappingURL=style.css.map */
