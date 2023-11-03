@@ -54,11 +54,14 @@ const deleteItem = (tagDelete) => {
         const elementParent = tagDelete.parentElement.parentElement.parentElement;
         tagDelete.parentElement.parentElement.remove();
         const deleteAPI = async() => {
-            let id = await getDataAPI(convertClassToName(elementParent))
-            id = id.findIndex(({name}) => {
+            let data = await getDataAPI(convertClassToName(elementParent));
+            let id = data.findIndex(({name}) => {
                 return name === tagDelete.parentElement.parentElement.querySelector(".text").innerText;
             });
-            const response = await fetch(`https://jw8mf6-3000.csb.app/${convertClassToName(elementParent)}/${id + 1}`,{
+
+            id = data[id].id;
+
+            const response = await fetch(`https://jw8mf6-3000.csb.app/${convertClassToName(elementParent)}/${id}`,{
                 method: "delete",
                 mode: "cors", 
                 cache: "no-cache" 
@@ -79,11 +82,13 @@ const fixItem = (tagFix, divItem) => {
         inputTodo.value = divItem.querySelector(".text").innerText;
         addItem.classList.remove("hidden");
         const fixAPI = async(newValue) => {
-            let id = await getDataAPI(convertClassToName(divItem.parentElement))
-            id = id.findIndex(({name}) => {
+            let data = await getDataAPI(convertClassToName(divItem.parentElement))
+            let id = data.findIndex(({name}) => {
                 return name === dataBefore;
             });
-            const response = await fetch(`https://jw8mf6-3000.csb.app/${convertClassToName(divItem.parentElement)}/${id + 1}`,{
+
+            id = data[id].id;
+            const response = await fetch(`https://jw8mf6-3000.csb.app/${convertClassToName(divItem.parentElement)}/${id}`,{
                 method: "PATCH",
                 headers: {
                 "Content-type": "application/json"
@@ -118,11 +123,11 @@ const fixItem = (tagFix, divItem) => {
 let convertData = function(data1 ,data2,divItem) {
     const value = divItem.querySelector(".text").innerText;
     const deleteAPI = async() => {
-        let id = await getDataAPI(convertClassToName(data1))
-        id = id.findIndex(({name}) => {
+        let data = await getDataAPI(convertClassToName(data1))
+        let value = data.find(({name}) => {
             return name === value;
         });
-        const response = await fetch(`https://jw8mf6-3000.csb.app/${convertClassToName(data1)}/${id + 1}`,{
+        const response = await fetch(`https://jw8mf6-3000.csb.app/${convertClassToName(data1)}/${value.id}`,{
             method: "delete",
             mode: "cors", 
             cache: "no-cache" 
@@ -147,14 +152,10 @@ let convertData = function(data1 ,data2,divItem) {
 const importItem = (tagImport,divItem) => {
     tagImport.addEventListener("click", (e) => {
         if (dataCurrent.className.includes(divItem.parentElement.className)) {
-            console.log(1)
             convertData(dataCurrent,dataSave,divItem)
         }
         else {
-            console.log(2)
             convertData(dataSave,dataCurrent,divItem)
-            fixId("dataCurrent");
-            fixId("dataSave");
         }
 
         textNode.nodeValue = " "+dataSave.children.length;
