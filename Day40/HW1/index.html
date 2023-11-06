@@ -4,9 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="root"></div>
+    <div class="container">
+         <div class="start">
+            <button class="started" type="button">Started</button>
+            <div class="question">
+                <div class="header hidden">
+                    <div class="runtime"><div class="run"></div></div>
+                    <div class="bottom">
+                        <div class="left">
+                            <div class="progress">
+                                <div class="completed">
+                                    <span>0</span>
+                                    /
+                                    <span class="total">0</span>
+                                </div>
+                            </div>
+                            <div class="streak">
+                                <div class="display">
+                                    <span>Streak</span>
+                                </div>
+                                <div class="bonus">
+                                    <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="point">Point: 0</div>
+                    </div>
+                </div>
+                <div class="root"></div>
+            </div>
+        </div> 
+        <div class="end hidden">
+            <div  iv class="inner">
+                <h3>Game performance</h3>
+                <div class="result">
+                    <span>Accuracy</span>
+                    <div class="haha">
+                        <div class="haha-progress">
+                            <div class="percent">25%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tongket">
+                    <div class="score">
+                        <span>1000</span>
+                        <div>Score</div> 
+                    </div>
+                    <div class="chuoi">
+                        <span>3</span>
+                        <div>Streak</div> 
+                    </div>
+                    <div class="correct">
+                        <span>2</span>
+                        <div>Correct</div> 
+                    </div>
+                    <div class="incorrect">
+                        <span>1</span>
+                        <div>incorrect</div> 
+                    </div>
+                </div>
+                <div class="play-again-btn">Chơi lại</div>
+            </div>
+        </div>
+    </div>
     <script src="./main.js" type="module"></script>
 </body>
 </html>
