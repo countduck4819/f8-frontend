@@ -1,0 +1,262 @@
+.container {
+    background-color: #0f0f0f;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    color: #fff;
+    .box {
+        z-index: 0;
+        width: 150px;
+        height: 150px;
+        top: 100px;
+        left: 749px;
+        position: fixed;
+        background: linear-gradient(180deg, #530061 0%, #0d0a30 100%);
+        border-radius: 50%;
+    }
+    .login {
+        margin: 0px auto;
+        width: calc(100% - 300px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .info-login {
+            font-family: Noto Sans;
+            .heading {
+                font-size: 50px;
+                font-weight: 600;
+                line-height: 1.3;
+                letter-spacing: 0em;
+                margin-bottom: 30px;
+            }
+            span {
+                font-size: 25px;
+                font-style: italic;
+                font-weight: 600;
+                line-height: 1.2;
+                letter-spacing: 0em;
+                border: 4px solid currentColor;
+                padding: 14px;
+            }
+        }
+        .form-login {
+            width: 400px;
+            padding: 50px 40px 22px;
+            border-radius: 20px;
+            border: 1px;
+            border: 1px solid;
+            position: relative;
+            z-index: 1;
+            border-image-source: linear-gradient(
+                    317.92deg,
+                    rgba(255, 255, 255, 0.6) 1.48%,
+                    rgba(0, 0, 0, 0) 67.95%
+                ),
+                linear-gradient(
+                    166.93deg,
+                    #afafaf 3.24%,
+                    rgba(96, 96, 96, 0) 96.43%
+                );
+            background: linear-gradient(
+                    0deg,
+                    rgba(0, 0, 0, 0.14),
+                    rgba(0, 0, 0, 0.14)
+                ),
+                linear-gradient(
+                    321.23deg,
+                    rgba(191, 191, 191, 0.062) 5.98%,
+                    rgba(0, 0, 0, 0) 66.28%
+                );
+            background-color: transparent;
+            .login-heading {
+                h2 {
+                    font-family: Noto Sans;
+                    font-size: 36px;
+                    font-weight: 600;
+                    line-height: 49px;
+                    letter-spacing: 0em;
+                    margin-bottom: 5px;
+                }
+                span {
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 22px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                }
+            }
+            .form-log {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                .input-login {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                    input {
+                        color: #fff;
+                        box-sizing: border-box;
+                        font-family: sans-serif;
+                        font-size: 18px;
+                        padding: 15px;
+                        height: 50px;
+                        width: 100%;
+                        background-color: transparent;
+                        border: 2px solid #fff;
+                        outline: none;
+                        border-radius: 12px;
+                    }
+                }
+                .remember {
+                    margin-top: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+                    label {
+                        margin-right: 10px;
+                        cursor: pointer;
+                    }
+                    .lab {
+                        font-family: Noto Sans;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 22px;
+                    }
+                    input:checked {
+                        + label .checkbox {
+                            &::before {
+                                cursor: pointer;
+                                content: "x";
+                                display: inline-block;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                box-sizing: border-box;
+                                border-radius: 4px;
+                                height: 100%;
+                                padding-bottom: 2px;
+                                padding-left: 2px;
+                                background: linear-gradient(
+                                    180deg,
+                                    #7cc1f3 0%,
+                                    #d27eef 100%
+                                );
+                                color: #fff;
+                            }
+                        }
+                    }
+                    .checkbox {
+                        width: 20px;
+                        height: 20px;
+                        background-color: transparent;
+                        border: 1px solid #fff;
+                        border-radius: 4px;
+                    }
+                }
+
+                .action-btn {
+                    margin-top: 20px;
+                    width: 100%;
+                    .btn-login {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 45px;
+                        border-radius: 10px;
+                        padding: 14px 10px;
+                        background: linear-gradient(
+                            90.57deg,
+                            #628eff 9.91%,
+                            #8740cd 53.29%,
+                            #580475 91.56%
+                        );
+                        color: #fff;
+                        cursor: pointer;
+                        border: none;
+                        font-size: 18px;
+                    }
+
+                    span {
+                        display: block;
+                        margin-top: 15px !important;
+                        width: 100%;
+                        margin: 0px auto;
+                        text-align: center;
+                        font-family: Noto Sans;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 22px;
+                    }
+                }
+            }
+            .or {
+                margin-top: 15px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                box-sizing: border-box;
+                span {
+                    display: inline-block;
+                    padding-bottom: 6px;
+                }
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    width: calc(50% - 20px);
+                    height: 1px;
+                    border-top: 2px solid #4d4d4d;
+                    color: #fff;
+                }
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    width: calc(50% - 20px);
+                    height: 1px;
+                    border-top: 2px solid #4d4d4d;
+                    color: #fff;
+                }
+            }
+
+            .login-different {
+                margin: 10px 0px 40px;
+                display: flex;
+                gap: 25px;
+                justify-content: center;
+            }
+
+            .convert-sign-up {
+                text-align: center;
+                font-family: Noto Sans;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 22px;
+                .btn-convert-sign-up {
+                    cursor: pointer;
+                    background-color: transparent;
+                    color: #fff;
+                    border: none;
+                    font-family: Noto Sans;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 22px;
+                }
+            }
+
+            .foot {
+                text-align: center;
+                cursor: pointer;
+                background-color: transparent;
+                color: #fff;
+                border: none;
+                font-family: Noto Sans;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 22px;
+                margin: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,226 @@
+.container {
+  background-color: #0f0f0f;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  color: #fff;
+}
+.container .box {
+  z-index: 0;
+  width: 150px;
+  height: 150px;
+  top: 100px;
+  left: 749px;
+  position: fixed;
+  background: linear-gradient(180deg, #530061 0%, #0d0a30 100%);
+  border-radius: 50%;
+}
+.container .login {
+  margin: 0px auto;
+  width: calc(100% - 300px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .login .info-login {
+  font-family: Noto Sans;
+}
+.container .login .info-login .heading {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0em;
+  margin-bottom: 30px;
+}
+.container .login .info-login span {
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0em;
+  border: 4px solid currentColor;
+  padding: 14px;
+}
+.container .login .form-login {
+  width: 400px;
+  padding: 50px 40px 22px;
+  border-radius: 20px;
+  border: 1px;
+  border: 1px solid;
+  position: relative;
+  z-index: 1;
+  border-image-source: linear-gradient(317.92deg, rgba(255, 255, 255, 0.6) 1.48%, rgba(0, 0, 0, 0) 67.95%), linear-gradient(166.93deg, #afafaf 3.24%, rgba(96, 96, 96, 0) 96.43%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.14)), linear-gradient(321.23deg, rgba(191, 191, 191, 0.062) 5.98%, rgba(0, 0, 0, 0) 66.28%);
+  background-color: transparent;
+}
+.container .login .form-login .login-heading h2 {
+  font-family: Noto Sans;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 49px;
+  letter-spacing: 0em;
+  margin-bottom: 5px;
+}
+.container .login .form-login .login-heading span {
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.container .login .form-login .form-log {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.container .login .form-login .form-log .input-login {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.container .login .form-login .form-log .input-login input {
+  color: #fff;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 18px;
+  padding: 15px;
+  height: 50px;
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 12px;
+}
+.container .login .form-login .form-log .remember {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.container .login .form-login .form-log .remember label {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.container .login .form-login .form-log .remember .lab {
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+.container .login .form-login .form-log .remember input:checked + label .checkbox::before {
+  cursor: pointer;
+  content: "x";
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 100%;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  background: linear-gradient(180deg, #7cc1f3 0%, #d27eef 100%);
+  color: #fff;
+}
+.container .login .form-login .form-log .remember .checkbox {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
+.container .login .form-login .form-log .action-btn {
+  margin-top: 20px;
+  width: 100%;
+}
+.container .login .form-login .form-log .action-btn .btn-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+  padding: 14px 10px;
+  background: linear-gradient(90.57deg, #628eff 9.91%, #8740cd 53.29%, #580475 91.56%);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-size: 18px;
+}
+.container .login .form-login .form-log .action-btn span {
+  display: block;
+  margin-top: 15px !important;
+  width: 100%;
+  margin: 0px auto;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+.container .login .form-login .or {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+.container .login .form-login .or span {
+  display: inline-block;
+  padding-bottom: 6px;
+}
+.container .login .form-login .or::before {
+  content: "";
+  display: inline-block;
+  width: calc(50% - 20px);
+  height: 1px;
+  border-top: 2px solid #4d4d4d;
+  color: #fff;
+}
+.container .login .form-login .or::after {
+  content: "";
+  display: inline-block;
+  width: calc(50% - 20px);
+  height: 1px;
+  border-top: 2px solid #4d4d4d;
+  color: #fff;
+}
+.container .login .form-login .login-different {
+  margin: 10px 0px 40px;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+.container .login .form-login .convert-sign-up {
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+.container .login .form-login .convert-sign-up .btn-convert-sign-up {
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+.container .login .form-login .foot {
+  text-align: center;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
