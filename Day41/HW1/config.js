@@ -1,3 +1,3 @@
 export const config = {
-    SERVER_API: "https://c6fmf8-8080.csb.app",
+    SERVER_API: "https://api-auth-two.vercel.app",
 }
