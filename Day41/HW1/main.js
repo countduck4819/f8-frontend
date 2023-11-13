@@ -224,7 +224,6 @@ const app = {
                 this.loginStatus = true;
                 console.log(1)
                 const {response,data } = await client.get("/users/profile");
-                console.log(1)
                 if (!response.ok) {
                     this.loginStatus = false;
                     return;

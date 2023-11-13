@@ -1,239 +1,229 @@
-
-
-/*
-Request 1 -> Khi access hết hạn -> Gửi request lấy access mới (Refresh) -> Lưu vào localStorage -> gọi lại Request 1
-*/
-
-import {client} from "./clients.js";
+import {client} from "./client.js"
 import {config} from "./config.js"
-
-client.setUrl(config.SERVER_AUTH_API)
-
-
-// login("john@mail.com","changeme")
-
-const root = document.querySelector("#root");
-
+const {LIMIT_PAGE} = config
+const root = document.querySelector("#root")
 const app = {
-    have: true,
-    user: {},
-    loginStatus: false,
-    render: function() {
-        root.innerHTML = this.isLogin() ? this.dashboard() : this.loginForm();
+    q: {
+        _limit: LIMIT_PAGE,
+        _page: 3,
     },
+    formSignUp: false,
+    loginStatus: false,
+    user: null,
     isLogin: function () {
         return this.loginStatus;
     },
-    dashboard: function () {
-        return `<div class="container py-3">
-            <h1>Chào mừng bạn quay trở lại</h1>
-            <ul class="list-unstyled d-flex gap-2 profile">
-            <li>Chào bạn: <span>Loading...</span></li>
-            <li><a href="#" class="logout">Đăng xuất</a></li>
-            </ul>
-        </div>`
-    },
-    loginForm: function () {
-        return `<div class="container py-3">
-                   <div class="row justify-content-center">
-                     <div class="col-7">
-                       <h2 class="text-center">Đăng nhập</h2>
-                       <form class="signin-form" action="">
-                         <div class="mb-3">
-                           <label for="">Email</label>
-                           <input
-                             type="email"
-                             name="email"
-                             class="form-control"
-                             placeholder="Email..."
-                           />
-                         </div>
-                         <div class="mb-3">
-                           <label for="">Password</label>
-                           <input
-                             type="password"
-                             name="password"
-                             class="form-control"
-                             placeholder="Password..."
-                           />
-                         </div>
-                         <div class="d-grid">
-                           <button class="btn btn-primary">Đăng nhập</button>
-                           </div>
-                           <div class="msg text-danger text-center"></div>
-                           </form>
-                           </div>
-                           </div>
-                           <button class="btn-sign-up btn-primary">Đăng kí</button>
-                 </div>`;
-    },
-    addEvent: function () {
-      root.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const form = [...new FormData(e.target)];
-        const data = Object.fromEntries(form);
-        console.log(data)
-        if (e.target.classList.contains("signup-form")) {
-          // this.register(data,e.target)
-        } else if (e.target.classList.contains("signin-form")){
-          // this.login(data,e.target)
+    render: function() {
+        root.innerHTML = this.isLogin() ? this.dashboard() : (this.formSignUp ? this.registerForm() : this.loginForm());
+        if (this.isLogin()) {
+            this.getBlogs()
         }
-      });
-      root.addEventListener("click", (e) => {
-        if (e.target.classList.contains("logout")) {
-          e.preventDefault();
-          this.handleLogout();
-        }
-      });
-      if (this.have) {
-        const btn = document.querySelector(".btn-sign-up");
-      btn.addEventListener("click" , (e) => {
-          this.signUp();
-          const btnLogin = document.querySelector(".btn-login");
-      console.log(btnLogin)
-      btnLogin.addEventListener("click" , (e) => {
-          this.start();
-      })
-      })
-      }
-      
     },
-    signUp: function() {
-      root.innerHTML = `<div class="container py-3">
-      <div class="row justify-content-center">
-        <div class="col-7">
-          <h2 class="text-center">Đăng kí</h2>
-          <form class="signup-form" action="">
-          <div class="mb-3">
-              <label for="">Username</label>
-              <input
-                type="text"
-                name="name"
-                class="form-control"
-                placeholder="Name..."
-              />
+    addBlog: function(title,content) {
+        return `<div class="card-body" style="border: 1px solid green;">
+        <h5 class="card-title">${title}</h5>
+        <p class="card-text">${content}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>`
+    },
+    loginForm: function() {
+        return `
+        <button class="convert-sign-in btn btn-secondary">Đăng nhập</button>
+        <button class="convert-sign-up btn btn-primary">Đăng kí</button>
+        <div class="container justify-content-center">
+        <h2 class="text-center">Đăng nhập</h2>
+        <form class="form-login" action="">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
-              <label for="">Email</label>
-              <input
-                type="email"
-                name="email"
-                class="form-control"
-                placeholder="Email..."
-              />
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
-              <label for="">Password</label>
-              <input
-                type="password"
-                name="password"
-                class="form-control"
-                placeholder="Password..."
-              />
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
-            <div class="d-grid">
-              <button class="btn btn-primary">Đăng kí</button>
-              </div>
-              <div class="msg text-danger text-center"></div>
-              </form>
-              </div>
-              </div>
-              <button class="btn-login btn-primary">Đăng nhập</button>
-    </div>`;
+            <button class="btn btn-primary">Đăng nhập</button>
+            </form>
+    </div>`
     },
-    getData: async function() {
-      const token = localStorage.getItem("login_token")
-      const {data} = await client.get("/users",{
-        token
-      })
-      return data;
+    registerForm: function() {
+        return `<button class="convert-sign-in btn btn-primary">Đăng nhập</button>
+        <button class="convert-sign-up btn btn-secondary">Đăng kí</button>
+        <div class="container justify-content-center">
+        <h2 class="text-center">Đăng kí</h2>
+        <form class="form-sign-up" action="">
+            <div class="mb-3">
+              <label for="username" class="form-label">User name</label>
+              <input type="text" name="name" class="form-control" id="username">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button class="btn btn-primary">Đăng nhập</button>
+            </form>
+    </div>`
     },
-    register: async function ({email,password,name},el) {
-      console.log(1)
-      const avatar = "https://picsum.photos/800";
-      console.log(email,password,name)
-      const {response, data: tokens} = await client.post("/users/",{
-        email,
-        password,
-        name,
-        avatar
-      })
-      console.log(response.ok)
-      if (response.ok) {
-        const {response,data: tokens} = await client.post("/auth/login",{
-          email,
-          password,
-        });
-        localStorage.setItem("login_token",JSON.stringify(tokens));
-        this.loginStatus = true;
-        this.have = false;
-        this.start()
-        console.log("heeloo 2 sau")
-      }
-      // console.log(data,response)
-    },
-    handleLogout: async function ()  {
-      localStorage.removeItem("login_token")
-      this.loginStatus = false;
-      console.log(await this.getData());
-      this.have = true;
-      this.start()
-    },
-    login: async function ({email, password}, el) {
-        this.loading(el)
-        const {data: tokens, response} = await client.post("/auth/login", {
+    login: async function ({email,password},el) {
+        const {response, data} = await client.post("/auth/login", {
             email,
             password
-        });
-        console.log(tokens)
-        this.loading(el,false)
+        })
         if (!response.ok) {
-            this.showMessage(el, "Email hoặc mật khẩu không chính xác")
+            throw new Error("Không thể đăng nhập")
+        }
+        const {accessToken, refreshToken} = data.data;
+        localStorage.setItem("login_token", JSON.stringify({
+            accessToken,
+            refreshToken
+        }))
+        this.loginStatus = true;
+        this.render();
+        this.checkAuth()
+    },
+    register: async function({name,email,password},el) {
+        console.log(name,email,password)
+        const {data,response} = await client.post("/auth/register",{
+            email,
+            password,
+            name
+        });
+        if (!response.ok) {
+            this.register({name,email,password},el);
+            this.login({email,password}, el)
             return;
         }
-        // Lưu token vào storage: cookie,localStorage,sessionStorage
-        localStorage.setItem("login_token", JSON.stringify(tokens));
-        this.loginStatus = true;
-        this.checkAuth();
-        },
-    loading: function(el, status = true) {
-        const btn = el.querySelector(".btn");
-        btn.innerHTML = status ? `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Loading` : `Đăng nhập`
-        btn.disabled = status;
+        this.login({email,password}, el)
+        console.log(data)
     },
-    showMessage: function(el, msg) {
-        el.querySelector(".text-danger").innerText = ""
-        el.querySelector(".text-danger").innerText = msg
+    blogs: async function({content,title},el) {
+        console.log(content,title)
+        const {data,response} = await client.post("/blogs", {
+            content,
+            title
+        });
+        console.log(data)
+
     },
-    checkAuth: async function () {
+    getBlogs: async function() {
+        const {data,response} = await client.get("/blogs");
+        const addDiv = document.createElement("div") ;
+        addDiv.classList.add("them")
+        console.log(data)
+        let html = "";
+        (data.data).forEach((value,index) => {
+            console.log(value)
+            html += this.addBlog(value.title,value.content)
+        })
+        addDiv.innerHTML = html;
+        root.append(addDiv)
+    },
+    updateBlog: function({content,title}) {
+        const them = document.querySelector(".them")
+        them.innerHTML =  this.addBlog(title,content) + this.innerHTML;
+    },
+    addEvent: function() {
+        root.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const form = [...new FormData(e.target)];
+            const data = Object.fromEntries(form);
+            if (e.target.classList.contains("form-login")) {
+                this.login(data,e.target);
+            }
+            else if (e.target.classList.contains("form-sign-up")) {
+                this.register(data,e.target);
+            }
+            else if (e.target.classList.contains("form-add")) {
+                console.log(e.target)
+                this.blogs(data,e.target)
+                this.updateBlog(data)
+                console.log(data)
+            }
+        })
+        root.addEventListener("click",(e) => {
+            if (e.target.classList.contains("logout")) {
+                this.handleLogout();
+            }
+        })
+        root.addEventListener("click", (e) => {
+            if (e.target.classList.contains("convert-sign-in")) {
+                if (this.formSignUp !== false) {
+                    this.formSignUp = false;
+                    this.render();
+                }
+            }else if (e.target.classList.contains("convert-sign-up")) {
+                if (this.formSignUp !== true) {
+                    this.formSignUp = true
+                    this.render();
+                }
+            }
+        })
+    },
+    dashboard: function () {
+        return `<div class="container py-3">
+        <h1>Chào mừng bạn quay trở lại</h1>
+        <ul class="list-unstyled d-flex gap-2 profile">
+        <li>Chào bạn: <span>${this.user}</span></li>
+        <li><a href="#" class="logout">Đăng xuất</a></li>
+        </ul>
+    </div>
+       <form class="form-add action border border-primary">
+       <button class="add btn btn-primary mt-1" style="margin: 120px 300px 10px;">Thêm</button>
+       <br/>
+       <div class="mb-3"><label style="margin: 10px 300px;">title</label><br/>
+       <input type="text" name="title" style="margin: 10px 300px;" class="input"></div>
+       <div class="mb-3"><label style="margin: 10px 300px;">content</label><br/>
+       <input type="text" name="content" style="margin: 10px 300px;" class="input"></div></form>`
+    },
+    handleLogout: function() {
+        localStorage.removeItem("login_token");
+        this.loginStatus = false;
+        this.render();
+    },
+    checkAuth: async function() {
         if (localStorage.getItem("login_token")) {
             try {
                 root.innerHTML = `<div class="container py-3">
-                <h2 class="text-center">Cho ti</h2></div>`
-                const {access_token: accessToken} = JSON.parse(localStorage.getItem("login_token"))
-                if (!accessToken) {
+                <h2 class="text-center">Loading ... </h2></div>`
+                const {refreshToken, accessToken} = JSON.parse(localStorage.getItem("login_token"));
+                console.log(accessToken)
+                console.log(2)
+                if(!accessToken) {
                     throw new Error("access token not exits");
                 }
+                client.setToken(accessToken)
                 this.loginStatus = true;
-                client.setToken(accessToken);
-                const result = await client.get(`/auth/profile`)
+                const result = await client.get("/users/profile");
                 if (!result) {
-                  this.handleLogout;
-                  return;
+                    this.handleLogout();
+                    return;
                 }
-                const {data: user,response} = result
-                this.user = user
+                const {response,data} = result
+                this.user = data.data.name;
+                console.log(response,data)
+                console.log(data)
+                if (!response.ok) {
+                    throw new Error("access token not access")
+                }
                 this.loginStatus = true;
-                this.render()
-                this.showProfile()
+                this.render();
             } catch (e) {
-                this.loginStatus = false
+                throw new Error(e);
             }
         }
-    },
-    showProfile: function() {
-        const profile = root.querySelector(".profile span")
-        profile.innerText = this.user.name
     },
     start: function() {
         this.render();
@@ -243,209 +233,3 @@ const app = {
 }
 
 app.start()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { client } from "./clients.js";
-// import { config } from "./config.js";
-
-// client.setUrl(config.SERVER_AUTH_API);
-
-// const root = document.querySelector("#root");
-// const app = {
-//   user: {},
-//   loginStatus: false,
-//   render: function () {
-//     //Kiểm tra trạng thái để hiển thị UI tương ứng
-//     root.innerHTML = this.isLogin() ? this.dashboard() : this.loginForm();
-//   },
-//   isLogin: function () {
-//     return this.loginStatus;
-//   },
-//   dashboard: function () {
-//     return `<div class="container py-3">
-//       <h1>Chào mừng bạn quay trở lại</h1>
-//       <ul class="list-unstyled d-flex gap-2 profile">
-//         <li>Chào bạn: <span>Loading...</span></li>
-//         <li><a href="#" class="logout">Đăng xuất</a></li>
-//       </ul>
-//     </div>`;
-//   },
-//   loginForm: function () {
-//     return `<div class="container py-3">
-//     <div class="row justify-content-center">
-//       <div class="col-7">
-//         <h2 class="text-center">Đăng nhập</h2>
-//         <form class="signin-form" action="">
-//           <div class="mb-3">
-//             <label for="">Email</label>
-//             <input
-//               type="email"
-//               name="email"
-//               class="form-control"
-//               placeholder="Email..."
-//             />
-//           </div>
-//           <div class="mb-3">
-//             <label for="">Password</label>
-//             <input
-//               type="password"
-//               name="password"
-//               class="form-control"
-//               placeholder="Password..."
-//             />
-//           </div>
-//           <div class="d-grid">
-//             <button class="btn btn-primary">Đăng nhập</button>
-//             </div>
-//             <div class="msg text-danger text-center"></div>
-//             </form>
-//             </div>
-//             </div>
-//             <button class="btn-sign-up btn-primary">Đăng kí</button>
-//   </div>`;
-//   },
-//   signUp: function() {
-//     root.innerHTML = `<div class="container py-3">
-//     <div class="row justify-content-center">
-//       <div class="col-7">
-//         <h2 class="text-center">Đăng kí</h2>
-//         <form  class="signup-form" action="">
-//         <div class="mb-3">
-//             <label for="">Username</label>
-//             <input
-//               type="text"
-//               name="name"
-//               class="form-control"
-//               placeholder="Name..."
-//             />
-//           </div>
-//           <div class="mb-3">
-//             <label for="">Email</label>
-//             <input
-//               type="email"
-//               name="email"
-//               class="form-control"
-//               placeholder="Email..."
-//             />
-//           </div>
-//           <div class="mb-3">
-//             <label for="">Password</label>
-//             <input
-//               type="password"
-//               name="password"
-//               class="form-control"
-//               placeholder="Password..."
-//             />
-//           </div>
-//           <div class="d-grid">
-//             <button class="btn btn-primary">Đăng kí</button>
-//             </div>
-//             <div class="msg text-danger text-center"></div>
-//             </form>
-//             </div>
-//             </div>
-//             <button class="btn-login btn-primary">Đăng nhập</button>
-//   </div>`;
-//   }
-//   login: async function ({ email, password }, el) {
-//     this.loading(el);
-//     const { data: tokens, response } = await client.post("/auth/login", {
-//       email,
-//       password,
-//     });
-//     this.loading(el, false);
-//     if (!response.ok) {
-//       this.showMessage(el, "Email hoặc mật khẩu không chính xác");
-//       return;
-//     }
-//     //Lưu token vào storage: cookie, localStorage, sessionStorage
-//     localStorage.setItem("login_token", JSON.stringify(tokens));
-//     this.loginStatus = true;
-//     this.checkAuth();
-//   },
-//   showMessage: function (el, msg) {
-//     el.querySelector(".msg").innerText = "";
-//     el.querySelector(".msg").innerText = msg;
-//   },
-//   loading: function (el, status = true) {
-//     const btn = el.querySelector(".btn");
-//     btn.innerHTML = status
-//       ? ` <span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Loading`
-//       : `Đăng nhập`;
-//     btn.disabled = status;
-//   },
-//   checkAuth: async function () {
-//     //Kiểm tra có token trong localStorage không?
-//     //Nếu không -> Trả về trạng thái false cho loginStatus
-//     //Nếu có -> Kiểm tra token có hợp lệ hay không?
-//     //  - Nếu hợp lệ: -> Trả về thông tin user và trạng thái cho loginStatus
-//     //  - Nếu không hợp lệ -> Trả về trạng thái false cho loginStatus
-//     if (localStorage.getItem("login_token")) {
-//       try {
-//         const { access_token: accessToken } = JSON.parse(
-//           localStorage.getItem("login_token"),
-//         );
-//         if (!accessToken) {
-//           throw new Error("Access Token Not Exists");
-//         }
-//         root.innerHTML = `<div class="container py-3">
-//         <h2 class="text-center">Chờ tý...</h2>
-//         </div>`;
-//         client.setToken(accessToken);
-//         const { data: user, response } = await client.get("/auth/profile");
-//         if (!response.ok) {
-//           // this.loginStatus = false;
-//           // this.handleLogout();
-//           return;
-//         }
-//         // console.log(user);
-//         this.loginStatus = true;
-//         this.user = user;
-//         this.render();
-//         this.showProfile();
-//       } catch (e) {
-//         this.loginStatus = false;
-//       }
-//     }
-//   },
-//   showProfile: function () {
-//     const profile = root.querySelector(".profile span");
-//     profile.innerText = this.user.name;
-//   },
-//   start: function () {
-//     this.render();
-//     this.addEvent();
-//     this.checkAuth();
-//   },
-// };
-
-// app.start();

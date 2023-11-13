@@ -1,5 +1,4 @@
 export const config = {
-    SERVER_API: "http://localhost:3000",
-    PAGE_LIMIT: 3,
-    SERVER_AUTH_API: "https://api.escuelajs.co/api/v1",
+    SERVER_API: "https://api-auth-two.vercel.app",
+    LIMIT_PAGE: 3,
 }
