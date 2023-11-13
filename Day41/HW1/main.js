@@ -208,7 +208,7 @@ const app = {
         console.log(tokens.data)
         localStorage.setItem("accessToken", JSON.stringify(tokens.data));
         this.loginStatus = true;
-        this.checkAuth()
+        this.checkAuth();
     },
     register: async function({email,password,name},el) {
 
