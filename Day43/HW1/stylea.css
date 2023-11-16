@@ -1,0 +1,22 @@
+.home-page {
+    display: inline-block ;
+    margin: 20px 0px 20px !important;
+}
+.home-page a {
+    border: 2px solid currentColor;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: orange;
+    color: #fff;
+    font-size: 23px;
+    font-family: sans-serif;
+    border-radius: 10px;
+}
+
+.home-page:hover a {
+    background-color: green;
+}
+
+.home-page:active a {
+    border-color: #6eeb83;
+}

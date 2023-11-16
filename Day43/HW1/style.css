@@ -1,0 +1,41 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+}
+.container {
+    margin: 0px!important;
+    padding: 20px 30px;
+    min-height: 100vh;
+    min-width: 100vw !important;
+    background-color: #000;
+}
+h2 {
+    font-size: 35px;
+    font-family: sans-serif;
+    color: orange;
+}
+.home-page {
+    display: inline-block;
+    margin: 40px 0px 50px;
+}
+.home-page a {
+    border: 2px solid currentColor;
+    text-decoration: none;
+    padding: 20px 30px;
+    background-color: orange;
+    color: #fff;
+    font-size: 23px;
+    font-family: sans-serif;
+    border-radius: 5px;
+}
+
+.home-page:hover a {
+    background-color: green;
+}
+
+.home-page:active a {
+    border-color: #6eeb83;
+}

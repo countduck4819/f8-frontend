@@ -8,6 +8,7 @@ const app = {
         _limit: LIMIT_PAGE,
         _page: 1,
     },
+
     formSignUp: false,
     loginStatus: false,
     user: null,
@@ -20,9 +21,14 @@ const app = {
             this.getBlogs()
         }
     },
-    addBlog: function(title,content,username) {
+    addBlog: function (title,content,username,time) {
+        let a = moment.utc(time.takeTime, "YYYY-MM-DDTh:mm:ss").fromNow()
         return `<div class="card-body" style="border: 1px solid green;">
         <h3 class="card-title">${username}</h3>
+        <div id="distance-time">
+            <span>${time.day.replaceAll("-","/")}</span><br/>
+            <span>${a}</span>
+        </div>
         <h5 class="card-title">${title}</h5>
         <p class="card-text">${content}</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -32,6 +38,8 @@ const app = {
         return `
         <button class="convert-sign-in btn btn-secondary">Đăng nhập</button>
         <button class="convert-sign-up btn btn-primary">Đăng kí</button>
+        <div class="home-page">
+        <a href="./home-page.html" class="">Trang chủ</a></div>
         <div class="container justify-content-center">
         <h2 class="text-center">Đăng nhập</h2>
         <form class="form-login" action="">
@@ -55,6 +63,8 @@ const app = {
     registerForm: function() {
         return `<button class="convert-sign-in btn btn-primary">Đăng nhập</button>
         <button class="convert-sign-up btn btn-secondary">Đăng kí</button>
+        <div class="home-page">
+        <a href="./home-page.html" class="">Trang chủ</a></div>
         <div class="container justify-content-center">
         <h2 class="text-center">Đăng kí</h2>
         <form class="form-sign-up" action="">
@@ -109,36 +119,71 @@ const app = {
         }
         this.login({email,password}, el)
     },
-    blogs: async function({content,title},el) {
-        const {data,response} = await client.post("/blogs", {
-            content,
-            title
-        });
+    blogs: async function({content,title},time="") {
+        if (time === "") {
+            const {data,response} = await client.post("/blogs", {
+                content,
+                title
+            });
+        }else {
+            const newData = moment().format();
+            let a = moment.utc(this.convertTime(newData))
+            let b = moment.utc(this.convertTime(time))
+            if (a.diff(b) < 0) {
+                const {data,response} = await client.post("/blogs", {
+                    content,
+                    title
+                });
+            }
+        }
     },
+    convertTime: function(time) {
+        const currentTime = time.slice(0,time.indexOf(".")).replaceAll("T"," ").replaceAll("-"," ").replaceAll(":"," ").split(" ")
+        return currentTime;
+    }
+    ,
     convertUrl: function(q) {
         return new URLSearchParams(q).toString()
     },
-    getBlogs: async function(page = "") {
+    getTime: function(time) {
+        const day = time.slice(0, time.indexOf("T"))
+        const timeInDate = time.slice(time.indexOf("T") + 1,time.indexOf("."))
+        const takeTime = time.slice(0,time.indexOf("."))
+        return {day,timeInDate,takeTime}
+    },
+    getBlogs: async function() {
         const {data,response} = await client.get(`/blogs`);
 
         const addDiv = document.createElement("div") ;
         addDiv.classList.add("them")
         let html = "";
         (data.data).forEach((value,index) => {
-            html += this.addBlog(value.title,value.content,value.userId.name)
+            const time = this.getTime(value.createdAt)
+            html += this.addBlog(value.title,value.content,value.userId.name,time)
         })
         addDiv.innerHTML = html;
         root.append(addDiv)
     },
-    updateBlog: function({content,title},username) {
+    updateBlog: async function({content,title},username) {
+        const {data,response} = await client.get(`/blogs`);
         const them = document.querySelector(".them")
-        them.innerHTML =  this.addBlog(title,content,username) + them.innerHTML;
+        let html = "";
+        (data.data).forEach((value,index) => {
+            const time = this.getTime(value.createdAt)
+            html += this.addBlog(value.title,value.content,value.userId.name,time)
+        })
+        them.innerHTML = html;
+        
+    },
+    setTimeBlog: function () {
+
     },
     addEvent: function() {
         root.addEventListener("submit", (e) => {
             e.preventDefault();
             const form = [...new FormData(e.target)];
             const data = Object.fromEntries(form);
+            console.log(data)
             if (e.target.classList.contains("form-login")) {
                 this.login(data,e.target);
             }
@@ -146,9 +191,8 @@ const app = {
                 this.register(data,e.target);
             }
             else if (e.target.classList.contains("form-add")) {
-                this.blogs(data,e.target)
+                this.blogs(data,data.time)
                 this.updateBlog(data,this.username)
-                console.log(this)
             }
         })
         root.addEventListener("click",(e) => {
@@ -184,7 +228,10 @@ const app = {
        <div class="mb-3"><label style="margin: 10px 300px;">title</label><br/>
        <input type="text" name="title" style="margin: 10px 300px;" class="input"></div>
        <div class="mb-3"><label style="margin: 10px 300px;">content</label><br/>
-       <input type="text" name="content" style="margin: 10px 300px;" class="input"></div></form>`
+       <input type="text" name="content" style="margin: 10px 300px;" class="input"></div>
+       <div class="mb-3"><label style="margin: 10px 300px;">Select time</label><br/>
+       <input type="datetime-local" name="time" style="margin: 10px 300px;" class="input"></div>
+       </form>`
     },
     handleLogout: async function() {
         try {
@@ -215,6 +262,7 @@ const app = {
                     return;
                 }
                 const {response,data} = result
+                console.log(data)
                 this.user = data.data.name;
                 if (!response.ok) {
                     throw new Error("access token not access")
