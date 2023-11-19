@@ -24,7 +24,7 @@ const appHome =  {
         if (content.match(pattern)?.length) {
             content = content.replace(pattern,`<a href="tel:$1" target="_blank">$1</a>`)
         }
-        pattern = /^\w+@[a-z]+\.[a-z]{2,}$/g
+        pattern = /\w+@[a-z]+\.[a-z]{2,}/g
 
         if (content.match(pattern)?.length) {
             console.log("mail")
