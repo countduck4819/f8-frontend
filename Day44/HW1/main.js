@@ -260,7 +260,7 @@ export const app = {
         if (content.match(pattern)?.length) {
             content = content.replace(pattern,`<a href="tel:$1" target="_blank">$1</a>`)
         }
-        pattern = /^\w+@[a-z]+\.[a-z]{2,}$/g
+        pattern = /(\w+@[a-z]+\.[a-z]{2,})/g
 
         if (content.match(pattern)?.length) {
             console.log("mail")
@@ -273,7 +273,7 @@ export const app = {
             content = content.replace(pattern, `<a href="$1" target="_blank">$1</a><iframe width="560" height="315" src="$1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>`)
         }
 
-        pattern = /((|https:\/\/|http:\/\/)[^(@|www.youtube.com|(https|http):\/\/www.youtube.com|(https|http):\/\/www.youtube.com|youtu.be)][a-zA-Z]+[a-zA-Z0-9_.-]*\.[a-z]{2,}(?::\d{2,}|)(?:\/.*|\/*))/g
+        pattern = /((|https:\/\/|http:\/\/)[^(@\w|www.youtube.com|(https|http):\/\/www.youtube.com|(https|http):\/\/www.youtube.com|youtu.be)][a-zA-Z]+[a-zA-Z0-9_.-]*\.[a-z]{2,}(?::\d{2,}|)(?:\/.*|\/*))/g
         if (content.match(pattern)?.length) {
             console.log("web")
             content = content.replace(pattern, `<a href="$1" target="_blank">$1</a>`)
