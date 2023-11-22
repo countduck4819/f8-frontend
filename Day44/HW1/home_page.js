@@ -31,10 +31,10 @@ const appHome =  {
             content = content.replace(pattern,`<a href="mailto: $1" target="_blank">$1</a>`)
         }
         
-        pattern = /((?:https|http):\/\/(?:www.youtube.com|youtu.be)(\/watch?\?v=.+|\/*))/g
+        pattern = /((https|http):\/\/(www.youtube.com|youtu.be)(?:\/watch?\?v=([a-zA-z0-9_-]+)(?:|&.*)|\/*))/g
         if (content.match(pattern)?.length) {
-            console.log("youtube")
-            content = content.replace(pattern, `<a href="$1" target="_blank">$1</a><iframe width="560" height="315" src="$1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>`)
+            // if ()
+            content = content.replace(pattern, `<a href="$1" target="_blank">$1</a><iframe id="player" type="text/html" width="560" height="315" src="$2://$3/embed/$4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>`)
         }
 
         pattern = /((|https:\/\/|http:\/\/)[^(@\w|www.youtube.com|(https|http):\/\/www.youtube.com|(https|http):\/\/www.youtube.com|youtu.be)][a-zA-Z]+[a-zA-Z0-9_.-]*\.[a-z]{2,}(?::\d{2,}|)(?:\/.*|\/*))/g
