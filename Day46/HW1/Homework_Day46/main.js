@@ -1,17 +1,17 @@
 import { App } from "./src/App";
 import { mainRoot } from "./src/Utils/router";
-import { Error } from "./src/Error";
+import { Error } from "./src/Pages/Error";
 window.navigate = function (path) {
-  mainRoot.navigate(path)
-}
+    mainRoot.navigate(path);
+};
 const convertLink = function () {
     const a = document.querySelectorAll("a");
     [...a].forEach((value) => {
         if (value.dataset.route === "") {
-            value.classList.add("route")
+            value.classList.add("route");
         }
-    })
-}
+    });
+};
 const root = document.querySelector("#root");
 const { root: pathRoot, DefaultLayout } = App();
 const render = function (component, DefaultLayout = "", params) {
@@ -30,7 +30,7 @@ pathRoot.forEach(({ path, component }, _) => {
     });
 });
 mainRoot.notFound(() => {
-  root.innerHTML = Error();
-})
+    root.innerHTML = Error();
+});
 
 mainRoot.resolve();
