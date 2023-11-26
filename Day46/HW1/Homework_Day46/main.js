@@ -4,6 +4,10 @@ import { Error } from "./src/Pages/Error";
 window.navigate = function (path) {
     mainRoot.navigate(path);
 };
+const preventXSS = function (params) {
+    params.route.path = params.route.path.replaceAll("%3C","&lt;").replaceAll("%3E","&gt;");
+    return params;
+}
 const convertLink = function () {
     const a = document.querySelectorAll("a");
     [...a].forEach((value) => {
@@ -18,7 +22,8 @@ const render = function (component, DefaultLayout = "", params) {
     const stringHtml = DefaultLayout;
     const pattern = /{body}/;
     if (params) {
-        root.innerHTML = stringHtml.replace(pattern, component(params));
+        console.log(params.route.path)
+        root.innerHTML = stringHtml.replace(pattern, component(preventXSS(params)));
     } else {
         root.innerHTML = stringHtml.replace(pattern, component());
     }
@@ -29,8 +34,11 @@ pathRoot.forEach(({ path, component }, _) => {
         render(component, DefaultLayout, params);
     });
 });
-mainRoot.notFound(() => {
+mainRoot.notFound((params) => {
+    preventXSS(params)
+    console.log(params.route.path)
     root.innerHTML = Error();
+
 });
 
 mainRoot.resolve();
