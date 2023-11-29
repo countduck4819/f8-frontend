@@ -1,0 +1,93 @@
+.container {
+    padding-bottom: 20px;
+    margin: 20px auto;
+    width: calc(100% - 100px);
+    background-color: #334155;
+    text-align: center;
+    font-family: sans-serif;
+    h1 {
+        padding-top: 10px;
+        color: #fff;
+        font-size: 20px;
+    }
+    form {
+        width: 34%;
+        padding-bottom: 8px;
+        margin: 0px auto;
+        border-bottom-width: 2px;
+        border-bottom-color: #237C7D;
+        border-bottom-style: solid;
+        input {
+            height: 30px;
+            padding: 10px;
+            background-color: transparent;
+            outline: none;
+            font-size: 18px;
+            border: none;
+            color: #fff;
+            &::placeholder {
+                font-size: 18px;
+                font-family: sans-serif;
+                color: #9aa
+            }
+        }
+        .btn {
+            background-color: rgb(20 184 166 / 1);
+            color: #fff;
+            font-size: 18px;
+            font-family: sans-serif;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            &:hover {
+                background-color: rgb(15 118 110 /1);
+                cursor: pointer;   
+            }
+        }
+    }
+    .sub-todo {
+        padding: 10px 20px;
+        width: 50%;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        // height: 60px;
+        margin: 30px auto;
+        background-color: #fff;
+        .text {
+            font-size: 19px;
+            font-family: sans-serif;
+            padding: 20px 10px;
+        }
+        .action {
+            padding: 0px 10px 10px;
+            .btn {
+                margin-right: 13px;
+                color: #fff;
+                font-size: 18px;
+                font-family: sans-serif;
+                font-weight: 600;
+                padding: 10px 20px;
+                border-radius: 6px;
+                border: none;
+            }
+            .fixed {
+                background-color: rgb(20 184 166 / 1);
+                &:hover {
+                    background-color: rgb(15 118 110 /1);
+                    cursor: pointer;   
+                }
+            }
+            .remove {
+                background-color: rgb(239 68 68 / 1);
+                &:hover {
+                    background-color: rgb(185 28 28 / 1);
+                    cursor: pointer;   
+                }
+            }
+        }
+    }
+}
