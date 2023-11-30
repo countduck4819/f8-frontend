@@ -2,6 +2,7 @@ import { client } from "./client";
 import {config} from "./config";
 const {SERVER_API} = config;
 export const app = {
+    quantity: 0,
     convertCookieToObject: function (cookieBrowser) {
         let listCookie = cookieBrowser.replace(" ","").split(";");
         listCookie = listCookie.map((value,index) => value.split("="));

@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import { app } from "./js/app";
 import { client } from "./js/client";
+import Remove from "./components/Remove";
+import Update from "./components/Update";
 function App() {
     const [todos,setTodo] = React.useState([]);
     const [form,setForm] = React.useState({
@@ -10,7 +12,6 @@ function App() {
         const {apiKey} = app.convertCookieToObject(document.cookie);
         client.setApiKey(apiKey)
         const {data,response} = await client.get("/todos");
-        console.log(data)
         if (!response.ok) {
             throw new Error("Error in GET Todo")
         }
@@ -42,13 +43,11 @@ function App() {
          
 
     }
-    const updateTodo = async function (e) {
-
+    const setRemove = function() {
+        getData();
     }
-    const removeTodo = async function (e) {
-        const {apiKey} = app.convertCookieToObject(document.cookie);
-        client.setApiKey(apiKey);
-        const {data,response} = await client.delete("/todos")
+    const updateTodo = function (todo) {
+        setTodo(todo);
     }
     useEffect(() => {
     getData();
@@ -70,12 +69,12 @@ function App() {
                     </button>
                 </form>
                 <div className="todolist">
-                    {todos.map(({_id,todo}) => {
-                        return (<div key={_id} className="sub-todo">
-                        <div className="text">{todo}</div>
+                    {todos.map((value,_) => {
+                        return (<div key={value._id} className="sub-todo">
+                        <div className="text">{value.todo}</div>
                         <div className="action">
-                            <button className="btn fixed">Sửa</button>
-                            <button className="btn remove">Xóa</button>
+                            <Update dataId={value._id} setRemove={setRemove} todoList={value} updateTodo={updateTodo}></Update>
+                            <Remove id={value._id} setRemove={setRemove}></Remove>
                         </div>
                     </div>)
                     })}

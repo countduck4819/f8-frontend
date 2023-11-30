@@ -15,7 +15,7 @@
         padding-bottom: 8px;
         margin: 0px auto;
         border-bottom-width: 2px;
-        border-bottom-color: #237C7D;
+        border-bottom-color: #237c7d;
         border-bottom-style: solid;
         input {
             height: 30px;
@@ -28,7 +28,7 @@
             &::placeholder {
                 font-size: 18px;
                 font-family: sans-serif;
-                color: #9aa
+                color: #9aa;
             }
         }
         .btn {
@@ -42,7 +42,7 @@
             border: none;
             &:hover {
                 background-color: rgb(15 118 110 /1);
-                cursor: pointer;   
+                cursor: pointer;
             }
         }
     }
@@ -63,6 +63,8 @@
             padding: 20px 10px;
         }
         .action {
+            display: flex;
+            width: 100%;
             padding: 0px 10px 10px;
             .btn {
                 margin-right: 13px;
@@ -78,14 +80,78 @@
                 background-color: rgb(20 184 166 / 1);
                 &:hover {
                     background-color: rgb(15 118 110 /1);
-                    cursor: pointer;   
+                    cursor: pointer;
                 }
             }
             .remove {
                 background-color: rgb(239 68 68 / 1);
                 &:hover {
                     background-color: rgb(185 28 28 / 1);
-                    cursor: pointer;   
+                    cursor: pointer;
+                }
+            }
+            .update {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .updated {
+                    background-color: rgb(20 184 166 / 1);
+                    &:hover {
+                        background-color: rgb(15 118 110 /1);
+                        cursor: pointer;
+                    }
+                }
+                .cancel {
+                    background-color: rgb(249 115 22/ 1);
+                    &:hover {
+                        background-color: rgb(194 65 12 / 1);
+                        cursor: pointer;
+                    }
+                }
+                .input-updated {
+                    inset: 0;
+                    background-color: rgb(0, 0, 0, 0.7);
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    .updated-box {
+                        width: 300px;
+                        height: 150px;
+                        background-color: #fff;
+                        position: absolute;
+                        z-index: 2;
+                        top: 50%;
+                        left: 50%;
+                        translate: -50% -50%;
+                        form {
+                            border: none;
+                        }
+                        input {
+                            border-radius: 8px;
+                            margin-top: 18px;
+                            height: 20px;
+                            padding: 10px;
+                            background-color: transparent;
+                            outline: none;
+                            left: -68px;
+                            position: relative;
+                            z-index: 3;
+                            font-size: 18px;
+                            color: #000;
+                            border: 1px solid #000;
+                            &::placeholder {
+                                font-size: 18px;
+                                font-family: sans-serif;
+                                color: #9aa;
+                            }
+                        }
+                        .action {
+                            margin-top: 20px;
+                            display: flex;
+                            justify-content: center;
+                        }
+                    }
                 }
             }
         }
