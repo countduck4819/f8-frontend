@@ -51,7 +51,7 @@ function Update({dataId:id,todoList,updateTodo,setRemove}) {
         <div className="update">
             <div>
                 <label htmlFor="completed" >Not Completed</label>
-                <input onChange={handleChange} type="checkbox" id="completed" defaultChecked={checkCom ? "checked":""}/>
+                <input onChange={handleChange} type="checkbox" defaultChecked={checkCom ? "checked":""}/>
             </div>
             <div>
                 <button className="btn cancel" onClick={buttonUpdate}>Hủy</button>

@@ -131,7 +131,7 @@ function App() {
                 <div className="todolist">
                     {todos.length ? todos.map((value,_) => {
                         return (<div key={value._id} className="sub-todo">
-                        <div className="text">{value.todo}</div>
+                        <div className="text" id={value.isCompleted ? "completed":"normal"}>{value.todo}</div>
                         <div className="action">
                             <Update dataId={value._id} setRemove={setRemove} todoList={value} updateTodo={updateTodo}></Update>
                             <Remove id={value._id} setRemove={setRemove}></Remove>
