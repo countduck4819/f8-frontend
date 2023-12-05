@@ -46,6 +46,7 @@ function App() {
         else {
             toast.success("Add todo success");
         }
+        getData();
         setForm({
             name: ""
         })
@@ -98,7 +99,7 @@ function App() {
     }else {
         getData()
     }
-    },[todos,form,checkSearch])
+    },[checkSearch])
     return (
         <Fragment>
             
