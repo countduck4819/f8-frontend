@@ -10,11 +10,13 @@ function App() {
     const [form,setForm] = React.useState({
         name: ""
     })
+    const [count,setCount] = React.useState(0);
     const [checkSearch,setCheckSearch] = React.useState(false);
     const getData = async function () {
             const {apiKey} = app.convertCookieToObject(document.cookie);
             client.setApiKey(apiKey)
             const {data,response} = await client.get("/todos");
+            setCount(1)
             if (!response.ok) {
                 if (response.status === 401) {
                     app.start(response.status);
@@ -55,6 +57,7 @@ function App() {
         const {apiKey} = app.convertCookieToObject(document.cookie);
         client.setApiKey(apiKey);
         const {data,response} = await client.get(`/todos?q=${form.name}`);
+        setCount(0)
         const todoList = data.data.listTodo;
         if (JSON.stringify(todoList) !== JSON.stringify(todos)) {
             setTodo(todoList);
@@ -97,9 +100,11 @@ function App() {
     if (checkSearch) {
         search()
     }else {
-        getData()
+        if (count === 0) {
+            getData()
+        }
     }
-    },[checkSearch])
+    },[form,checkSearch])
     return (
         <Fragment>
             
