@@ -5,7 +5,9 @@ import { app } from "./js/app";
 import { client } from "./js/client";
 import Remove from "./components/Remove";
 import Update from "./components/Update";
+import Loading from "./components/Loading";
 function App() {
+    const [loading,setLoading] = React.useState(false)
     const [todos,setTodo] = React.useState([]);
     const [form,setForm] = React.useState({
         name: ""
@@ -17,6 +19,7 @@ function App() {
             client.setApiKey(apiKey)
             const {data,response} = await client.get("/todos");
             setCount(1)
+            setLoading(true);
             if (!response.ok) {
                 if (response.status === 401) {
                     app.start(response.status);
@@ -30,7 +33,9 @@ function App() {
                     return data.data.listTodo
                 })
             }
-        
+            setTimeout(function() {
+                setLoading(false)
+            },1500)
     }
     const handleChange = (e) => {
         setForm({name: e.target.value})
@@ -107,7 +112,7 @@ function App() {
     },[form,checkSearch])
     return (
         <Fragment>
-            
+            {loading ? <Loading/>:""}
             <div className="container">
                 <h1>Welcome to Todo App !</h1>
                 <form action="" className="input-search">
@@ -125,7 +130,11 @@ function App() {
                     </div>
                     <button className="btn-search btn" onClick={(e) => {
                         if (!checkSearch) {
-                            toast.success("convert to Search")
+                            setLoading(true)
+                            setTimeout(function() {
+                                setLoading(false)
+                                toast.success("convert to Search");
+                            },1500)
                         }
                         else {
                             toast.success("convert to Add")
