@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 export const app = {
     getUser: async function(email) {
         console.log(JSON.parse(localStorage.getItem("apiKey")),email)
-        const {apiKey} = JSON.parse(localStorage.getItem("apiKey"));
+        // const {apiKey} = JSON.parse(localStorage.getItem("apiKey"));
         clients.setApiKey(apiKey)
         const data = await clients.send("/users/profile",{email});
         toast.success("chào mừng bạn quay trở lại")
