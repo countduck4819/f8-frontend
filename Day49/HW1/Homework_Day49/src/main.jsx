@@ -8,10 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import ConvertAfterLogin from "./components/convertAfterLogin";
 
 ReactDOM.createRoot(document.querySelector("#root")).render(
-    // <React.StrictMode>
+    <React.StrictMode>
         <Provider>
             <ConvertAfterLogin/>
             <ToastContainer/>
         </Provider>
-    // </React.StrictMode>
+     </React.StrictMode>
 );
