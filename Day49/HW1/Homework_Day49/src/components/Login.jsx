@@ -14,14 +14,12 @@ function Login() {
         const patten = /^[a-z0-9A-Z-._]+@[a-z0-9A-Z.-_]+\.[a-z]{2,}$/;
         if (patten.test(text)) {
             const result = await app.start(text)
-            console.log(result)
             if (result.res) {
-                console.log(result)
-
                 dispatch({
                     type: "login/input",
                     payload: text,
                 });
+                console.log("wait 8948289")
                 dispatch({
                     type: "login/checkLogin",
                     payload: true,

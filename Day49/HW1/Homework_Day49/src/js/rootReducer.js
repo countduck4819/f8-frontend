@@ -7,11 +7,8 @@ export const initialState = {
 export const reducer = function (state,action) {
     function add(payload) {
         const result = state.orders.findIndex((value) => {
-            console.log(value)
-            console.log(value._id,payload._id,value._id === payload._id)
             return value._id === payload._id;
         })
-        console.log(result)
         if (result >= 0) {
             state.orders[result].currentQuantity += 1;
             state.orders[result].quantity -= 1;

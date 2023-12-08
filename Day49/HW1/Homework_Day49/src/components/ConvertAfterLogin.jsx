@@ -7,7 +7,6 @@ import { app } from '../js/app'
 function ConvertAfterLogin() {
   const {state,dispatch} = React.useContext(GlobalContext)
   const data = JSON.parse(localStorage.getItem("apiKey"))
-  console.log(1)
   if (data?.userEmail && state.checkLoginSuccess === false) {
     app.start(data.userEmail).then((result) => {
       if (result.res) {

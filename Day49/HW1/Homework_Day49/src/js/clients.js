@@ -8,61 +8,67 @@ export const clients = {
     setApiKey: function (apiKey) {
         this.apiKey = apiKey;
     },
-    send: async function (path, method="GET",body) {
+    send: async function (path, method = "GET", body) {
         const url = `${SERVER_API}${path}`;
 
         const headers = {
-            "Content-Type": "application/json"
-        }
+            "Content-Type": "application/json",
+        };
 
         if (this.apiKey) {
-            if (!path.includes("products") && !path.includes("/api-key?email")) {
+            if (
+                !path.includes("products") &&
+                !path.includes("/api-key?email")
+            ) {
                 headers["X-Api-Key"] = `${this.apiKey}`;
             }
         }
         const options = {
             headers,
-            method
-        }
+            method,
+        };
         if (body) {
             options.body = JSON.stringify(body);
         }
+        console.log("URL: ", url);
+        console.log("Options: ", options);
         try {
             const response = await fetch(url, options);
             if (!response.ok) {
+                console.log("error 401")
                 if (!this.requestApiKey) {
                     this.requestApiKey = requestApiKey(this);
                     const newApiKey = await this.requestApiKey;
                     if (newApiKey) {
                         this.apiKey = newApiKey.apiKey;
-                        this.send(path,method,body);
+                        this.send(path, method, body);
                     }
                 }
-                return false
+                return false;
             }
             const data = await response.json();
-            return {response,data}
-        }
-        catch(e){
+            return { response, data };
+        } catch (e) {
             // throw new Error(e);
+            console.log("Error: ", e);
         }
     },
     get: function (url) {
         return this.send(url);
     },
-    get2: function (url,body) {
-        return this.send(url,body);
+    get2: function (url, body) {
+        return this.send(url, body);
     },
-    post: function (url,body) {
-        return this.send(url,"POST",body)
+    post: function (url, body) {
+        return this.send(url, "POST", body);
     },
-    put: function (url,body) {
-        return this.send(url,"PUT",body)
+    put: function (url, body) {
+        return this.send(url, "PUT", body);
     },
-    patch: function (url,body) {
-        return this.send(url,"PATCH",body)
+    patch: function (url, body) {
+        return this.send(url, "PATCH", body);
     },
     delete: function (url) {
-        return this.send(url,"DELETE")
-    }
-}
+        return this.send(url, "DELETE");
+    },
+};

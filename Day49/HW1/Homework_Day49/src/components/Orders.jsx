@@ -5,7 +5,11 @@ import { app } from '../js/app';
 function Orders() {
     const {state,dispatch} = useContext(GlobalContext);
     console.log(state.orders)
-    const handleSubmit = function () {
+    const handleSubmit = function (e) {
+        e.preventDefault()
+        localStorage.removeItem("data_products");
+        localStorage.removeItem("list-product");
+        console.log(3)
         const result = state.orders.map((value) => {
             return {
                 productId: value._id,
@@ -13,11 +17,16 @@ function Orders() {
             }
         })
         app.getOrders(result)
-        dispatch({
-            type: "products/addlist",
-            payload: []
-        })
-        localStorage.removeItem("data_products")
+        app.getProducts().then((data) => {
+            dispatch({
+                type: "products/list",
+                payload: data
+            })
+            dispatch({
+                type: "products/addlist",
+                payload: []
+            })
+        });
     }
   return (
     <>
@@ -32,7 +41,6 @@ function Orders() {
                     </thead>
                     <tbody>
                         {state.orders.map((value) => {
-                        {console.log(value)}
                             return <tr key={value._id}>
                                 <td>{value.name}</td>
                                 <td>{value.quantity}</td>

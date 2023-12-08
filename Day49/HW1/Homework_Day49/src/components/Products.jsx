@@ -3,12 +3,14 @@ import { app } from "../js/app";
 import { GlobalContext } from "../reducers/Provider";
 
 function Products() {
+    console.log("dic hoi")
     const {state,dispatch} = React.useContext(GlobalContext)
-    console.log(state)
-    console.log(JSON.parse(localStorage.getItem("list-product")))
+    console.log(localStorage.getItem("list-product"))
     if (!localStorage.getItem("list-product")) {
+        console.log(12)
         app.getProducts();
     }
+    console.log(state)
     function handleClick(value) {
         dispatch({
             type: "products/add",
