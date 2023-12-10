@@ -1,0 +1,129 @@
+body {
+    background-color: rgb(68, 190, 238);
+    color: #fff;
+}
+.container {
+    width: 350px;
+    margin: 50px auto;
+    font-family: sans-serif;
+    text-align: center;
+    border: 1px solid #fff;
+    padding: 20px 30px;
+}
+
+.container div:first-child {
+    padding: 20px 30px;
+}
+
+.container .desc {
+    margin-bottom: 20px;
+}
+
+.container .btn {
+    border: none;
+    font-size: 20px;
+    font-family: sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+    color: #fff;
+    background-color: rgb(255, 87, 34);
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+}
+
+.container .btn:hover {
+    background-color: rgb(178, 60, 23);
+}
+
+.support-form {
+    width: 330px;
+    margin: 50px auto;
+    border: 1px solid #fff;
+    font-family: sans-serif;
+    padding: 20px;
+    border-radius: 4px;
+}
+.support-form .support {
+    padding: 20px 30px;
+    border-radius: 4px;
+    border: 1px solid orange;
+}
+.support-form .support .img img{
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.support-form .info {
+    text-align: center;
+    width: 90%;
+    margin: 10px auto 20px;
+}
+
+.support-form .info .hello {
+    font-size: 20px;
+    text-align: center;
+}
+
+.support-form .info .locale {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.support-form .info .email {
+    margin-top: 10px;
+    font-size: 16px;
+}
+.support-form .info .email a {
+    color: orange;
+    text-decoration: none;
+}
+
+.support-form .form {
+    width: 100%;
+}
+
+.support-form .form input,.support-form .form textarea {
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    border: none;
+    margin-bottom: 12px;
+    padding: 5px 20px;
+    border-radius: 8px;
+}
+
+.support-form .form input {
+    height: 40px;
+}
+
+.support-form .form button {
+    border: none; 
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    font-family: sans-serif;
+    background-color: rgb(76, 175, 80);
+    font-size: 16px;
+}
+
+.support-form .form button:hover {
+    background-color: #357A38;
+}
+
+.btn-logout {
+    margin-top: 20px;
+    border-radius: 8px;
+    border: none; 
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    font-family: sans-serif;
+    background-color: rgb(255, 87, 34);
+    font-size: 16px;
+}
+.btn-logout:hover {
+    background-color: rgb(178, 60, 23);
+}
