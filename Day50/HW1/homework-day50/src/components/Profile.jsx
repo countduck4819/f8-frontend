@@ -17,6 +17,7 @@ const Profile = () => {
         console.log(e.target);
         console.log(formRef);
         const email = formRef.current.children[0].value;
+        const address = window.location.origin;
         const pattern = /^[a-zA-Z0-9.-_]+@[a-zA-Z0-9]+\.[a-z]{2,}$/;
         const message = formRef.current.children[1].value;
         const serviceID = "service_5g3rqi4";
@@ -27,6 +28,7 @@ const Profile = () => {
                 name: user.name,
                 email,
                 message,
+                address
             };
             emailjs.send(serviceID, templateID, param, publicKey).then(
                 function (response) {

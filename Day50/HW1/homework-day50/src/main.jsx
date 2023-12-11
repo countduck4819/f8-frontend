@@ -20,8 +20,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     clientId="LWiU8L5xetHZPczappS8sGdLMggaghEV"
     authorizationParams={{
       redirect_uri: window.location.origin
-    }} */}
-  {/* > */}
+    }}
+    >  */}
             <Provider>
                 <App/>
             </Provider>
