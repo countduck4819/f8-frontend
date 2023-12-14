@@ -42,8 +42,16 @@ function DragInput() {
                         type: "currentSlot/input",
                         payload: 3
                     })
+                    dispatch({
+                        type: "number/random",
+                        payload: Math.floor(Math.random() * 8)
+                    })
                 }
-                else if (number > value[1] && number < result[index + 1][1]) {
+                else if (number > value[1] && number <= result[index + 1][1]) {
+                    dispatch({
+                        type: "number/random",
+                        payload: Math.floor(Math.random() * result[index + 1][1])
+                    })
                     dispatch({
                         type: "slot/input",
                         payload: value[0] + 1

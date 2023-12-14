@@ -10,7 +10,7 @@ function ConvertMode() {
             payload: !state,
         })
         localStorage.setItem("light",JSON.stringify({
-            light: state.checkLight
+            light: !state
           }))
     }
     return (
