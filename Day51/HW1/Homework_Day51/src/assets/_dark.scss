@@ -1,0 +1,32 @@
+.dark {
+    background-color: #1a202c;
+    .mode {
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        i {
+            color: #fff;
+            font-size: 20px;
+            &:nth-child(1) {
+                display: none;
+            }
+            &:nth-child(2) {
+                display: block;
+            }
+        }
+    }
+    #number-input {
+        border-color: #555;
+        background-color: #1a202c;
+        &::placeholder {
+            color: #555;
+        }
+    }
+    .container {
+        .results {
+            .result {
+                color: #fff;
+            }
+        }
+    }
+}
