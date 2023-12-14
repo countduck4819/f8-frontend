@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "../hook/createHook";
 
 function ConvertMode() {
@@ -9,6 +9,9 @@ function ConvertMode() {
             type: "convert/light",
             payload: !state,
         })
+        localStorage.setItem("light",JSON.stringify({
+            light: state.checkLight
+          }))
     }
     return (
         <div className="mode" onClick={handleClick}>

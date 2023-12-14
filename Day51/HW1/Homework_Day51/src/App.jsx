@@ -9,6 +9,7 @@ function App() {
     const [statusLight, setStatusLight] = useState(false);
     const dispatch = useDispatch();
     if (!localStorage.getItem("light")) {
+        console.log(123)
       localStorage.setItem("light",JSON.stringify({
         light: state.checkLight
       }))
