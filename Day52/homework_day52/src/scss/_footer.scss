@@ -1,0 +1,10 @@
+.footer {
+    position: relative;
+    padding-bottom: 50px;
+    ul.pagination {
+        left: 50%;
+        position: absolute;
+        translate: -50%;
+        margin: 0px auto;
+    }
+}
