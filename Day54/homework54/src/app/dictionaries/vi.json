@@ -1,0 +1,78 @@
+{
+    "main": {
+        "heading": "Vũ Thành Khang",
+        "my_skill_desc": "Front-end developer",
+        "skills": {
+            "heading": "Các kỹ năng của tôi",
+            "skill_1": {
+                "desc": "Kỹ năng làm việc: ",
+                "span": " REST API, React.js, Next.js, Redux, Context, CSS3, HTML5, UI/UX, Figma, Photoshop..."
+            },
+            "skill_2": {
+                "desc": "Các kỹ năng khác: ",
+                "span": "Kỹ năng nghiên cứu và tìm kiếm tương đối tốt. Tư duy làm việc, kỹ năng làm việc nhóm tốt so với độ tuổi.."
+            }
+        },
+        "histories": {
+            "heading": "Lịch sử",
+            "times": [
+                {
+                    "year": "2016: ",
+                    "span": "Trường Trung học Cơ sở nào đó"
+                },
+                {
+                    "year": "2017-2019: ",
+                    "span": "Các trường Trung học Cơ sở khác"
+                },
+                {
+                    "year": "2019-2021: ",
+                    "span": "Trường Trung học Phổ thông khác"
+                },
+                {
+                    "year": "2022-2023: ",
+                    "span": "Học đại học và làm trợ giảng tại F8"
+                }
+            ]
+        },
+        "content": {
+            "social": "Thông tin liên hệ",
+            "self_projects": {
+                "heading": "Các dự án cá nhân",
+                "projects": [
+                    {
+                        "heading": "Project Code snippet",
+                        "desc": [
+                            "Một dự án nhỏ hoàn thành trong vòng một ngày",
+                            "Một trang web đơn giản cho phép tạo và chia sẻ các đoạn code. Sử dụng HTML, CSS, JS và custom elements."
+                        ],
+                        "link": {}
+                    },
+                    {
+                        "heading": "Project blog",
+                        "desc": [
+                            "Một dự án được thực hiện trong ba ngày",
+                            "Một trang web blog social với các bài viết về lập trình và học tập. Sử dụng React.js."
+                        ],
+                        "link": {}
+                    },
+                    {
+                        "heading": "Project 20f8",
+                        "desc": [
+                            "Một dự án game được làm trong một ngày",
+                            "Một trò chơi giải đố dựa trên trò chơi 2048. Sử dụng Next.js và Tailwind CSS."
+                        ],
+                        "link": {}
+                    }
+                ]
+            },
+            "my_hobbies": {
+                "heading": "Sở thích cá nhân",
+                "list_item": [
+                    "Thưởng Thức Nhạc Nhẹ, Nhạc Rap Của Đen Vâu Và Các Nghệ Sĩ Khác,…",
+                    "Đọc Sách, Học Hỏi Thêm Về Các Ngôn Ngữ Lập Trình Mới Mẻ. Hiện Tại, Tôi Đang Tự Học Python",
+                    "Theo Dõi Các Xu Hướng Công Nghệ, Tin Tức Về Các Sản Phẩm Nổi Tiếng Như Iphone, Huawei, GoogleAI,…"
+                ]
+            }
+        }
+    }
+}
