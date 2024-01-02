@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import Home from "../components/Home";
 import Language from "../components/Language";
 import { notFound } from "next/navigation";
+import DarkLight from "../components/DarkLight";
 export default async function Page({ params }) {
     const { lang } = params;
     let dict;
@@ -21,7 +22,7 @@ export default async function Page({ params }) {
     } // en
 
     return (
-        <div className="theme">
+        <div className="theme dark">
             <header className="header">
                 <div className="header-left">
                     <div className="logo">
@@ -101,7 +102,7 @@ export default async function Page({ params }) {
                             </a>
                         </li>
                     </ul>
-                    <div className="dark-light"></div>
+                    <DarkLight></DarkLight>
                     <Language>{params}</Language>
                 </div>
             </header>

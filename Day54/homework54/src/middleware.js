@@ -2,6 +2,7 @@
 import Negotiator from "negotiator";
 import { NextResponse } from "next/server";
 import NotFound from "./app/not-found";
+import { cookies } from "next/headers";
 
 // let headers = { "accept-language": "en-US,en;q=0.5" };
 // let languages = new Negotiator({ headers }).languages();
@@ -16,13 +17,9 @@ export function middleware(request) {
 
     // if (!pathname.startsWith("/en") && !pathname.startsWith("/vi")) {
     if (pathname === "/" || pathname === "") {
-        console.log(1);
-        const loginUrl = request.nextUrl.origin + "/en";
+        const loginUrl =
+            request.nextUrl.origin + `/${cookies().get("lang").value}`;
         console.log(loginUrl);
         return NextResponse.redirect(loginUrl);
     }
-    //     // const loginUrl = request.nextUrl.origin + "/";
-    //     // console.log(loginUrl);
-    //     // return NextResponse.redirect(loginUrl);
-    // }
 }

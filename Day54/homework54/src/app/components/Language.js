@@ -3,8 +3,8 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 function Language({ children }) {
-    const check = useState(true);
-    const [lang, setLang] = useState(children.lang);
+    let language = children.lang;
+    const [lang, setLang] = useState(language);
     const route = useRouter();
     function handleClick(e) {
         if (lang === "vi") {
@@ -13,7 +13,9 @@ function Language({ children }) {
             setLang("vi");
         }
     }
+
     useEffect(() => {
+        document.cookie = `lang=${lang}`;
         route.push(lang);
     }, [lang]);
     return (

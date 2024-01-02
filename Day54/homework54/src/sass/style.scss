@@ -11,12 +11,24 @@ a {
     font-family: sans-serif;
     width: 80%;
     margin: 0px auto;
-    --color: #fff;
-    color: #fff !important;
-    --background-color: #000;
     background-color: var(--background-color);
     width: 100vw;
     overflow-x: hidden;
+    &.dark {
+        --color: #fff;
+        color: #fff !important;
+        --background-color: #000;
+        --main-background: rgb(24, 24, 27);
+    }
+    &.light {
+        .main {
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+        --color: #000;
+        color: #000 !important;
+        --background-color: rgba(255, 255, 255, 0.7);
+        --main-background: rgba(255, 255, 255);
+    }
 }
 .header {
     z-index: 100;
@@ -77,6 +89,29 @@ a {
             }
         }
         .dark-light {
+            cursor: pointer;
+            position: relative;
+            .dark {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+            &[datamode="dark"] {
+                > :nth-child(1) {
+                    visibility: hidden;
+                }
+                > :nth-child(2) {
+                    visibility: visible;
+                }
+            }
+            &[datamode="light"] {
+                > :nth-child(2) {
+                    visibility: hidden;
+                }
+                > :nth-child(1) {
+                    visibility: visible;
+                }
+            }
         }
         .language {
             display: flex;
@@ -101,7 +136,7 @@ a {
 }
 
 .main {
-    background-color: rgb(24, 24, 27);
+    background-color: var(--main-background);
     width: 90%;
     margin: 80px auto;
     padding: 10px 5%;
@@ -325,4 +360,5 @@ a {
 
 .footer {
     color: rgb(251 146 60);
+    margin-bottom: 20px;
 }
