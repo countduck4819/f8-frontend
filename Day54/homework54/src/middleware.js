@@ -17,8 +17,13 @@ export function middleware(request) {
 
     // if (!pathname.startsWith("/en") && !pathname.startsWith("/vi")) {
     if (pathname === "/" || pathname === "") {
-        const loginUrl =
-            request.nextUrl.origin + `/${cookies().get("lang").value}`;
+        let loginUrl;
+        if (cookies()?.get("lang")?.value) {
+            loginUrl =
+                request.nextUrl.origin + `/${cookies().get("lang").value}`;
+        } else {
+            loginUrl = new URL("/en", request.url);
+        }
         console.log(loginUrl);
         return NextResponse.redirect(loginUrl);
     }

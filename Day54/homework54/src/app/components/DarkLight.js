@@ -1,22 +1,36 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 // import { useTheme } from "next-themes";
 // import { cookies } from "next/headers";
 function DarkLight() {
-    const [mode, setMode] = useState("dark");
+    const [mode, setMode] = useState(
+        `${
+            localStorage.getItem("color")
+                ? localStorage.getItem("color")
+                : "dark"
+        }`
+    );
     function handleClick(e) {
         console.log(e.target.parentElement);
+        console.log(document.cookie);
         const darkLight = document.querySelector(".dark-light");
         if (darkLight.getAttribute("datamode") === "light") {
             console.log(mode);
             setMode("dark");
+            localStorage.setItem("color", "dark");
             document.querySelector(".theme").classList.remove("light");
         } else {
             console.log(mode);
             setMode("light");
             document.querySelector(".theme").classList.remove("dark");
+            localStorage.setItem("color", "light");
         }
     }
+    // useLayoutEffect(() => {
+    //     if (localStorage.getItem("color")) {
+    //         setMode(localStorage.getItem("color"));
+    //     }
+    // });
     useEffect(() => {
         document.querySelector(".theme").classList.add(mode);
     }, [mode]);

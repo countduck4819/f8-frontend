@@ -1,5 +1,6 @@
 import { getDictionary } from "./dictionaries";
 import Image from "next/image";
+import image from "../assets/facebook.jpg";
 import icons from "./../assets/icons";
 import { cookies } from "next/headers";
 import Home from "../components/Home";
@@ -22,15 +23,15 @@ export default async function Page({ params }) {
     } // en
 
     return (
-        <div className="theme dark">
+        <div className="theme">
             <header className="header">
                 <div className="header-left">
                     <div className="logo">
-                        <img
-                            width="100%"
-                            height="100%"
-                            src="https://scontent.fhan5-10.fna.fbcdn.net/v/t39.30808-1/305398052_608642147579341_2974290729526947917_n.jpg?stp=dst-jpg_p320x320&_nc_cat=101&ccb=1-7&_nc_sid=5740b7&_nc_eui2=AeFT9vXw4s9cb8JKwkIL29mTInKP6_qnfAoico_r-qd8CmOIkbd11I82T9sNb-oSIZNZyPua_oQw78EREXFBUp_8&_nc_ohc=Tvaut041y4wAX-WEWkN&_nc_ht=scontent.fhan5-10.fna&oh=00_AfAnAccPn7xMMHZeV-E3tGy1bt8A5hxVmrmP9SIS1N7BnQ&oe=65962A76"
-                            alt=""
+                        <Image
+                            src={image}
+                            alt="facebook"
+                            width="40"
+                            height="40"
                         />
                     </div>
                     <div className="name-user">Khang Vũ</div>
@@ -113,11 +114,11 @@ export default async function Page({ params }) {
                         <div className="image">
                             <div className="img-2"></div>
                             <div className="img">
-                                <img
-                                    width="100%"
-                                    height="100%"
-                                    src="https://scontent.fhan5-10.fna.fbcdn.net/v/t39.30808-1/305398052_608642147579341_2974290729526947917_n.jpg?stp=dst-jpg_p320x320&_nc_cat=101&ccb=1-7&_nc_sid=5740b7&_nc_eui2=AeFT9vXw4s9cb8JKwkIL29mTInKP6_qnfAoico_r-qd8CmOIkbd11I82T9sNb-oSIZNZyPua_oQw78EREXFBUp_8&_nc_ohc=Tvaut041y4wAX-WEWkN&_nc_ht=scontent.fhan5-10.fna&oh=00_AfAnAccPn7xMMHZeV-E3tGy1bt8A5hxVmrmP9SIS1N7BnQ&oe=65962A76"
-                                    alt=""
+                                <Image
+                                    src={image}
+                                    alt="facebook"
+                                    width="300"
+                                    height="300"
                                 />
                             </div>
                             <div class="desc">{dict?.main?.my_skill_desc}</div>
