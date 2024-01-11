@@ -9,7 +9,7 @@ function Logout() {
             onClick={() =>
                 signOut({
                     redirect: true,
-                    callbackUrl: "http://localhost:3000/auth",
+                    callbackUrl: "/auth",
                 })
             }
         >

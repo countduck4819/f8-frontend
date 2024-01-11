@@ -37,7 +37,7 @@ function SigninButton() {
                         onClick={() =>
                             signIn("google", {
                                 redirect: false,
-                                callbackUrl: "http://localhost:3000/profile",
+                                callbackUrl: "/profile",
                             })
                         }
                     >
@@ -65,7 +65,7 @@ function SigninButton() {
                         onClick={() =>
                             signIn("github", {
                                 redirect: false,
-                                callbackUrl: "http://localhost:3000/profile",
+                                callbackUrl: "/profile",
                             })
                         }
                     >
@@ -91,12 +91,12 @@ function SigninButton() {
                     </button>
                 </div>
                 <div className="note">
-                    "
+                    &ldquo;
                     <em>
                         &nbsp;Login to contact, comment and explore more
                         exciting features.&nbsp;
                     </em>
-                    "
+                    &rdquo;
                 </div>
             </div>
         </main>
