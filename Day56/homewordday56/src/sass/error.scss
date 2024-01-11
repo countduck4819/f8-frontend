@@ -1,0 +1,27 @@
+.not-found {
+    background-color: #333;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img {
+        border-radius: 10px;
+        object-fit: cover;
+        width: 80%;
+        height: 80%;
+    }
+    a {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 11px 20px 10px;
+        font-size: 18px;
+        background-color: orange;
+        color: #fff;
+        border-radius: 999px;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

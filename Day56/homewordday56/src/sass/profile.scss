@@ -1,0 +1,108 @@
+.theme.light {
+    .profile-page {
+        background-color: #fff;
+    }
+    .profile-page {
+        .span {
+            color: #a1a1aa;
+        }
+
+        .desc {
+            color: #71717a;
+        }
+    }
+}
+
+.main {
+    &.profile-page {
+        padding: 0px;
+        background-color: #000;
+    }
+    .profile-main {
+        min-height: calc(100vh - 80px);
+        margin-bottom: 0px;
+        .user {
+            padding-top: 40px;
+            padding-left: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            .img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+            .info {
+                display: flex;
+                gap: 5px;
+                flex-direction: column;
+                align-items: flex-start;
+                .name-user {
+                    font-size: 17px;
+                }
+                .email-user {
+                    font-size: 13px;
+                    color: #aaa;
+                }
+            }
+        }
+
+        .post-watched {
+            padding-top: 40px;
+            padding-left: 50px;
+            h2.heading {
+                text-align: left;
+                font-size: 35px;
+                font-weight: bold;
+            }
+            .post-info {
+                margin-top: 35px;
+                font-size: 25px;
+                font-style: italic;
+            }
+        }
+
+        .cmt-watched {
+            margin-bottom: 100px;
+            padding-top: 40px;
+            padding-left: 50px;
+            h2.heading {
+                text-align: left;
+                font-size: 35px;
+                font-weight: bold;
+            }
+            .cmt-info {
+                margin-top: 35px;
+                font-size: 25px;
+                font-style: italic;
+            }
+        }
+
+        .span {
+            bottom: 40px;
+            left: 50%;
+            translate: -50%;
+            position: fixed;
+            font-size: 15px;
+            background-color: #fad961;
+            background-image: linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .desc {
+            bottom: 10px;
+            left: 50%;
+            translate: -50%;
+            position: fixed;
+            font-size: 16px;
+            background-color: #fbda61;
+            background-image: linear-gradient(45deg, #fbda61 0%, #ff5acd 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 14px;
+        }
+    }
+}
