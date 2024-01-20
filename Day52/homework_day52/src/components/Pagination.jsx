@@ -1,10 +1,12 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 function Pagination({convertPage,convertCheck}) {
     const [page,setPage] = useState(1);
     const state = useSelector(state => state);
+    const btnRef = useRef();
     const dispatch = useDispatch();
     function handlePageClick(selected) {
         localStorage.setItem("page",selected.selected + 1)
@@ -13,12 +15,14 @@ function Pagination({convertPage,convertCheck}) {
             payload: selected.selected + 1
         })
         setPage(selected.selected + 1)
+        btnRef.current.click();
         convertPage(true)
         convertCheck(true)
     }
 
   return (
-    <ReactPaginate
+    <Link ref={btnRef} to={`/products/${page}`}>
+      <ReactPaginate
         breakLabel="..."
         nextLabel="next"
         forcePage={page - 1}
@@ -38,6 +42,7 @@ function Pagination({convertPage,convertCheck}) {
         activeClassName="active"
         renderOnZeroPageCount={null}
       />
+    </Link>
   )
 }
 

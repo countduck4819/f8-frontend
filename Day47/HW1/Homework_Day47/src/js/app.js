@@ -1,37 +1,42 @@
 import { client } from "./client";
-import {config} from "./config";
-const {SERVER_API} = config;
+import { config } from "./config";
+const { SERVER_API } = config;
 export const app = {
     quantity: 0,
     convertCookieToObject: function (cookieBrowser) {
-        let listCookie = cookieBrowser.replace(" ","").split(";");
-        listCookie = listCookie.map((value,index) => value.split("="));
-        return Object.fromEntries(listCookie)
+        let listCookie = cookieBrowser.replace(" ", "").split(";");
+        listCookie = listCookie.map((value, index) => value.split("="));
+        return Object.fromEntries(listCookie);
     },
     getApiKey: async function (email) {
-        const {data,response} = await client.get(`/api-key?email=${email}`);
+        const { data, response } = await client.get(`/api-key?email=${email}`);
         const apiCookie = new URLSearchParams(data.data).toString();
         document.cookie = `${apiCookie};email=${email}`;
         let dataCookie = document.cookie;
-        dataCookie = this.convertCookieToObject(dataCookie)
-        client.setApiKey(dataCookie.apiKey)
+        dataCookie = this.convertCookieToObject(dataCookie);
+        client.setApiKey(dataCookie.apiKey);
         if (!response.ok) {
-            throw new Error("Khong tim thay email")
+            throw new Error("Khong tim thay email");
         }
-        console.log(data,response);
-        return {response,data} 
+        console.log(data, response);
+        return { response, data };
     },
-    start: function() {
+    start: function (error = "") {
         if (!document.cookie) {
             const inputEmail = prompt("Please enter your email:");
             this.getApiKey(inputEmail);
-            console.log(client.apiKey)
+            console.log(client.apiKey);
+        } else {
+            if (error) {
+                const inputEmail = prompt("Please enter your email:");
+                this.getApiKey(inputEmail);
+                console.log(client.apiKey);
+            } else {
+                let dataCookie = document.cookie;
+                dataCookie = this.convertCookieToObject(dataCookie);
+                console.log(dataCookie);
+            }
         }
-        else {
-            let dataCookie = document.cookie;
-            dataCookie = this.convertCookieToObject(dataCookie)
-            console.log(dataCookie)
-        }
-    }   
-}
-app.start()
+    },
+};
+app.start();

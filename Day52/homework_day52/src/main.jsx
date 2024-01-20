@@ -18,12 +18,11 @@ const router = createBrowserRouter([
 
       },
       {
-        path: "card",
+        path: "card/detail/:productName/:productId",
         element: <InfoProducts/>,
       },
       {
-        path: "products/1",
-        index: true,
+        path: "products/:page",
         element: <ProductsList/>,
       },
       {

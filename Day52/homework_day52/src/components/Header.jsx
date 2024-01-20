@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 function Header() {
+  const [check,setCheck] = useState(true);
+  const state = useSelector(state => state);
+  const dispatch = useDispatch()
+  useLayoutEffect(() => {
+    if (localStorage.getItem("quantity")) {
+      dispatch({
+        type: "add/header",
+        payload: JSON.parse(localStorage.getItem("quantity"))
+      })
+      setCheck(false) 
+    }
+  },[check])
   return (
     <header className="header">
         <div className="container">
@@ -9,7 +22,7 @@ function Header() {
           <Link to={`card`}>
             <div className="store">
                 <i className="fa-solid fa-store"></i>
-                <div className="number">0</div>
+                <div className="number">{state.quantity}</div>
             </div>
           </Link>
         </div>

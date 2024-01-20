@@ -1,0 +1,112 @@
+.dark {
+    .listmindmap {
+        .navbar {
+            background-color: #111;
+            ul {
+                li {
+                    &:hover {
+                        background-color: #444;
+                        // padding: ;
+                    }
+                }
+            }
+        }
+    }
+}
+.listmindmap {
+    display: flex;
+    gap: 1rem;
+    margin-top: 5.3rem;
+    .navbar {
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+            rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        height: calc(100vh - 5rem);
+        width: 20%;
+        padding: 4rem 1.8rem;
+        ul {
+            li {
+                color: #555;
+                border-radius: 4px;
+                margin-top: 1.5rem;
+                padding: 6px 10px;
+                cursor: pointer;
+                @include center(alignItem);
+                gap: 2rem;
+                svg {
+                    width: 22px;
+                    height: 22px;
+                }
+                font-size: 1.6rem;
+                font-weight: 500;
+                transition: background-color 0.2s linear;
+                &:hover {
+                    background-color: #eee;
+                    color: rgb(133, 15, 218);
+                    // padding: ;
+                }
+                &.active {
+                    color: #fff;
+                    background-color: rgb(0, 170, 255) !important;
+                }
+            }
+        }
+    }
+
+    .workspace {
+        padding-left: 3rem;
+        h2.heading {
+            margin-bottom: 3rem;
+            margin-top: 3rem;
+            font-size: 2rem;
+            color: #666;
+        }
+
+        .projects {
+            display: flex;
+            gap: 6px;
+            cursor: pointer;
+            @include center(center);
+            &:hover {
+                opacity: 0.8;
+            }
+
+            .project {
+                @include center(center);
+                color: orange;
+                font-size: 2rem;
+                background-color: #ddd;
+                width: 260px;
+                height: 150px;
+                background-image: url("../image/story.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                position: relative;
+                border: 3px solid indigo;
+                border-radius: 4px;
+                .name-project {
+                    padding-left: 1rem;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+                &:hover {
+                    border-color: orangered;
+                }
+            }
+        }
+
+        .create-mindmap {
+            cursor: pointer;
+            width: 260px;
+            height: 150px;
+            @include center(center);
+            color: #666;
+            font-size: 1.6rem;
+            background-color: #ddd;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}

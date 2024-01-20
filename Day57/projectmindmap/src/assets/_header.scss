@@ -1,0 +1,165 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: sans-serif;
+    // margin: 0px auto !important;
+}
+
+.dark {
+    .header {
+        --bg-global-color: #222;
+        filter: brightness(10) blur(2);
+        .primary-menu {
+            a {
+                &:hover {
+                    --bg-primary-menu: #555;
+                    --color-primary: #bbb;
+                }
+            }
+        }
+    }
+}
+.header {
+    --bg-global-color: #fff;
+    --text-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: var(--bg-global-color);
+    padding: 1rem 6.5%;
+    &.scroll-shadow {
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05),
+            0 5px 30px 0 rgba(0, 0, 0, 0.05);
+    }
+    @include center(alignItem);
+    justify-content: space-between;
+    .logo {
+        @include center(center);
+        gap: 0.7rem;
+        img {
+            width: 4.3rem;
+            height: 4.3rem;
+        }
+
+        .font-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.5rem;
+            color: rgb(79 70 229 / 1);
+        }
+    }
+
+    .primary-menu {
+        font-size: 2rem;
+        @include center(alignItem);
+        gap: 1rem;
+        a {
+            min-width: 6rem;
+            display: inline-block;
+            border-radius: 0.4rem;
+            padding: 0.5rem 1.5rem;
+            &:hover {
+                --bg-primary-menu: rgb(229 231 235/ 1);
+                --color-primary: #777;
+                color: var(--color-primary);
+                background-color: var(--bg-primary-menu);
+            }
+        }
+
+        a.active {
+            background-color: #fee140;
+            background-image: linear-gradient(90deg, #fee140 0%, #fa709a 100%);
+            color: #fff;
+        }
+    }
+
+    .action {
+        @include center(alignItem);
+        gap: 1.8rem;
+        .btn-log-in {
+            padding: 0.6rem 1.2rem;
+            color: #00aaff;
+            font-weight: 500;
+            font-size: 1.8rem;
+            &:hover {
+                color: orange;
+            }
+        }
+
+        .btn-sign-up {
+            @include center(alignItem);
+            padding: 1rem 3rem;
+            gap: 1rem;
+            color: #fff;
+            border-radius: 99.9rem;
+            span {
+                font-size: 1.8rem;
+                font-weight: 700;
+            }
+            background-color: #00aaff;
+            box-shadow: 0 10px 30px -10px #00aaff;
+            svg {
+                width: 2rem;
+                height: 2rem;
+            }
+            &:hover {
+                box-shadow: 0 10px 30px -5px #00aaff;
+            }
+        }
+
+        .dark-light {
+            position: relative;
+            cursor: pointer;
+            border-radius: 0.4rem;
+            padding: 0.5rem;
+            border: 2px solid #666;
+            width: 3.5rem;
+            height: 3.5rem;
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+
+            .option-mode {
+                background-color: var(--bg-global-color);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                translate: 0 10px;
+                font-size: 1.6rem;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                li {
+                    color: orangered;
+                    padding: 5px 13px;
+                    min-width: 100px;
+                    &:hover {
+                        background-color: #ffdee9;
+                        background-image: linear-gradient(
+                            0deg,
+                            #ffdee9 0%,
+                            #b5fffc 100%
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    .back-top {
+        @include center(center);
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        color: #fff;
+        font-weight: bold;
+        background-color: #5325ea;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+}

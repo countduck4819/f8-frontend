@@ -1,3 +1,10 @@
+Link {
+    text-decoration: none !important;
+    .desc {
+        color: #000 !important;
+
+    }
+}
 .main {
     margin: 100px 0px 100px;
     padding: 0px 100px;
@@ -22,7 +29,7 @@
                 flex-basis: calc((100% - (20px * 3)) / 4);
                 border-radius: 7px;
                 text-align: center;
-                padding: 20px;
+                // padding: 20px;
                 .info {
                     margin-top: 20px;
                     .img {
@@ -42,11 +49,13 @@
                         }
                     }
                     .desc {
+                        color: #000 !important;
                         cursor: pointer;
                         margin-top: 40px;
-                        font-size: 20px;
+                        font-size: 17px;
                         font-family: sans-serif;
                         font-weight: 700;
+                        padding: 12px;
                     }
                 }
                 .action {

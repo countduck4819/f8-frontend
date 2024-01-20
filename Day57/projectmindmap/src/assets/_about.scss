@@ -1,0 +1,99 @@
+.dark {
+    .about {
+        .intro {
+            .info-desc {
+                color: #ddd;
+                .heading {
+                    color: rgb(96 165 250);
+                }
+            }
+        }
+    }
+}
+.about {
+    margin-top: 15rem;
+    padding: 1rem 6.5%;
+    .intro {
+        display: flex;
+        align-items: flex-start;
+        gap: 5rem;
+        .video-desc {
+            position: relative;
+            cursor: pointer;
+            object-fit: cover;
+            flex-shrink: 0;
+            width: 50%;
+            video {
+                position: relative;
+                z-index: 1;
+                border-radius: 5px 6rem;
+            }
+
+            .box-video {
+                background-color: rgb(96 165 250);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 2.5rem;
+                left: -2.5rem;
+                z-index: 0;
+                border-radius: 5px 6rem;
+            }
+        }
+
+        .info-desc {
+            font-size: 1.6rem;
+            color: rgb(107, 114, 128);
+            .desc {
+                margin-top: 1rem;
+                text-indent: 2.5rem;
+            }
+
+            .heading {
+                margin-top: 1rem;
+                position: relative;
+                color: rgb(17 24 39 / 1);
+                font-size: 4.8rem;
+                font-weight: 700;
+                // white-space: nowrap;
+                &::before {
+                    content: "";
+                    width: 0.7rem;
+                    height: 4rem;
+                    background-color: rgb(96 165 250);
+                    display: inline-block;
+                    margin-right: 1rem;
+                }
+
+                &::after {
+                    padding: 1rem;
+                    position: absolute;
+                    content: "ABOUT US";
+                    font-size: 10rem;
+                    background-color: rgb(96 165 250);
+                    color: #eaeaea;
+                    margin-right: 1rem;
+                    top: 8rem;
+                    left: 2.6rem;
+                    z-index: -1;
+                    opacity: 0.5;
+                    border-radius: 4px;
+                    filter: brightness(1.1) blur(5px);
+                }
+            }
+        }
+    }
+
+    .learn-more {
+        margin-top: 9rem;
+        margin-bottom: 5rem;
+        .btn-more {
+            letter-spacing: 1px;
+            font-size: 1.8rem;
+            color: rgb(249 250 251);
+            padding: 0.7rem 2rem;
+            border-radius: 999px;
+            background-color: rgb(96 165 250);
+        }
+    }
+}

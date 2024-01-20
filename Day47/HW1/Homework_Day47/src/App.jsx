@@ -9,17 +9,24 @@ function App() {
         name: ""
     })
     const getData = async function () {
-        const {apiKey} = app.convertCookieToObject(document.cookie);
-        client.setApiKey(apiKey)
-        const {data,response} = await client.get("/todos");
-        if (!response.ok) {
-            throw new Error("Error in GET Todo")
-        }
-        if (JSON.stringify(todos) !== JSON.stringify(data.data.listTodo)) {
-            setTodo(function () {
-                return data.data.listTodo
-            })
-        }
+            const {apiKey} = app.convertCookieToObject(document.cookie);
+            console.log(apiKey)
+            client.setApiKey(apiKey)
+            const {data,response} = await client.get("/todos");
+            if (!response.ok) {
+                if (response.status === 401) {
+                    console.log(    response,response.status === 401)
+                    app.start(response.status);
+                    getData();
+                }
+                throw new Error("Error in GET Todo")
+            }
+            if (JSON.stringify(todos) !== JSON.stringify(data.data.listTodo)) {
+                setTodo(function () {
+                    return data.data.listTodo
+                })
+            }
+        
     }
     const handleChange = (e) => {
         setForm({name: e.target.value})

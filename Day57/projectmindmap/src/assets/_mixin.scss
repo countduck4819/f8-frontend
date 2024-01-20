@@ -1,0 +1,13 @@
+@mixin center($position) {
+    @if ($position == alignItem) {
+        display: flex;
+        align-items: center;
+    } @else if($position == justifyContent) {
+        display: flex;
+        justify-content: center;
+    } @else if($position == center) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -29,7 +29,7 @@ export default async function Page({ params }) {
                     <div className="logo">
                         <Image
                             src={image}
-                            alt="facebook"
+                            alt="facebook-1"
                             width="40"
                             height="40"
                         />
@@ -107,6 +107,7 @@ export default async function Page({ params }) {
                     <Language>{params}</Language>
                 </div>
             </header>
+
             <main className="main">
                 <h1 className="heading">{dict?.main?.heading}</h1>
                 <div className="container">
@@ -116,7 +117,7 @@ export default async function Page({ params }) {
                             <div className="img">
                                 <Image
                                     src={image}
-                                    alt="facebook"
+                                    alt="facebook-2"
                                     width="300"
                                     height="300"
                                 />

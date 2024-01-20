@@ -5,8 +5,8 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 function DarkLight() {
     const [mode, setMode] = useState(
         `${
-            localStorage.getItem("color")
-                ? localStorage.getItem("color")
+            localStorage?.getItem("color")
+                ? localStorage?.getItem("color")
                 : "dark"
         }`
     );

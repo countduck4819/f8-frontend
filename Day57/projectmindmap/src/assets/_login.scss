@@ -1,0 +1,66 @@
+.dark {
+    .user {
+        color: rgb(12, 221, 12);
+        .username {
+            &:hover {
+                outline: 1px solid yellow;
+                background-color: #222;
+            }
+        }
+
+        .mindmap {
+            &:hover {
+                outline: 1px solid yellow;
+                background-color: #222;
+            }
+        }
+    }
+}
+.user {
+    color: rgb(75, 68, 206);
+    @include center(alignItem);
+    gap: 1.6rem;
+    box-sizing: border-box;
+    .username {
+        @include center(alignItem);
+        gap: 0.8rem;
+        padding: 0.4rem 1.4rem;
+        border-radius: 6px;
+        cursor: pointer;
+        .img {
+            width: 3.6rem;
+            height: 3.6rem;
+            img {
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+        .name {
+            font-size: 1.7rem;
+        }
+        &:hover {
+            outline: 1px solid indigo;
+            background-color: rgb(224 231 255);
+        }
+    }
+
+    .mindmap {
+        font-size: 1.7rem;
+        padding: 0.4rem 1rem;
+        border-radius: 6px;
+        &:hover {
+            @include center(center);
+            min-height: 44px;
+            outline: 1px solid indigo;
+            background-color: rgb(224 231 255);
+        }
+    }
+
+    .logout {
+        font-size: 1.7rem;
+        transition: color 0.2s linear;
+        &:hover {
+            color: orangered;
+        }
+    }
+}

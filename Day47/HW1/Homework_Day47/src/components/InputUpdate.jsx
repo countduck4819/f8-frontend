@@ -32,7 +32,7 @@ function InputUpdate({todo,dataId,checki,updateIt,setRemove}) {
             const {apiKey} = app.convertCookieToObject(document.cookie);
             client.setApiKey(apiKey);
             const {data,response} = await client.patch(`/todos/${dataId}`,{
-                todo: textInput
+                todo: textInput.name
             });
             setRemove()
         }

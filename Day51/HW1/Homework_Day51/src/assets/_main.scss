@@ -2,6 +2,16 @@
     font-family: sans-serif;
     padding: 50px 25px;
     min-height: 100vh;
+    .btn-reset {
+        background-color: #319795;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        color: #fff;
+        font-size: 18px;
+        margin: 15px 0px 0px;
+        cursor: pointer;
+    }
     .mode {
         position: fixed;
         top: 18px;

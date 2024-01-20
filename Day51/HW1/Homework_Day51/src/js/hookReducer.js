@@ -4,6 +4,8 @@ export const initialState = {
     slot: 7,
     currentSlot: 7,
     numberRandom: 0,
+    result: false,
+    visibleResult: false
 }
 
 export const reducer = function (state,action) {
@@ -22,6 +24,12 @@ export const reducer = function (state,action) {
         }
         case "number/random": {
             return {...state, numberRandom: action.payload}
+        }
+        case "result/endgame": {
+            return {...state,result: action.payload}
+        }
+        case "result/visible": {
+            return {...state,visibleResult: action.payload}
         }
     }
 }
