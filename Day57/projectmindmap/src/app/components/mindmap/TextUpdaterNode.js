@@ -77,7 +77,7 @@ function TextUpdaterNode(object) {
                         id="text-update"
                         name="text"
                         onChange={onChange}
-                        className="nodrag"
+                        className="nodrag pl-[6px] pt-[2px] pb-[2px]"
                         value={name}
                     />
                 </form>

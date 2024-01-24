@@ -17,51 +17,25 @@ import CustomEdge from "./mindmap/CustomEdge";
 import TextUpdaterNode from "./mindmap/TextUpdaterNode";
 import useSWR from "swr";
 import Loading from "./Loading";
-
-// const initialNodes = [
-//     {
-//         id: "0",
-//         position: {
-//             x: 0,
-//             y: 0,
-//         },
-//         data: {
-//             label: "1",
-//         },
-//         type: "input",
-//         deletable: false,
-//     },
-//     {
-//         id: "1",
-//         position: {
-//             x: 0,
-//             y: 100,
-//         },
-//         data: {
-//             label: "di choi",
-//         },
-//     },
-// ];
-let id = 3;
-const getId = () => `${id++}`;
-// const initialEdges = [
-//     // {
-//     //     id: "1-2",
-//     //     source: "1",
-//     //     target: "2",
-//     //     type: "default",
-//     //     label: "to the",
-//     // },
-// ];
+import ActionBtnMindMap from "./ActionBtnMindMap";
 
 const nodeTypes = { textUpdater: TextUpdaterNode };
 const edgeTypes = { customEdge: CustomEdge };
-const fetcher = (url) => fetch(url).then((res) => res.json());
-function MindmapAction({ initialEdges, initialNodes }) {
+
+function MindmapAction({ initialEdges, initialNodes, sub, id, dataOrigin }) {
+    const maxIdNode = initialNodes.sort((a, b) => {
+        return b.id - a.id;
+    })[0];
+    const [countId, setCountId] = useState(Number(maxIdNode.id) + 1 + "");
+    console.log(countId);
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const reactFlowWrapper = useRef(null);
     const connectingNodeId = useRef(null);
+
+    const getId = async () => {
+        await setCountId((prev) => Number(prev) + 1 + "");
+    };
     const { screenToFlowPosition } = useReactFlow();
     // console.log(nodes, edges);
 
@@ -111,7 +85,8 @@ function MindmapAction({ initialEdges, initialNodes }) {
 
             if (targetIsPane) {
                 // we need to remove the wrapper bounds, in order to get the correct position
-                const id = getId();
+                getId();
+                const id = countId;
                 const newNode = {
                     id,
                     position: screenToFlowPosition({
@@ -131,14 +106,10 @@ function MindmapAction({ initialEdges, initialNodes }) {
                     })
                 );
             }
-            // console.log(edges);
         },
-        [screenToFlowPosition]
+        [screenToFlowPosition, countId]
     );
-    // useEffect(() => {
-    //     setNodes(data?.dataNodes);
-    //     setEdges(data?.dataEdges);
-    // });
+
     return (
         <div
             style={{ width: "100vw", height: "calc(100vh - 63px)" }}
@@ -167,15 +138,13 @@ function MindmapAction({ initialEdges, initialNodes }) {
                 <Controls />
                 <MiniMap nodeColor="red" pannable zoomable />
             </ReactFlow>
-            <div className="absolute top-[20px] left-[20px]">
-                <input type="text" />
-                <div>Go vao day</div>
-            </div>
+            <ActionBtnMindMap dataOrigin={dataOrigin} sub={sub} id={id} />
         </div>
     );
 }
 
 export default (props) => {
+    const fetcher = (url) => fetch(url).then((res) => res.json());
     const { sub, id } = props;
     const { data, isLoading, error } = useSWR(
         `${process.env.NEXT_PUBLIC_SERVER_API}/${sub.replace("|", "-")}/${id}`,
@@ -198,6 +167,7 @@ export default (props) => {
                 <ReactFlowProvider>
                     <MindmapAction
                         {...props}
+                        dataOrigin={data}
                         initialEdges={data.dataEdges}
                         initialNodes={data.dataNodes}
                     />
