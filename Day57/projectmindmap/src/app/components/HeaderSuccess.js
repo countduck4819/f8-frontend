@@ -8,7 +8,7 @@ import Link from "next/link";
 import ThemeSwitch from "./ThemeSwitch";
 async function HeaderSuccess() {
     const { user } = await getSession();
-    console.log(user);
+    // console.log(user);
     return (
         <header className="header-success">
             <div className="header-left">

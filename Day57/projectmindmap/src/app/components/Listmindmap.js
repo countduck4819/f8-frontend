@@ -1,6 +1,24 @@
 import React from "react";
+import Project from "./Project";
+import CreateMindMap from "./CreateMindMap";
+const getProjects = async (url) => {
+    const response = await fetch(
+        `${process.env.SERVER_API}/${url.replace("|", "-")}`,
+        {
+            cache: "no-cache",
+        }
+    );
 
-function Listmindmap() {
+    console.log(
+        "sao ko dc",
+        `${process.env.SERVER_API}/${url.replace("|", "-")}`
+    );
+    return await response.json();
+};
+async function Listmindmap({ sub }) {
+    const projects = await getProjects(sub);
+    console.log(projects);
+
     return (
         <div className="listmindmap">
             <div className="navbar">
@@ -50,14 +68,18 @@ function Listmindmap() {
 
             <div className="workspace">
                 <h2 className="heading">My Maps</h2>
-                <div className="flex gap-6">
-                    <div className="create-mindmap">
-                        <span>Create new Mindmap</span>
-                    </div>
+                <div className="flex">
                     <div className="projects">
-                        <div className="project">
-                            <div className="name-project">Hello</div>
-                        </div>
+                        <CreateMindMap sub={sub} />
+                        {projects.map((project) => {
+                            return (
+                                <Project
+                                    sub={sub}
+                                    key={project.id}
+                                    project={project}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
             </div>
