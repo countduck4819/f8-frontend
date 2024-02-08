@@ -5,44 +5,67 @@ import {
 import React, { memo, useLayoutEffect } from "react";
 import Message from "./Message";
 import "./ConfigTrello.scss";
+import { useDispatch, useSelector } from "react-redux";
 
-function ListMessage({ dataMessages,listMessage, statusCol }) {
-    let listInColumn ;
-    listInColumn = dataMessages?.filter(
-        ({ _id, content, column }, index) => {
-            return column === statusCol;
+function ListMessage({ dataMessages, listMessage, statusCol }) {
+    // console.log(dataMessages);
+    const mess = useSelector((state) => state.input.dataMessage);
+    const dispatch = useDispatch();
+    // console.log(listMessage, dataMessages);
+    let listInColumn;
+    listInColumn = mess?.filter(({ _id, content, column }, index) => {
+        return column === statusCol;
+    });
+
+    if (listInColumn.length === 0) {
+        async function dispat() {
+            await dispatch({
+                type: "add/task",
+                payload: listInColumn[0],
+            });
         }
-    );
-    if (dataMessages === undefined) {
-        listInColumn = listMessage?.filter(
-            ({ _id, content, column }, index) => {
-                return column === statusCol;
-            }
-        );
+        listInColumn = [
+            {
+                column: statusCol,
+                hidden: true,
+                content: "",
+                _id: `hidden_${statusCol}`,
+            },
+        ];
+        // console.log(listInColumn, listInColumn.length);
+
+        dispat();
     }
     return (
         <SortableContext
             items={listInColumn?.map(({ _id }) => {
-                return _id
+                return _id;
             })}
             strategy={verticalListSortingStrategy}
         >
             {listInColumn?.map((dataMessage) => {
+                if (dataMessage.hidden === true) {
+                    return (
+                        <Message
+                            key={dataMessage._id}
+                            dataMessage={dataMessage}
+                            messageHidden={true}
+                        />
+                    );
+                }
                 return (
-                    <Message key={dataMessage._id} dataMessage={dataMessage} />
+                    <Message
+                        key={dataMessage._id}
+                        dataMessage={dataMessage}
+                        messageHidden={false}
+                    />
                 );
             })}
         </SortableContext>
     );
 }
 
-
-
-
-
 export default ListMessage;
-
-
 
 // import {
 //     SortableContext,

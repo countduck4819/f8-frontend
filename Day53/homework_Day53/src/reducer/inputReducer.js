@@ -14,6 +14,9 @@ export const inputReducer = function (state = initialState, action) {
         case "data/submit": {
             return {...state, dataBlog: action.payload}
         }
+        case "add/column": {
+            return {...state, dataBlog: [...state.dataBlog,action.payload]}
+        }
         case "data/message": {
             return {...state, dataMessage: action.payload}
         }
