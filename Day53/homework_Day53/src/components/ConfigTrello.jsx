@@ -29,7 +29,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SortableColumn from "./SortableColumn";
 import Message from "./Message";
 import AddColumn from "./AddColumn/AddColumn";
-import { updateApi } from "../middleware/inputMiddleware";
+import { changeMessageApi, updateApi } from "../middleware/inputMiddleware";
 const ACTIVE_DRAG_ITEM_TYPE = {
     COLUMN: "ACTIVE_DRAG_ITEM_TYPE_COLUMN",
     MESSAGE: "ACTIVE_DRAG_ITEM_TYPE_MESSAGE",
@@ -40,7 +40,7 @@ function ConfigTrello() {
     const dataMessage = useSelector((state) => state.input.dataMessage);
     const [dataMessages, setDataMessages] = useState(dataMessage);
     const [dataColumns, setDataColumns] = useState(dataBlog);
-    console.log(dataBlog, dataColumns);
+
     const [activeDragItemId, setActiveDragItemid] = useState(null);
     const [activeDragItemType, setActiveDragItemType] = useState(null);
     const [activeDragData, setActiveDragItemData] = useState(null);
@@ -85,7 +85,7 @@ function ConfigTrello() {
             return overColumn.column === column;
         }).length;
         const overMessageIndex = findIndexMessage(overMessageId, overColumn);
-        console.log(overMessageIndex);
+
         const activeMessageIndex = findIndexMessage(
             activeDraggingMessageId,
             activeColumn
@@ -95,7 +95,7 @@ function ConfigTrello() {
             active.rect.current.translated &&
             active.rect.current.translated.top >
                 over.rect.top + over.rect.height;
-        const modifier = isBelowOverItem ? 1 : 1;
+        const modifier = isBelowOverItem ? 1 : 0;
 
         newMessageIndex =
             overMessageIndex >= 0
@@ -113,7 +113,7 @@ function ConfigTrello() {
                         payload: dataMessages,
                     })
                 );
-                dispatchMiddleware();
+                dispatchMiddleware(changeMessageApi());
             }
             return dataMessages;
         });
@@ -134,8 +134,6 @@ function ConfigTrello() {
     };
     const handleDragOver = (e) => {
         const { active, over } = e;
-        console.log("active", active);
-        console.log("over", over);
         if (activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN) {
             return;
         }
@@ -205,7 +203,6 @@ function ConfigTrello() {
                 return;
             }
             if (oldColumnWhenDraggingMessage._id !== overColumn._id) {
-                console.log("drag end");
                 moveMessageBetweenColumnData(
                     1,
                     overMessageId,
@@ -216,34 +213,36 @@ function ConfigTrello() {
                     active
                 );
             } else {
-                setDataMessages((dataMessages) => {
-                    const oldMessageIndex = dataMessages.findIndex(
-                        (data) => data._id === activeDraggingMessageId
-                    );
-                    const newMessageIndex = dataMessages.findIndex(
-                        (data) => data._id === overMessageId
-                    );
-                    let newData = arrayMove(
-                        dataMessages,
-                        oldMessageIndex,
-                        newMessageIndex
-                    );
-                    if (newMessageIndex === -1) {
-                        newData = arrayMove(
-                            dataMessages,
-                            oldMessageIndex,
-                            oldMessageIndex
-                        );
-                    }
-                    dispatchAwait(
-                        dispatch({
-                            type: "data/message",
-                            payload: newData,
-                        })
-                    );
-                    dispatchMiddleware();
-                    return newData;
-                });
+                // setDataMessages((dataMessages) => {
+                //     const oldMessageIndex = dataMessages.findIndex(
+                //         (data) => data._id === activeDraggingMessageId
+                //     );
+                //     const newMessageIndex = dataMessages.findIndex(
+                //         (data) => data._id === overMessageId
+                //     );
+                //     let newData = arrayMove(
+                //         dataMessages,
+                //         oldMessageIndex,
+                //         newMessageIndex
+                //     );
+                //     if (newMessageIndex === -1) {
+                //         dispatchAwait(
+                //             dispatch({
+                //                 type: "data/message",
+                //                 payload: newData,
+                //             })
+                //         );
+                //         dispatchMiddleware();
+                //     }
+                //     if (newMessageIndex === -1) {
+                //         newData = arrayMove(
+                //             dataMessages,
+                //             oldMessageIndex,
+                //             oldMessageIndex
+                //         );
+                //     }
+                //     return newData;
+                // });
             }
         }
 
@@ -297,7 +296,6 @@ function ConfigTrello() {
     });
     useEffect(() => {
         if (JSON.stringify(dataMessage) !== JSON.stringify(dataMessages)) {
-            // console.log("di choi");
             setDataMessages(dataMessage);
         }
     });
@@ -364,9 +362,7 @@ function ConfigTrello() {
                         items={dataColumns?.map(({ _id }) => _id)}
                         strategy={horizontalListSortingStrategy}
                     >
-                        {console.log(dataColumns)}
                         {dataColumns.map((dataColumn) => {
-                            console.log(dataColumns);
                             return (
                                 <SortableColumn
                                     dataMessages={dataMessages}

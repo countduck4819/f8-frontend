@@ -17,21 +17,23 @@ function EditColumn({ dataColumn, dataColumnId }) {
                 !e.target.classList.contains("input-edit-column")
             ) {
                 const inputValue = document.querySelector(".input-edit-column");
-                const newDataBlog = dataBlog.map((value, index) => {
-                    if (value._id === dataColumnId) {
-                        value.columnName = inputValue.value;
+                if (inputValue.value !== dataColumn.columnName) {
+                    const newDataBlog = dataBlog.map((value, index) => {
+                        if (value._id === dataColumnId) {
+                            value.columnName = inputValue.value;
+                            return value;
+                        }
                         return value;
-                    }
-                    return value;
-                });
-                await dispatch({
-                    type: "data/submit",
-                    payload: newDataBlog,
-                });
+                    });
+                    await dispatch({
+                        type: "data/submit",
+                        payload: newDataBlog,
+                    });
+                    await dispatch(updateApi(dataMessage));
+                }
                 setCheck(false);
 
                 window.removeEventListener("click", overClick);
-                await dispatch(updateApi(dataMessage));
             }
         }
         window.addEventListener("click", overClick);
@@ -45,7 +47,6 @@ function EditColumn({ dataColumn, dataColumnId }) {
                         className="input-edit-column"
                         type="text"
                         onChange={(e) => {
-                            console.log(e.target.value, columnName);
                             setColumnName(e.target.value);
                         }}
                     />

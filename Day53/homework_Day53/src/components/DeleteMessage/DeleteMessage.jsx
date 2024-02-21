@@ -6,7 +6,6 @@ function DeleteMessage({ dataMessageId }) {
     const dataMessages = useSelector((state) => state.input.dataMessage);
     const dispatch = useDispatch();
     const handleClick = (e) => {
-        console.log(dataMessages, dataMessageId);
         const newDataMessages = dataMessages.filter(({ _id }, index) => {
             return _id !== dataMessageId;
         });

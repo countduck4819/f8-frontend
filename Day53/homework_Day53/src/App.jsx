@@ -1,16 +1,15 @@
-import React from 'react'
-import Login from "./Login/Login"
+import React from "react";
+import Login from "./Login/Login";
+
 function App() {
-  return (
-    <div>
-      <Login/>
-    </div>
-  )
+    return (
+        <div>
+            <Login />
+        </div>
+    );
 }
 
-export default App
-
-
+export default App;
 
 // // import {Droppable} from './Droppable';
 // // import {Draggable} from './Draggable';
@@ -25,8 +24,7 @@ export default App
 //   const style = {
 //     color: isOver ? 'green' : undefined,
 //   };
-  
-  
+
 //   return (
 //     <div ref={setNodeRef} style={style}>
 //       {props.children}
@@ -42,7 +40,6 @@ export default App
 //     transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
 //   } : undefined;
 
-  
 //   return (
 //     <button ref={setNodeRef} style={style} {...listeners} {...attributes}>
 //       {props.children}

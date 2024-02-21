@@ -2,7 +2,6 @@ import { toast } from "react-toastify";
 import { app } from "../js/config/app";
 import { client } from "../js/config/client";
 const newDataPush = async (getState) => {
-    console.log(getState().input.dataMessage);
     let newData = [];
     for (var i = 0; i < getState().input.dataMessage.length; i++) {
         if (getState().input.dataMessage[i]?.hidden === true) {
@@ -98,11 +97,20 @@ export const deleteMessageApi = (newDataMessages) => {
 
 export const updatedMessageApi = (newDataMessages) => {
     return async (dispatch, getState) => {
-        console.log(newDataMessages);
         await dispatch({
             type: "data/message",
             payload: newDataMessages,
         });
+        const newData = await newDataPush(getState);
+        const { data, res } = await client.post("/tasks", newData);
+        if (res.ok) {
+            toast.success("Updated data success 🤩");
+        }
+    };
+};
+
+export const changeMessageApi = () => {
+    return async (dispatch, getState) => {
         const newData = await newDataPush(getState);
         const { data, res } = await client.post("/tasks", newData);
         if (res.ok) {

@@ -69,7 +69,6 @@ function ConfigTrello() {
         setData((datas) => {
             const oldIndex = datas.findIndex((data) => data._id === active.id);
             const newIndex = datas.findIndex((data) => data._id === over.id);
-            console.log(datas, oldIndex, newIndex);
             return arrayMove(datas, oldIndex, newIndex);
         });
     };

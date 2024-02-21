@@ -10,7 +10,6 @@ function RemoveColumn({ dataColumnId }) {
         const newDataBlog = dataBlog.filter((value, index) => {
             return value._id !== dataColumnId;
         });
-        console.log(newDataBlog, dataColumnId);
         await dispatch({
             type: "data/submit",
             payload: newDataBlog,
