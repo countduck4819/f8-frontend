@@ -23,7 +23,7 @@ const MENU_STYLE = {
     },
     cursor: "pointer",
 };
-function BoardBar() {
+function BoardBar({ user }) {
     return (
         <>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -68,8 +68,8 @@ function BoardBar() {
                     Invite
                 </Button>
                 <AvatarGroup
-                    max={2}
-                    total={7}
+                    max={3}
+                    total={8}
                     sx={{
                         gap: "12px",
                         "& .MuiAvatar-root": {
@@ -90,6 +90,9 @@ function BoardBar() {
                             alt="countduck2003"
                             src="https://portfolio.countduck2003.id.vn/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffacebook.5e0c6973.jpg&w=384&q=75"
                         />
+                    </Tooltip>
+                    <Tooltip title="trungquandev">
+                        <Avatar alt="countduck2003" src={user.picture} />
                     </Tooltip>
                 </AvatarGroup>
             </Box>

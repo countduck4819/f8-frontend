@@ -25,9 +25,9 @@ const newDataPush = async (getState) => {
     }
     return newData;
 };
-export const fetchInput = (email) => {
+export const fetchInput = () => {
     return async (dispatch, getState) => {
-        const data = await app.getData(email);
+        const data = await app.getData("17loiten@gmail.com");
         localStorage.setItem("apiKey", JSON.stringify(data.data.apiKey));
         client.setApiKey(data.data.apiKey);
         dispatch({
@@ -40,7 +40,7 @@ export const fetchInput = (email) => {
 export const getApiKey = () => {
     return async (dispatch, getState) => {
         const { data, res } = await client.get("/tasks");
-        // console.log(data);
+
         if (!res.ok) {
             localStorage.removeItem("apiKey");
             await dispatch({

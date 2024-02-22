@@ -11,8 +11,10 @@ import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Profiles() {
+    const { logout, user } = useAuth0();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -41,7 +43,7 @@ export default function Profiles() {
                         <Avatar
                             sx={{ width: 36, height: 36 }}
                             alt="Countduck2003"
-                            src="https://portfolio.countduck2003.id.vn/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffacebook.5e0c6973.jpg&w=384&q=75"
+                            src={user.picture}
                         ></Avatar>
                     </IconButton>
                 </Tooltip>
@@ -100,7 +102,14 @@ export default function Profiles() {
                     </ListItemIcon>
                     Settings
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                <MenuItem
+                    onClick={() => {
+                        handleClose();
+                        return logout({
+                            logoutParams: { returnTo: window.location.origin },
+                        });
+                    }}
+                >
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon>
